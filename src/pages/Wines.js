@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
@@ -10,20 +9,6 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
 import { List } from "../components/List";
-
-=======
-import React, { Component } from 'react'
-// import Jumbotron from '../components/Jumbotron'
-import Card from '../components/Card'
-// import Form from '../components/Form'
-import Wine from '../components/Wine'
-// import Footer from '../components/Footer'
-// import Infowine from '../components/Infowine'
-import { Link } from 'react-router-dom'
-import API from '../utils/API'
-import { Container } from '../components/Grid'
-import { List } from '../components/List'
->>>>>>> 03b7edcef4e5cb495c985cff43f4bf9e590625e3
 
 class Wines extends Component {
   state = {
@@ -175,7 +160,6 @@ class Wines extends Component {
 
     return (
       <Container>
-<<<<<<< HEAD
 <div className="allwrap">
 <div className="mainWrapper1">
 <div className="mainWrapper2">
@@ -221,44 +205,6 @@ class Wines extends Component {
         </div>
         </div>
         {/* <Card title="Wine Search">
-=======
-        <div className="allwrap">
-
-          <br></br>
-
-          <div className="texttanninwrap">
-            <div className="texttanninwrap2">
-              <div className="texttanninwrap3">
-                <h1 className="texttannin">
-                  <p>Tannin</p>
-                </h1>
-                <div className="btnadminpagewrap">
-                  <Link
-                    className={window.location.pathname === '/admin'}
-                    to="/admin"
-                  >
-                    <button className="btnadminpage"><i className="fas fa-wine-glass-alt"> <span>Your Restaurant</span></i>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-              {/* <div className="textwinecolwrap"> */}
-              {/* <h1 className="textwinecol">
-            <strong>Wine Collections</strong>
-          </h1> */}
-              {/* <div className="textwinecolwrap">
-          <h2 className="text-center">Add Wine to your Restaurant.</h2>
-          </div> */}
-              {/* </div> */}
-            </div>
-          </div>
-
-          <br></br>
-
-
-          {/* <Card title="Wine Search">
->>>>>>> 03b7edcef4e5cb495c985cff43f4bf9e590625e3
-
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}

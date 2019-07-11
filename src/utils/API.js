@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const mongoDBUrl = 'http://localhost:3001'
 // const mongoDBUrl = 'https://tannin-wine.herokuapp.com/'
+export default {
 
   // signUpSubmit: function (userInfo) {
   //   console.log(userInfo);
