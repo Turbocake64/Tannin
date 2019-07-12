@@ -1,21 +1,20 @@
-// import React, { Component } from "react";
-// import Jumbotron from "../components/Jumbotron";
-// import Card from "../components/Card";
-// import Book from "../components/Book";
-// import Footer from "../components/Footer";
-// import API from "../utils/API";
-// import { Col, Row, Container } from "../components/Grid";
-// import { List } from "../components/List";
-
+// import React, { Component } from 'react'
+// import API from '../utils/API'
+// import Jumbotron from '../components/Jumbotron'
+// import Card from '../components/Card'
+// import Footer from '../components/Footer'
+// import { Col, Row, Container } from '../components/Grid'
+// import { List } from '../components/List'
+//
 // class Saved extends Component {
 //   state = {
 //     books: []
-//   };
-
-//   componentDidMount() {
-//     this.getSavedBooks();
 //   }
-
+//
+//   componentDidMount () {
+//     this.getSavedBooks()
+//   }
+//
 //   getSavedBooks = () => {
 //     API.getSavedBooks()
 //       .then(res =>
@@ -23,14 +22,14 @@
 //           books: res.data
 //         })
 //       )
-//       .catch(err => console.log(err));
-//   };
-
+//       .catch(err => console.log(err))
+//   }
+//
 //   handleBookDelete = id => {
-//     API.deleteBook(id).then(res => this.getSavedBooks());
-//   };
-
-//   render() {
+//     API.deleteBook(id).then(res => this.getSavedBooks())
+//   }
+//
+//   render () {
 //     return (
 //       <Container>
 //         <Row>
@@ -54,7 +53,7 @@
 //                       title={book.title}
 //                       subtitle={book.subtitle}
 //                       link={book.link}
-//                       authors={book.authors.join(", ")}
+//                       authors={book.authors.join(', ')}
 //                       description={book.description}
 //                       image={book.image}
 //                       Button={() => (
@@ -74,10 +73,10 @@
 //             </Card>
 //           </Col>
 //         </Row>
-//         <Footer />
+//         <Footer/>
 //       </Container>
-//     );
+//     )
 //   }
 // }
-
-// export default Saved;
+//
+// export default Saved

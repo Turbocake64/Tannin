@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import SavedWine from "../components/SavedWine";
-import API from "../utils/API";
-import Navbar from "../components/Navbar"
-import Header2 from "../components/Header2";
-import Empinfo from "../components/Empinfo";
-import { Container } from "../components/Grid";
-// importing the wine template for testing purposes 
-import ScoreSummary from "../components/Scores"
-import { List } from "../components/List";
-// import { Link } from "react-router-dom";
-import "./style.css";
+import React, { Component } from 'react'
+// import { Link } from 'react-router-dom'
+import API from '../utils/API'
+import SavedWine from '../components/SavedWine'
+import Navbar from '../components/Navbar'
+import Header2 from '../components/Header2'
+import Empinfo from '../components/Empinfo'
+import ScoreSummary from '../components/Scores'
+import { Container } from '../components/Grid'
+import { List } from '../components/List'
+import './style.css'
 
 class EmployeePage extends Component {
   state = {
@@ -62,22 +61,19 @@ class EmployeePage extends Component {
     newScores: [],
     scoreId: '',
     testmessage: ''
-
   }
 
   hideShowSummary = id => {
     const newState = { ...this.state }
     newState.empuseId = newState.user._id
     newState.newScores = newState.scoreCollection
-
     newState.showMeSummary = !newState.showMeSummary
     this.setState(newState)
     // console.log('HEHEHEHEHEHE')
     // console.log(newState.newScores)
-  };
+  }
 
   getUser = () => {
-
     API.getUser().then(response => {
       console.log('LOGGED IN USER: ', response)
       if (!!response.data.user) {
@@ -94,12 +90,12 @@ class EmployeePage extends Component {
           loggedIn: false,
           user: null
         })
-        this.props.history.push(`/`)
+        this.props.history.push('/')
       }
     })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getUser()
   }
 
@@ -113,12 +109,9 @@ class EmployeePage extends Component {
     const admin = { restaurantId: this.state.user.restaurantId }
     API.getSavedWine(admin)
       .then(res => {
-
         this.setState({
           wineCollections: res.data.Wines,
-
         })
-
         this.showScore()
       })
       .catch(() =>
@@ -132,22 +125,21 @@ class EmployeePage extends Component {
     const { name, value } = event.target
     this.setState({
       [name]: value
-
     })
   }
-  handleLogout = event => {
 
+  handleLogout = event => {
     console.log('logging out')
     API.logOut().then(response => {
-      this.props.history.push(`/`);
-      console.log(response.data.msg);
+      this.props.history.push('/')
+      console.log(response.data.msg)
       this.setState({
         loggedIn: false,
         user: null,
-      });
-      // this.props.history.push(`/`);
-      console.log(this.state);
-    });
+      })
+      // this.props.history.push('/')
+      console.log(this.state)
+    })
   }
 
   hideShow = id => {
@@ -172,7 +164,6 @@ class EmployeePage extends Component {
     newState.wineTemp = wine.temp
     newState.wineVarietal = wine.varietal
     newState.showMe = !newState.showMe
-
     this.setState(newState)
   }
 
@@ -189,25 +180,24 @@ class EmployeePage extends Component {
     this.setState(newState)
   }
 
-  render() {
+  render () {
     return (
       <Container>
         <div className="doesThisHelp">
-        <Navbar
-        userId={this.state.user._id}
-                   userFirstName={this.state.user.firstName}
-                    userLastName={this.state.user.lastName}
-                    userAdmin={this.state.user.isAdmin}
-                    restaurantName={this.state.user.restaurantName}
-                    handleLogout={this.handleLogout}
-                    hideShow4={this.hideShow4}
-        ></Navbar>
+          <Navbar
+            userId={this.state.user._id}
+            userFirstName={this.state.user.firstName}
+            userLastName={this.state.user.lastName}
+            userAdmin={this.state.user.isAdmin}
+            restaurantName={this.state.user.restaurantName}
+            handleLogout={this.handleLogout}
+            hideShow4={this.hideShow4}
+          />
         </div>
-
 
         <div className="emppagemainwrap">
           <Empinfo
-          user={this.state.user}
+            user={this.state.user}
             userId={this.state.useId}
             useEmail={this.state.empuseEmail}
             usefirstName={this.state.empUserFirstName}
@@ -217,15 +207,14 @@ class EmployeePage extends Component {
             hideShow4={this.hideShow4}
             handleLogout={this.handleLogout}
             greet={this.state.greet}
-          ></Empinfo>
+          />
 
-
-          {/* <Jumbotron>
-          <h1 className="text-center">
-            <strong>ADMIN PAGE WINE COLLECTIONS & EMPLOYEE LIST</strong>
-          </h1>
-          <h2 className="text-center">Search for wine collections and Add Employees</h2>
-        </Jumbotron> */}
+          {/* <Jumbotron> */}
+          {/*   <h1 className="text-center"> */}
+          {/*     <strong>ADMIN PAGE WINE COLLECTIONS & EMPLOYEE LIST</strong> */}
+          {/*   </h1> */}
+          {/*   <h2 className="text-center">Search for wine collections and Add Employees</h2> */}
+          {/* </Jumbotron> */}
 
 
           <div className="employeepagewrapper">
@@ -237,9 +226,7 @@ class EmployeePage extends Component {
                   onClick={() => this.hideShow4()}
                   className="empwelcomebtn"
                 >
-                  <Header2
-                    user={this.state.user}
-                  />
+                  <Header2 user={this.state.user}/>
                 </button>
 
 
@@ -254,26 +241,15 @@ class EmployeePage extends Component {
               </div>
               <div className="wineTitleWrap">
                 <div className="wineTitleWrap1">
-
-                  {/* <div><Link
-            className={window.location.pathname === "/wines" ? "nav-link active" : "nav-link"} 
-            to="/wines"
-          ><button>
-          
-            </button>
-              </Link></div> */}
+                  {/* <div><Link to="/wines"className={window.location.pathname === "/wines" ? "nav-link active" : "nav-link"} ><button></button></Link></div> */}
                 </div>
               </div>
 
-
               <div className="emppageColWrap">
                 <div className="emppageColWrap1">
-
-
                   {this.state.wineCollections.length ? (
                     <List>
                       {this.state.wineCollections.map(wine => (
-
                         <SavedWine
                           // showScore = {this.showScore}
                           // newScore = {this.state.newScore}
@@ -302,10 +278,7 @@ class EmployeePage extends Component {
                           wineTannin={this.state.wineTannin}
                           wineTemp={this.state.wineTemp}
                           wineVarietal={this.state.wineVarietal}
-                        >
-
-                        </SavedWine>
-
+                        />
                       ))}
                     </List>
                   ) : (
@@ -313,7 +286,6 @@ class EmployeePage extends Component {
                   )}
                 </div>
               </div>
-
 
               <div>
                 {this.state.scoreCollection.length ? (
@@ -333,9 +305,9 @@ class EmployeePage extends Component {
                   <h2 className="text-center"></h2>
                 )}
               </div>
+
             </div>
             {/* -----------------EMPLOYEES COLUMN------------------- */}
-
           </div>
           {/* <Footer /> */}
         </div>

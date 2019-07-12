@@ -1,52 +1,47 @@
-/* .overlay {
+/*.overlay {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100vw;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed;*/
+/*    z-index: 2;*/
+/*    cursor: pointer;*/
+/*    transition-delay: 10s;*/
+/*    transition-timing-function: ease-in;*/
+/*}*/
 
-  position: absolute;
+/*.wrap1 {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    margin-top: 100px;*/
+/*}*/
 
-  width: 100%;
-  height: 100vw;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed;
-  z-index: 2;
-  cursor: pointer;
-  transition-delay: 10s;
-  transition-timing-function: ease-in;
-  
-}
+/*.wrap2 {*/
+/*    width: 50%;*/
+/*    background: rgb(150, 142, 142);*/
+/*}*/
 
-.wrap1 {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-}
+/*.wrap3 {*/
+/*    width: 100%;*/
+/*    background: rgb(150, 142, 142);*/
+/*    justify-content: center;*/
+/*    display: flex;*/
+/*}*/
 
-.wrap2{
-width: 50%;
-background: rgb(150, 142, 142);
+/*.signUpwrap {*/
+/*    width: 50%;*/
+/*    margin: 20px;*/
+/*}*/
 
-}
+/*.form-control {*/
+/*    width: 80%;*/
+/*}*/
 
-.wrap3{
-  width: 100%;
-  background: rgb(150, 142, 142);
-
-  justify-content: center;
-display: flex;
-    }
-
-    .signUpwrap {
-      width: 50%;
-      margin: 20px;
-    }
-
-    .form-control {
-      width: 80%;
-    }
-
-    .btnwrap {
-      justify-content: center;
-      display: flex;
-      margin-bottom: 20px;
-    } */
+/*.btnwrap {*/
+/*    justify-content: center;*/
+/*    display: flex;*/
+/*    margin-bottom: 20px;*/
+/*}*/

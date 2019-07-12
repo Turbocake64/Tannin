@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-// import Jumbotron from "../components/Jumbotron";
-import Restowine from "../components/Restowine";
-import Employees from "../components/Employees";
-import Addemployee from "../components/Addemployee";
-// // import Footer from "../components/Footer";
-import Navbar from "../components/Navbar"
-import Userinfo from "../components/Userinfo";
-import API from "../utils/API";
-import { Container } from "../components/Grid";
-import { List } from "../components/List";
-import { Link } from "react-router-dom";
-import "./style.css";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import API from '../utils/API'
+// import Jumbotron from '../components/Jumbotron'
+import Restowine from '../components/Restowine'
+import Employees from '../components/Employees'
+import Addemployee from '../components/Addemployee'
+// // import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+import Userinfo from '../components/Userinfo'
+import { Container } from '../components/Grid'
+import { List } from '../components/List'
+import './style.css'
 
 class Admin extends Component {
   state = {
@@ -48,13 +48,13 @@ class Admin extends Component {
     emplastName: '',
     empEmail: '"',
     empScores: [],
-    user: "",
+    user: '',
     // restaurantId: "",
-    name: "",
-    lastName: "",
-    email: "",
-    password: "",
-    isAdmin: "",
+    name: '',
+    lastName: '',
+    email: '',
+    password: '',
+    isAdmin: '',
     // loginemail: "",
     // loginpassword: "",
     loggedIn: true,
@@ -70,29 +70,27 @@ class Admin extends Component {
 
   componentDidMount () {
     this.getUser()
-    console.log("Here is our User:", this.state.user)
+    console.log('Here is our User:', this.state.user)
     console.log(this.state.user.isAdmin)
   }
 
   getUser = () => {
     API.getUser().then(response => {
-      console.log("LOGGED IN USER: ", response.data.user)
+      console.log('LOGGED IN USER: ', response.data.user)
       if (!!response.data.user) {
         console.log('THERE IS A USER')
         console.log(response.data)
         this.setState({
           loggedIn: true,
           user: response.data.user,
-
         })
-
         this.getSavedWine()
       } else {
         this.setState({
           loggedIn: false,
           user: null
         })
-        this.props.history.push(`/`)
+        this.props.history.push('/')
       }
     })
   }
@@ -127,23 +125,18 @@ class Admin extends Component {
     newState.wineVarietal = wine.varietal
     newState.showMe = !newState.showMe
     newState.scale = this.state.scale > 1 ? 1 : 1.5
-
     this.setState(newState)
   }
 
   hideShowEmp = id => {
     const newState = { ...this.state }
-
     const emp = this.state.employeesList.find(emp => emp._id === id)
-
     newState.empId = id
     newState.empfirstName = emp.firstName
     newState.emplastName = emp.lastName
     newState.empEmail = emp.email
     newState.empScores = emp.scores
-
     newState.showMeEmp = !newState.showMeEmp
-
     this.setState(newState)
     console.log(newState.empScores)
   }
@@ -152,22 +145,20 @@ class Admin extends Component {
     const { name, value } = event.target
     this.setState({
       [name]: value
-
     })
   }
   handleLogout = () => {
-
     console.log('logging out')
     API.logOut().then(response => {
-      console.log(response.data);
-      this.props.history.push(`/`);
+      console.log(response.data)
+      this.props.history.push('/')
       this.setState({
         loggedIn: false,
         user: null,
       })
-      // this.props.history.push(`/`);
-    });
-  };
+      // this.props.history.push('/')
+    })
+  }
 
   getSavedWine = () => {
     console.log('////////////////')
@@ -186,7 +177,6 @@ class Admin extends Component {
           this.setState({
             employeesList: res.data.Employees,
             wineCollections: res.data.Wines,
-
           })
         }
       )
@@ -209,7 +199,6 @@ class Admin extends Component {
   }
 
   addEmployee = () => {
-
     // console.log(restaurantId)
     const employeeData = {
       name: this.state.name,
@@ -253,16 +242,13 @@ class Admin extends Component {
     console.log(deleteEmp)
     console.log('??????????????')
     // const deleltData = {id: id, restaurantId: this.state.restaurantId}
-
     API.deleteEmployee(deleteEmp).then(res =>
-
       this.componentDidMount()
     )
   }
 
   hideShow3 = id => {
     const newState = { ...this.state }
-
     if (newState.user === null) {
       console.log('you lose')
       newState.greet = 'Hello Guest'
@@ -275,13 +261,11 @@ class Admin extends Component {
       newState.userestaurantName = newState.user.restaurantName
       console.log(newState.useId)
     }
-
     newState.showMe3 = !newState.showMe3
     this.setState(newState)
-
   }
 
-  render() {
+  render () {
     return (
       <Container>
         <Userinfo
@@ -294,8 +278,7 @@ class Admin extends Component {
           hideShow3={this.hideShow3}
           handleLogout={this.handleLogout}
           greet={this.state.greet}
-        ></Userinfo>
-
+        />
 
         {/* MODAL ----------------------- */}
         <Addemployee
@@ -311,12 +294,10 @@ class Admin extends Component {
           //  loginpassword={this.state.loginpassword}
           showMe2={this.state.showMe2}
           hideShow2={this.hideShow2}
-        ></Addemployee>
-
+        />
         {/* MODAL ----------------------- */}
 
         <div className="navBar">
-
           <Navbar
             userId={this.state.user._id}
             userFirstName={this.state.user.firstName}
@@ -325,42 +306,30 @@ class Admin extends Component {
             restaurantName={this.state.user.restaurantName}
             handleLogout={this.handleLogout}
             hideShow4={this.hideShow3}
-          >
-
-          </Navbar>
-          {/* <div className="welcomebtnwrap">  */}
-          {/* <div>
-            <div>
-              {this.state.restaurant}
-            </div>
-
-            <button
-              onClick={() => this.hideShow3()}
-              className="welcomebtn"
-            ><Header
-                user={this.state.user} />
-            </button>
-
-          </div>  */}
+          />
+          {/* <div className="welcomebtnwrap"> */}
+          {/*   <div>{this.state.restaurant}</div> */}
+          {/*   <button onClick={() => this.hideShow3()} className="welcomebtn"><Headeruser={this.state.user} /></button> */}
           {/* </div> */}
         </div>
+
         <div className="wineandemployeewrapper">
+
+          {/* -----------------WINE COLUMN------------------- */}
           <div className="wineCol">
             <div className="wineTitleWrap">
               <div className="wineTitleWrap1">
                 <div className="textadmin">Wines</div>
-                <div><Link
-
-                  to="/wines"
-                >
-                  <button className="addwinebtnmain"><i className="fas fa-wine-bottle"></i>
-                  </button>
-
-                </Link></div>
-
-
+                <div>
+                  <Link to="/wines">
+                    <button className="addwinebtnmain">
+                      <i className="fas fa-wine-bottle" />
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
+
             <div className="wineColWrap">
               <div className="wineColWrap1">
                 {this.state.wineCollections.length ? (
@@ -399,14 +368,16 @@ class Admin extends Component {
               </div>
             </div>
           </div>
+
           {/* -----------------EMPLOYEES COLUMN------------------- */}
           <div className="employeeCol">
             <div className="empTitleWrap">
               <div className="empTitleWrap1">
                 <div className="textadmin">Employees</div>
                 <div>
-                  <button className="addempbtnmain" onClick={() => this.hideShow2()}><i
-                    className="fas fa-user-plus"></i></button>
+                  <button className="addempbtnmain" onClick={() => this.hideShow2()}>
+                    <i className="fas fa-user-plus" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -427,7 +398,6 @@ class Admin extends Component {
                         emplastName={this.state.emplastName}
                         empEmail={this.state.empEmail}
                         empScores={this.state.empScores}
-
                         showMeEmp={this.state.showMeEmp}
                         hideShowEmp={this.hideShowEmp}
                         handleEmployeeDelete={this.handleEmployeeDelete}
@@ -449,9 +419,7 @@ class Admin extends Component {
             </div>
           </div>
         </div>
-
-        {/* 
-        <Footer /> */}
+        {/* <Footer /> */}
       </Container>
     )
   }

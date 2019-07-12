@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import API from '../utils/API'
 // import Footer from '../components/Footer'
 import SignupLoginForm from '../components/SignupLoginForm'
-import API from '../utils/API'
 import { Container } from '../components/Grid'
 
 class SignupLogin extends Component {
@@ -32,7 +32,6 @@ class SignupLogin extends Component {
     const { name, value } = event.target
     this.setState({
       [name]: value
-
     })
   }
 
@@ -41,12 +40,12 @@ class SignupLogin extends Component {
     const { restaurant, firstName, lastName, email, password } = this.state
     if (firstName && lastName && restaurant && email && password) {
       const userInfo = { firstName, lastName, restaurant, email, password }
-      const loginInfor = { email, password }
-      // console.log(userInfo);
+      const loginInfo = { email, password }
+      // console.log(userInfo)
       API.signUpSubmit(userInfo).then(response => {
         if (!response.data.error) {
-          console.log('youre good')
-          API.logIn(loginInfor).then(response => {
+          console.log('you are good')
+          API.logIn(loginInfo).then(response => {
             console.log('USER OBJ: ', response)
             if (response.status === 200) {
               if (response.data.isAdmin) {
@@ -62,7 +61,6 @@ class SignupLogin extends Component {
           }).catch(err => {
             console.log(err)
           })
-
         } else {
           this.setState({
             redirectTo: null,
@@ -79,14 +77,13 @@ class SignupLogin extends Component {
     const { name, value } = event.target
     this.setState({
       [name]: value
-
     })
   }
 
   handleLoginFormSubmit = event => {
     event.preventDefault()
-    const loginInfor = { email: this.state.loginemail, password: this.state.loginpassword }
-    API.logIn(loginInfor).then(response => {
+    const loginInfo = { email: this.state.loginemail, password: this.state.loginpassword }
+    API.logIn(loginInfo).then(response => {
       console.log('USER OBJ: ', response)
       if (response.status === 200) {
         // update the state
@@ -118,7 +115,7 @@ class SignupLogin extends Component {
 
   render () {
     if (this.state.redirectTo) {
-      return <Redirect to={{ pathname: this.state.redirectTo }}/>
+      return <Redirect to={{ pathname: this.state.redirectTo }} />
     }
     return (
       <Container>

@@ -5,16 +5,16 @@ import SignupLogin from './SignupLogin'
 const DisplayLinks = props => {
   if (props.loggedIn) {
     return (
-    // go to the user page
-      <nav className='navbar'>
-        <ul className='nav'>
-          <li className='nav-item'>
-            <Link to='/admin' className='nav-link'>
+      // go to the user page
+      <nav className="navbar">
+        <ul className="nav">
+          <li className="nav-item">
+            <Link to="/admin" className="nav-link">
               Admin
             </Link>
           </li>
           <li>
-            <Link to='#' className='nav-link' onClick={props.logout}>
+            <Link to="#" className="nav-link" onClick={props.logout}>
               Logout
             </Link>
           </li>
@@ -24,8 +24,8 @@ const DisplayLinks = props => {
   } else {
     // stay on the home page
     return (
-      <nav className='navbar'>
-        <Link to='/' className='nav-link' />
+      <nav className="navbar">
+        <Link to="/" className="nav-link" />
       </nav>
     )
   }
@@ -42,9 +42,9 @@ class Home extends Component {
 
   render () {
     return (
-      <div className='App'>
+      <div className="App">
         <DisplayLinks logout={this.logout} loggedIn={this.state.loggedIn} />
-        <SignupLogin />
+        <SignupLogin/>
       </div>
     )
   }

@@ -9,14 +9,14 @@ const Header2 = props => {
     Greeting = (
       <div>
         <br />
-        <div className='header2emppage'>
+        <div className="header2emppage">
           Hello <strong>{props.user.firstName}</strong>
         </div>
       </div>
     )
   }
   return (
-    <div className='Header2'>
+    <div className="Header2">
       {Greeting}
     </div>
   )
