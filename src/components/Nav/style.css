@@ -1,9 +1,9 @@
 .navbar {
-  margin-bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(253,176,216, 0.6);
-  width: 100%;
-  z-index: 99;
-  height: 50px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(253, 176, 216, 0.6);
+    width: 100%;
+    z-index: 99;
+    height: 50px;
 }

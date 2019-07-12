@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Empinfo from "../Empinfo";
-import "./style.css";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import Empinfo from '../Empinfo'
+import './style.css'
 
 class Nav extends Component {
   state = {
@@ -11,11 +11,9 @@ class Nav extends Component {
 
   updateWidth = () => {
     const newState = { width: window.innerWidth }
-
     if (this.state.open && newState.width > 991) {
       newState.open = false
     }
-
     this.setState(newState)
   }
 
@@ -34,7 +32,6 @@ class Nav extends Component {
   render () {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
-
         {/* <button
           onClick={this.toggleNav}
           className="navbar-toggler"
@@ -47,8 +44,8 @@ class Nav extends Component {
           <span className="navbar-toggler-icon" />
         </button> */}
 
-        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
-        <Empinfo
+        <div className={`${this.state.open ? '' : 'collapse '}navbar-collapse`} id="navbarNav">
+          <Empinfo
             useId={this.state.useId}
             useEmail={this.state.empuseEmail}
             usefirstName={this.state.empUserFirstName}
@@ -58,38 +55,37 @@ class Nav extends Component {
             hideShow4={this.hideShow4}
             handleLogout={this.handleLogout}
             greet={this.state.greet}
-          ></Empinfo>
-             <button><Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/home" ? "nav-link active" : "nav-link"}
-                to="/home"
-              >
-                Home
-              </Link></button>
-              <Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/"
-              >
-                Search
-              </Link>
-              <Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                to="/saved"
-              >
-                Saved
-              </Link>
-              <Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/" 
-              >
-                Back to login page
-              </Link>
-              
-
-
+          />
+          <button>
+            <Link
+              onClick={this.toggleNav}
+              className={window.location.pathname === '/home' ? 'nav-link active' : 'nav-link'}
+              to="/home"
+            >
+              Home
+            </Link>
+          </button>
+          <Link
+            onClick={this.toggleNav}
+            className={window.location.pathname === '/' ? 'nav-link active' : 'nav-link'}
+            to="/"
+          >
+            Search
+          </Link>
+          <Link
+            onClick={this.toggleNav}
+            className={window.location.pathname === '/saved' ? 'nav-link active' : 'nav-link'}
+            to="/saved"
+          >
+            Saved
+          </Link>
+          <Link
+            onClick={this.toggleNav}
+            className={window.location.pathname === '/' ? 'nav-link active' : 'nav-link'}
+            to="/"
+          >
+            Back to login page
+          </Link>
         </div>
       </nav>
     )

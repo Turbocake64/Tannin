@@ -1,27 +1,23 @@
 .qcard {
-
-  border-radius: 2px;
-
-  height: 200px;
-  margin: 1rem;
-  position: relative;
-  width: 88%;
-
-  background-color: rgb(233, 206, 171);
-  /* background-color: rgb(139, 39, 86); */
-  box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
-  text-align: left;
-  padding: 20px;
-  border-radius: 50px;
+    border-radius: 2px;
+    height: 200px;
+    margin: 1rem;
+    position: relative;
+    width: 88%;
+    background-color: rgb(233, 206, 171);
+    /* background-color: rgb(139, 39, 86); */
+    box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
+    text-align: left;
+    padding: 20px;
+    border-radius: 50px;
 }
 
 .submitAnswer {
-
-  border-radius: 50px;
-  background-color: transparent;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
+    border-radius: 50px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
 }
 
 /* button {
@@ -33,20 +29,22 @@
 }  */
 
 button[value="1"]:disabled {
-  background-color: rgb(145, 228, 145);
+    background-color: rgb(145, 228, 145);
 }
 
 button[value="0"]:disabled {
-  background-color: rgb(250, 124, 124);
+    background-color: rgb(250, 124, 124);
 }
-  /* background-color: rgb(202, 236, 51); */
+
+/* background-color: rgb(202, 236, 51); */
 
 .question {
-  background-color: lightgray;
-  border-radius: 12px;
-  width: 25%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+    background-color: lightgray;
+    border-radius: 12px;
+    width: 25%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
+
 /* .card:hover {
   -ms-transform: scale(1.2); 
   -webkit-transform: scale(1.2); 
@@ -69,13 +67,13 @@ button[value="0"]:disabled {
 } */
 
 .card > .content {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 15px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 15px;
 }
 
 .card > .content > ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 /* .card > .content > ul > li {
@@ -83,47 +81,44 @@ button[value="0"]:disabled {
 } */
 
 .fade:hover {
-  
-   -ms-transform: scale(1.05); /* IE 9 */
-      -webkit-transform: scale(1.05); /* Safari 3-8 */
-      transform: scale(1.05); 
-      transition:all 0.5s ease;
-      
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05);
+    transition: all 0.5s ease;
 }
 
 input {
-  border-top-style: none;
-border-left-style: none;
-border-right-style: none;
-border-bottom-style: solid;
-border-bottom-width: 1px;
-background: none;
-font-family: 'Special Elite', cursive;
-font-size: 15px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background: none;
+    font-family: 'Special Elite', cursive;
+    font-size: 15px;
 }
 
-textarea:focus, input:focus{
-  outline: none;
-  background-color: none;
-  
+textarea:focus, input:focus {
+    outline: none;
+    background-color: none;
 }
+
 .form-control {
-width: 90%;
-background-color: transparent;
-font-family: 'Special Elite', cursive;
-font-size: 18px;
-border-top-style: none;
-border-left-style: none;
-border-right-style: none;
-border-bottom-style: solid;
-border-bottom-width: 1px;
-margin-top:10px;
-margin-bottom:10px;
+    width: 90%;
+    background-color: transparent;
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-input::selection{
-background-color:  transparent;
-
+input::selection {
+    background-color: transparent;
 }
 
 /* input:-webkit-autofill,
@@ -134,7 +129,7 @@ background-color: transparent;
 } */
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -142,31 +137,51 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-border-top-style: none;
-border-left-style: none;
-border-right-style: none;
-border-bottom-style: solid;
-border-bottom-width: 1px;
-background: none;
-/* -webkit-background-fill-color: rgb(112, 7, 21); */
--webkit-text-fill-background-color: rgb(112, 7, 21);
-/* -webkit-box-shadow: 0 0 0px 0px#000 inset; */
-transition: background-color 5000s ease-in-out 0s;
-
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background: none;
+    /* -webkit-background-fill-color: rgb(112, 7, 21); */
+    -webkit-text-fill-background-color: rgb(112, 7, 21);
+    /* -webkit-box-shadow: 0 0 0px 0px#000 inset; */
+    transition: background-color 5000s ease-in-out 0s;
 }
-::-moz-selection{
-background-color:  transparent;
-} 
-.form-control::-webkit-input-placeholder { color: none; }  /* WebKit, Blink, Edge */
 
-.form-control:-moz-placeholder { color: none; }  /* Mozilla Firefox 4 to 18 */
-.form-control::-moz-placeholder { color: none; }  /* Mozilla Firefox 19+ */
-.form-control:-ms-input-placeholder { color: none; }  /* Internet Explorer 10-11 */
-.form-control::-ms-input-placeholder { color: none; }  /* Microsoft Edge */
+::-moz-selection {
+    background-color: transparent;
+}
 
+.form-control::-webkit-input-placeholder {
+    color: none;
+}
+
+/* WebKit, Blink, Edge */
+
+.form-control:-moz-placeholder {
+    color: none;
+}
+
+/* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder {
+    color: none;
+}
+
+/* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder {
+    color: none;
+}
+
+/* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder {
+    color: none;
+}
+
+/* Microsoft Edge */
 
 .questionName {
-  color: rgb(243, 237, 237);
-font-family: Arial, Helvetica, sans-serif;
-        text-shadow: 2px 1px 5px #050505;
+    color: rgb(243, 237, 237);
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 1px 5px #050505;
 }

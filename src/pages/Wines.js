@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
-// import Form from "../components/Form";
-import Wine from "../components/Wine";
-// import Footer from "../components/Footer";
-// import Infowine from "../components/Infowine";
-import { Link } from "react-router-dom";
-import API from "../utils/API";
-import { Container } from "../components/Grid";
-import { List } from "../components/List";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import API from '../utils/API'
+import Jumbotron from '../components/Jumbotron'
+import Card from '../components/Card'
+// import Form from '../components/Form'
+import Wine from '../components/Wine'
+// import Footer from '../components/Footer'
+import { Container } from '../components/Grid'
+import { List } from '../components/List'
 
 class Wines extends Component {
   state = {
@@ -131,9 +130,9 @@ class Wines extends Component {
       Wines: wine._id,
       restaurantId: this.state.user.restaurantId
     }
-    console.log('ADDWINE INFOR')
+    console.log('ADDWINE INFO')
     console.log(wineData)
-    console.log('ADDWINE INFOR')
+    console.log('ADDWINE INFO')
 
     API.addWine(wineData).then(res => {
       console.log('ADD WINE')
@@ -145,76 +144,63 @@ class Wines extends Component {
 
     })
   }
-//     const wine = this.state.wines.find(wine => wine._id === id);
-// console.log(id);
-//     API.addWine({
-//       // wineId: id,
-//       // name: wine.name,
-//       // lacidity: wine.wine.aciditys,
-//       Wines: id,
-//     }).then(() => this.getMaster());
-//     console.log(id);
-//   };
 
   render () {
-
     return (
       <Container>
-<div className="allwrap">
-<div className="mainWrapper1">
-<div className="mainWrapper2">
-<div className="mainWrapper3">
+        <div className="allwrap">
+          <div className="mainWrapper1">
+            <div className="mainWrapper2">
+              <div className="mainWrapper3">
 
-        <div className="winesnav">
-        <div>
-          {/* <Link className="navbar-brand" to="/">
-            Wine academy
-        </Link> */}
-        </div>
-       
-        </div>
-<br></br>
-        <Jumbotron>
-<div className="texttanninwrap">
-        <h1 className="texttannin">
-            <strong>Tannin</strong>
-          </h1>
+                <div className="winesnav">
+                  <div>
+                    {/* <Link className="navbar-brand" to="/">Wine academy</Link> */}
+                  </div>
+                </div>
+
+                <br />
+
+                <Jumbotron>
+                  <div className="texttanninwrap">
+                    <h1 className="texttannin">
+                      <strong>Tannin</strong>
+                    </h1>
+                  </div>
+                  <br></br>
+                  <div className="textwinecolwrap">
+                    <h1 className="textwinecol">
+                      <strong>Wine Collections</strong>
+                    </h1>
+                  </div>
+                  <div className="textwinecolwrap">
+                    <h2 className="text-center">Add Wine to your Restaurant.</h2>
+                  </div>
+                </Jumbotron>
+
+                <div className="btnadminpagewrap">
+                  <Link className={window.location.pathname === '/admin' ? 'nav-link active' : 'nav-link'} to="/admin">
+                    <button className="btnadminpage">
+                      <i className="fas fa-wine-glass-alt">
+                        <span> Your Restaurant</span>
+                      </i>
+                    </button>
+                  </Link>
+                </div>
+
+              </div>
+            </div>
           </div>
-          <br></br>
-          <div className="textwinecolwrap">
-          <h1 className="textwinecol">
-            <strong>Wine Collections</strong>
-          </h1>
-</div>
-<div className="textwinecolwrap">
-          <h2 className="text-center">Add Wine to your Restaurant.</h2>
-          </div>
-        </Jumbotron>
-
-        <div className="btnadminpagewrap">
-          <Link
-            className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}
-            to="/admin"
-          ><button className="btnadminpage"><i className="fas fa-wine-glass-alt">   <span>Your Restaurant</span></i>
-              
-            </button>
-              </Link>
-        </div>
-
-        </div>
-        </div>
-        </div>
-        {/* <Card title="Wine Search">
-              <Form
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-                q={this.state.q}
-              />
-            </Card> */}
+          {/* <Card title="Wine Search"> */}
+          {/*   <Form */}
+          {/*     handleInputChange={this.handleInputChange} */}
+          {/*     handleFormSubmit={this.handleFormSubmit} */}
+          {/*     q={this.state.q} */}
+          {/*   /> */}
+          {/* </Card> */}
           <div className="cardwrapper0">
 
             <div className="winesheader">
-
               <h1 className="textcenter">
                 <strong>Search for WINES</strong>
               </h1>
@@ -226,14 +212,11 @@ class Wines extends Component {
                   <Card title="">
                     {this.state.winesMaster.length ? (
                       <List>
-
                         {this.state.winesMaster.map(wine => (
                           <Wine
                             key={wine._id}
                             id={wine._id}
                             name={wine.name}
-
-
                             showMe={this.state.showMe}
                             hideShow={this.hideShow}
                             handleWineAdd={this.handleWineAdd}

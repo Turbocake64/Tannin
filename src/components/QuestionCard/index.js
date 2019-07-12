@@ -3,7 +3,6 @@ import './style.css'
 
 // class component QuestionCard(props) {
 class QuestionCard extends React.Component {
-
   handleBtnDis = (event) => {
     this.setState({ disabled: true })
   }
@@ -37,9 +36,7 @@ class QuestionCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-
       disabled: false,
-
       bgColor: [
         '#f89406',
         '#16a085',
@@ -67,7 +64,7 @@ class QuestionCard extends React.Component {
   }
 
   _getRandomColor () {
-    var item = this.state.bgColor[Math.floor(Math.random() * this.state.bgColor.length)]
+    const item = this.state.bgColor[Math.floor(Math.random() * this.state.bgColor.length)]
     this.setState({
       selectedColor: item,
     })
@@ -77,7 +74,6 @@ class QuestionCard extends React.Component {
     return (
       <div className="qcard" style={{ backgroundColor: this.state.selectedColor }}>
         <div className="qcard2">
-
           <h2 className="questionName">{this.props.question}{this.props.wineName}?</h2>
           {/* If false answers are available, render button for each answer, else render a submit (specifically for the flavors question) */}
           <div>
@@ -87,14 +83,14 @@ class QuestionCard extends React.Component {
                   <div>
                     <button className="question" disabled={this.state.disabled} onClick={this.handleBtnClick}
                             value="1">{answer}</button>
-                    <br/>
+                    <br />
                   </div> : <div>
                     <button className="question" disabled={this.state.disabled} onClick={this.handleBtnClick}
                             value="0">{answer}</button>
                     <br/>
                   </div>
               )
-            }) : this.props.category === 'pairings' ?
+            }) : this.props.category === "pairings" ?
               <div className="AnswerButtons">
                 <input
                   onChange={this.props.handleInputChange}

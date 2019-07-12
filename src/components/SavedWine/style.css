@@ -1,118 +1,114 @@
 .listitemdiv3 {
     justify-content: center;
     display: flex;
-        width:100%;
-    }
-    
-    .overlay5 {
-    
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: transparent;
-        /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
-        z-index: 2;
-        cursor: pointer;
-        transition-delay: 10s;
-        transition-timing-function: ease-in;
-        overflow: hidden;
-        
-      }
-    
-      .emppagewinecollectiondiv1 {
-        margin:10px;
-        padding: 5px;
-        color: black;
-        /* background-color: rgb(173, 24, 61); */
-        /* background-color: rgb(187, 25, 66); */
-          /* background-color: rgba(218, 73, 121, 0.8); */
-        /* background-color: rgb(243, 210, 210); */
-        width: 80%;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-    
-      }
-    
-      .winecollectionname1 {
-     
-        justify-content: space-between;
-        display: flex;
-    }
-    
-      .fa-plus-circle {
-          color:rgb(231, 102, 177)
-      }
-    
-      .btnadd {
-          height: 20px;
-          width: 30px;
-          border-radius: 50%;
-          border-style: none;
-          background-color: transparent;
-          margin-right: 10px;
-      }
-      .fontitalicsmall{
-          padding-bottom:5px;
-          font-size: 20px;
-      }
-    
-      .winesavenamebtn1 {
-        padding-bottom:5px;
-        font-size: 20px;
-        margin: 0;
-        background-color: transparent;
-        border-style: none;
-       margin-left:0px;
-       color: rgb(19, 18, 18);
-       font-family: 'Special Elite', cursive;
-       letter-spacing: 2px;
-       text-align: left;
-      }
-    
-      .winesavenamebtn1:focus {
-        outline: none !important;
-        -ms-transform: scale(1.1); /* IE 9 */
-        -webkit-transform: scale(1.1); /* Safari 3-8 */
-        transform: scale(1.1); 
-      }
-    
-      .wineinfo1 {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-      }
-      
-      .wineinfo2{
-      width: 50%;
-      height: 400px;
-border-color: rgb(97, 72, 7);
-border-style:solid;
-border-width: 10px;
-background: rgb(223, 193, 119);
-border-radius: 50px;
-padding: 20px;
-overflow: auto;
-      
-      }
-      
-      .wineinfo3{
-        width: 100%;
-        justify-content: center;
-      display: flex;
-          }
+    width: 100%;
+}
 
-          .wineinfowrap {
-            width: 50%;
-            margin: 20px;
-          }
+.overlay5 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
+    z-index: 2;
+    cursor: pointer;
+    transition-delay: 10s;
+    transition-timing-function: ease-in;
+    overflow: hidden;
+}
 
-          .quizpagebutton {
-            border-style: none;
-            background-color: transparent;
-            font-size: 25px;
-          }
+.emppagewinecollectiondiv1 {
+    margin: 10px;
+    padding: 5px;
+    color: black;
+    /* background-color: rgb(173, 24, 61); */
+    /* background-color: rgb(187, 25, 66); */
+    /* background-color: rgba(218, 73, 121, 0.8); */
+    /* background-color: rgb(243, 210, 210); */
+    width: 80%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.winecollectionname1 {
+    justify-content: space-between;
+    display: flex;
+}
+
+.fa-plus-circle {
+    color: rgb(231, 102, 177)
+}
+
+.btnadd {
+    height: 20px;
+    width: 30px;
+    border-radius: 50%;
+    border-style: none;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.fontitalicsmall {
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.winesavenamebtn1 {
+    padding-bottom: 5px;
+    font-size: 20px;
+    margin: 0;
+    background-color: transparent;
+    border-style: none;
+    margin-left: 0px;
+    color: rgb(19, 18, 18);
+    font-family: 'Special Elite', cursive;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.winesavenamebtn1:focus {
+    outline: none !important;
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+}
+
+.wineinfo1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.wineinfo2 {
+    width: 50%;
+    height: 400px;
+    border-color: rgb(97, 72, 7);
+    border-style: solid;
+    border-width: 10px;
+    background: rgb(223, 193, 119);
+    border-radius: 50px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.wineinfo3 {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.wineinfowrap {
+    width: 50%;
+    margin: 20px;
+}
+
+.quizpagebutton {
+    border-style: none;
+    background-color: transparent;
+    font-size: 25px;
+}

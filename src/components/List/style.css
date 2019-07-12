@@ -1,10 +1,9 @@
 .list-group-item p {
-  font-size: 16px;
-  list-style-type: none;
+    font-size: 16px;
+    list-style-type: none;
 }
 
 .list-group {
-  list-style-type: none;
-  padding-left: 15px;
-  
+    list-style-type: none;
+    padding-left: 15px;
 }
