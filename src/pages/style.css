@@ -3,41 +3,40 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    width:100%;
-    margin:0;
+    width: 100%;
+    margin: 0;
 }
 
 .container {
-  margin: 0;
-  height: 100%;
+    margin: 0;
+    height: 100%;
 }
+
 .brandCol {
-  width:20%;
-  /* background-color: rgb(120, 107, 156); */
-   /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(103, 83, 194))) fixed; */
-   /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(44, 35, 83))) fixed; */
-   background-color: rgb(74, 53, 107); 
-  color: rgb(8, 8, 8);
-  height: 100vh;
-
+    margin-top: 0;
+    width: 100%;
+    /* background-color: rgb(120, 107, 156); */
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(103, 83, 194))) fixed; */
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(44, 35, 83))) fixed; */
+    background-color: rgb(74, 53, 107);
+    color: rgb(8, 8, 8);
+    height: 50px;
 }
-.wineCol {
-  width:40%;
-  background-color: rgba(253, 227, 167, 1); 
 
+.wineCol {
+    width: 40%;
+    background-color: rgba(253, 227, 167, 1);
 }
 
 .employeeCol {
-  width:40%;
-  margin: 0;
-  background-color: rgba(253, 227, 167, 1); 
-
+    width: 40%;
+    margin: 0;
+    background-color: rgba(253, 227, 167, 1);
 }
+
 .wineColWrap {
-justify-content: center;
-display: flex;
-
-
+    justify-content: center;
+    display: flex;
 }
 
 .wineColWrap1 {
@@ -50,13 +49,12 @@ display: flex;
     border-radius: 10px;
     /* border-style: solid; */
     /* border-width: 10px; */
-    border-color: rgb(73, 22, 22);  
+    border-color: rgb(73, 22, 22);
     box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
-
 }
 
 .employeeColWrap {
-    justify-content: center;  
+    justify-content: center;
     display: flex;
 }
 
@@ -76,8 +74,9 @@ display: flex;
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top:  50px;
+    margin-top: 50px;
 }
+
 .empTitleWrap1 {
     display: flex;
     justify-content: space-between;
@@ -89,9 +88,10 @@ display: flex;
     justify-content: center;
     flex-direction: row;
     width: 100%;
-    margin-top:  50px;
+    margin-top: 50px;
 }
-.wineTitleWrap1  {
+
+.wineTitleWrap1 {
     display: flex;
     justify-content: space-between;
     width: 80%;
@@ -101,6 +101,7 @@ display: flex;
 .nav-link:link {
     text-decoration-style: none;
 }
+
 .active {
     text-decoration-style: none;
 }
@@ -108,17 +109,17 @@ display: flex;
 a:link {
     text-decoration: none;
     color: none;
-  }
+}
 
-  button:focus {
+button:focus {
     outline: none !important;
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
-  }
+    transform: scale(1.2);
+}
 
-  .btnadminpage {
-    color:rgb(3, 3, 3);
+.btnadminpage {
+    color: rgb(3, 3, 3);
     /* background-color: rgb(173, 24, 61); */
     background-color: transparent;
     border-style: solid;
@@ -129,394 +130,348 @@ a:link {
     border-radius: 50px;
     font-size: 15px;
     border-color: rgb(7, 7, 7);
-  }
+}
+
 .btnadminpagewrap {
-  justify-content: center;
-  display: flex;
-  margin-top: 100px;
+    justify-content: center;
+    display: flex;
+    margin-top: 100px;
 }
 
-::-webkit-scrollbar { 
-  display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
-
-  .navbar-brand:focus {
+.navbar-brand:focus {
     outline: none !important;
+}
 
-  }
-
-  .nav-link:focus {
+.nav-link:focus {
     outline: none !important;
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
-  }
+    transform: scale(1.2);
+}
 
-  .btn:focus {
+.btn:focus {
     outline: none !important;
-  }
-  
+}
 
-  button:hover {
+button:hover {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
+    transform: scale(1.2);
     cursor: pointer;
-  }
+}
 
-  .cardwrapper1 {
- 
+.cardwrapper1 {
     width: 80%;
     height: 80vh;
-/* beige */
-    background-color: rgba(253, 227, 167, 1); 
-    
+    /* beige */
+    background-color: rgba(253, 227, 167, 1);
 }
 
 .cardwrapper1a {
-  justify-content: center;
-  display: flex;
-  width: 100%;
-  background-color: rgba(253, 227, 167, 1);
-  /* background-color: black; */
-
-  /* height: 100vh; */
-  
-  
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    background-color: rgba(253, 227, 167, 1);
+    /* background-color: black; */
+    /* height: 100vh; */
 }
-
 
 .cardwrapper2 {
-width: 80%;
-height: 80vh;
-border-radius: 20px;
-overflow: auto;
+    width: 80%;
+    height: 80vh;
+    border-radius: 20px;
+    overflow: auto;
 }
 
-.allwrap { 
-  justify-content: center;
-flex-direction: row;
-display: flex;
-height: 100vh;
+.allwrap {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    height: 100vh;
 }
 
 .mainWrapper1 {
-  width:40%;
-  background-color: rgba(253, 227, 167, 1);
-  /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(5, 5, 5)), to(rgb(59, 58, 58))) fixed; */
-  color:white;  
-  margin: 0;
-  /* box-shadow: 5px 3px 6px rgb(192, 187, 187), 0 3px 6px #999; */
-  height: 100vh;
+    width: 40%;
+    background-color: rgba(253, 227, 167, 1);
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(5, 5, 5)), to(rgb(59, 58, 58))) fixed; */
+    color: white;
+    margin: 0;
+    /* box-shadow: 5px 3px 6px rgb(192, 187, 187), 0 3px 6px #999; */
+    height: 100vh;
 }
 
 .cardwrapper0 {
-  width:60%;
-  height: 100%;
-
-  background-color: rgba(253, 227, 167, 1);
-  /* background-color: rgb(131, 11, 61); */
-  
+    width: 60%;
+    height: 100%;
+    background-color: rgba(253, 227, 167, 1);
+    /* background-color: rgb(131, 11, 61); */
 }
 
-
-
 .winesheader {
-  justify-content: center;
-  display: flex;
-  /* position:absolute; */
-  width: 80%;
-  background-color: rgba(253, 227, 167, 1);
-  /* background-color: rgb(131, 11, 61, .8); */
-  color: black;
-  font-family: 'Pacifico', cursive;
+    justify-content: center;
+    display: flex;
+    /* position:absolute; */
+    width: 80%;
+    background-color: rgba(253, 227, 167, 1);
+    /* background-color: rgb(131, 11, 61, .8); */
+    color: black;
+    font-family: 'Pacifico', cursive;
 }
 
 .texttannin {
-  color: rgb(173, 24, 61);
-  font-size: 40px;
-  font-family: 'Pacifico', cursive;
+    color: rgb(173, 24, 61);
+    font-size: 40px;
+    font-family: 'Pacifico', cursive;
 }
 
 .texttanninwrap {
-  justify-content: center;
-  display: flex;
+    justify-content: center;
+    display: flex;
 }
 
 .textwinecolwrap {
-  justify-content: center;
-  display: flex;
-  color: black;
-  font-family: 'Satisfy', cursive;
-  font-size: 20px;
+    justify-content: center;
+    display: flex;
+    color: black;
+    font-family: 'Satisfy', cursive;
+    font-size: 20px;
 }
+
 .winesheader2 {
-  justify-content: center;
-  display: flex;
-  position:absolute;
-  text-align: center;
-  /* background-color: rgba(8, 8, 8, 0.5); */
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    /* background-color: rgba(8, 8, 8, 0.5); */
 }
 
 span {
-  font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .fa-user-plus {
-  font-size:40px;
-  /* text-shadow: 2px 2px #6d6767; */
-  color: rgb(25, 69, 71);
-  
-  
+    font-size: 40px;
+    /* text-shadow: 2px 2px #6d6767; */
+    color: rgb(25, 69, 71);
 }
 
 .addempbtnmain {
-  background-color: rgb(100, 194, 123);
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  border-style:none;
+    background-color: rgb(100, 194, 123);
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border-style: none;
 }
 
 .addwinebtnmain {
-  background-color: rgb(136, 34, 97);
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  border-style:none;
+    background-color: rgb(136, 34, 97);
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border-style: none;
 }
 
-.fa-wine-bottle{
-  font-size:40px;
-  color: rgb(231, 200, 160);
-
+.fa-wine-bottle {
+    font-size: 40px;
+    color: rgb(231, 200, 160);
 }
+
 .submitanswersbtnquiz {
-  justify-content: space-between;
-  display: flex;
-  width: 50%;
-
+    justify-content: space-between;
+    display: flex;
+    width: 50%;
 }
 
 .submitanswersbtnquizwrap {
-  justify-content: center;
-  display: flex;
-  width: 100%;
+    justify-content: center;
+    display: flex;
+    width: 100%;
 }
 
-
 .submitFinal:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
 button:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
-
-
-
 .background {
-  background-color: rgba(253, 227, 167, 1);
-  height: 100%;
+    background-color: rgba(253, 227, 167, 1);
+    height: 100%;
 }
 
 .qcardwrapper1 {
-display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .qcardwrapper2 {
-  /* background-color: rgb(113, 113, 165); */
-  /* box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58); */
-
-  /* background-color: rgb(27, 26, 26); */
-
-  width: 100%;
-  height: 80vh;
-  overflow: auto;
-  border-style: none;
-  /* border-radius: 20px; */
-  margin-bottom: 20px;
-  
-  /* border-top-style: solid;
-  border-bottom-style: solid;
-  border-color: rgb(43, 43, 44); */
-  border-width: 1px;
-  /* border-radius: 20px; */
-
+    /* background-color: rgb(113, 113, 165); */
+    /* box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58); */
+    /* background-color: rgb(27, 26, 26); */
+    width: 100%;
+    height: 80vh;
+    overflow: auto;
+    border-style: none;
+    /* border-radius: 20px; */
+    margin-bottom: 20px;
+    /* border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: rgb(43, 43, 44); */
+    border-width: 1px;
+    /* border-radius: 20px; */
 }
-
-
 
 .welcomebtn {
-  color:white;
-  /* background-color: rgb(110, 90, 223); */
+    color: white;
+    /* background-color: rgb(110, 90, 223); */
     background-color: transparent;
-
-  border-style: solid;
-  border-top-style: none;
-  border-left-style: none;
-  border-right-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-
-
-
-  /* height: 70px; */
-  /* padding-left: 20px;
-  padding-right: 20px; */
-  /* border-radius: 10px; */
-  font-size: 15px;
-  margin-bottom: 50px;
-  font-size: 25px;
-
-
+    border-style: solid;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    /* height: 70px; */
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    /* border-radius: 10px; */
+    font-size: 15px;
+    margin-bottom: 50px;
+    font-size: 25px;
 }
+
 p {
-  margin: 0;
+    margin: 0;
 }
 
-.welcomebtn{
-  justify-content: center;
-  display: flex;
-  margin-bottom: 20px;
+.welcomebtn {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .welcomebtn:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
 button:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
-
 .welcomebtn:hover {
-  -ms-transform: scale(1.2); /* IE 9 */
-  -webkit-transform: scale(1.2); /* Safari 3-8 */
-  transform: scale(1.2); 
-  cursor: pointer;
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .welcomebtnwrap {
-  justify-content: center;
-  display: flex;
-  margin-top: 50px;
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
 }
 
 .empwelcomebtn {
-  color:white;
-  background-color: transparent;
-  border-style: none;
-  height: 70px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 10px;
-  font-size: 15px;
-  justify-content: center;
-  display: flex;
-  font-size: 30px;
-
-
- 
+    color: white;
+    background-color: transparent;
+    border-style: none;
+    height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    justify-content: center;
+    display: flex;
+    font-size: 30px;
 }
 
 .empwelcomebtn:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
 button:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
-
 .empwelcomebtn:hover {
-  -ms-transform: scale(1.2); /* IE 9 */
-  -webkit-transform: scale(1.2); /* Safari 3-8 */
-  transform: scale(1.2); 
-  cursor: pointer;
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .empwelcomebtnwrap {
-  justify-content: center;
-  display: flex;
-
+    justify-content: center;
+    display: flex;
+    margin-left: auto;
 }
 
-.textadmin{
-  font-size: 30px;
-  font-family: 'Pacifico', cursive;
-  
+.textadmin {
+    font-size: 30px;
+    font-family: 'Pacifico', cursive;
 }
 
 /* EMPLOYEEPAGE */
-
-
 .employeepagewrapper {
-  justify-content: center;
+    justify-content: center;
     display: flex;
     flex-direction: row;
     height: 100%;
-    width:100%;
-    margin:0;
+    width: 100%;
+    margin: 0;
 }
 
 .emppagecol {
-  width:100%;
-  background-color: rgba(253, 227, 167, 1); 
-  height: 100vh;
+    width: 100%;
+    background-color: rgba(253, 227, 167, 1);
+    height: 100vh;
 }
 
 .emppagemainwrap {
-  justify-content: center;
-  display: flex;
+    justify-content: right;
+    display: flex;
 }
 
 .emppanel {
-  width: 30%;
-  background-color: rgb(74, 53, 107); 
-  /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(103, 83, 194))) fixed; */
-  height: 100vh;
-  
+    width: 30%;
+    background-color: rgb(74, 53, 107);
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(103, 83, 194))) fixed; */
+    height: 100vh;
 }
 
 .emppageColWrap {
-  justify-content: center;
-  display: flex;
-  
-  
-  }
-  
-  .emppageColWrap1 {
-      background-color: transparent;
-      color: black;
-      height: 70vh;
-      overflow: auto;
-      width: 60%;
-/* 
-      border-radius: 30px; */
-      border-top-style: solid;
-      border-bottom-style: solid;
-     border-left: none;
-     border-right: none;
+    justify-content: center;
+    display: flex;
+}
 
-      border-width: 2px;
-      border-color: rgb(189, 62, 62);
-  
-  }
+.emppageColWrap1 {
+    background-color: transparent;
+    color: black;
+    height: 70vh;
+    overflow: auto;
+    width: 60%;
+    /* border-radius: 30px; */
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left: none;
+    border-right: none;
+    border-width: 2px;
+    border-color: rgb(189, 62, 62);
+}
 
-
-  .header2emppage {
+.header2emppage {
     color: black;
     font-size: 45px;
     font-family: 'Pacifico', cursive;
-    
-  }
+}
 
-  
-  .closebtnquiz {
-    color:rgb(250, 244, 244);
+.closebtnquiz {
+    color: rgb(250, 244, 244);
     background-color: rgb(52, 102, 105);
     /* background-color: transparent; */
     border-style: none;
@@ -527,25 +482,24 @@ button:focus {
     border-radius: 50px;
     font-size: 15px;
     border-color: rgb(132, 221, 217);
+}
 
-  }
-
-  .closebtnquiz:hover {
+.closebtnquiz:hover {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
+    transform: scale(1.2);
     cursor: pointer;
-  }
+}
 
-  .submitFinal:hover {
+.submitFinal:hover {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
+    transform: scale(1.2);
     cursor: pointer;
-  }
-  
-  .submitFinal {
-    color:white;
+}
+
+.submitFinal {
+    color: white;
     background-color: rgb(160, 79, 99);
     border-style: none;
     height: 50px;
@@ -553,105 +507,88 @@ button:focus {
     padding-right: 20px;
     border-radius: 50px;
     font-size: 15px;
-  
-  }
+}
 
-  .tannintextwrap2 {
+.tannintextwrap2 {
     text-align: center;
     margin-top: 200px;
-font-size: 40px;
-color: rgb(190, 39, 77);
-font-family: 'Pacifico', cursive;
-  }
+    font-size: 40px;
+    color: rgb(190, 39, 77);
+    font-family: 'Pacifico', cursive;
+}
 
-
-  .quizsummarybtnwrap {
+.quizsummarybtnwrap {
     justify-content: center;
     display: flex;
     margin-top: 60px;
-  }
+}
 
-  .quizsummarybtn {
+.quizsummarybtn {
     border-style: none;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     box-shadow: 2px 3px 3px rgb(49, 46, 46), 0 2px 2px rgb(59, 58, 58);
     font-size: 15px;
     background-color: rgb(175, 224, 120);
-  }
-
-
-
-
-
-@media (device-height: 812px) and (device-width: 375px) and (-webkit-min-device-pixel-ratio: 2){
-
-  .wineandemployeewrapper {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width:100%;
-    margin:0;
-  }
-
-  .brandCol {
-    width:100%;
-    /* background-color: rgb(120, 107, 156); */
-     /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(103, 83, 194))) fixed; */
-     /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(44, 35, 83))) fixed; */
-     background-color: rgb(74, 53, 107); 
-    color: rgb(8, 8, 8);
-    height: 100%;
-  
-  }
-
-  .wineTitleWrap {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    margin-top:  50px;
-}
-.wineTitleWrap1  {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex-direction: row;
 }
 
+@media (device-height: 812px) and (device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+    .wineandemployeewrapper {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
 
-.wineColWrap1 {
-  height: 70vh;
-  overflow: auto;
-  width: 90%;
-  margin-top: 20px;
-  border-radius: 10px;
-  
+    .brandCol {
+        width: 100%;
+        /* background-color: rgb(120, 107, 156); */
+        /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(103, 83, 194))) fixed; */
+        /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(44, 35, 83))) fixed; */
+        background-color: rgb(74, 53, 107);
+        color: rgb(8, 8, 8);
+        height: 100%;
+    }
 
-}
+    .wineTitleWrap {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 50px;
+    }
 
-.wineCol {
-  width:100%;
+    .wineTitleWrap1 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        flex-direction: row;
+    }
 
+    .wineColWrap1 {
+        height: 70vh;
+        overflow: auto;
+        width: 90%;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
 
-}
+    .wineCol {
+        width: 100%;
+    }
 
-.employeeCol {
-  width:100%;
-  margin: 0;
+    .employeeCol {
+        width: 100%;
+        margin: 0;
+    }
 
-
-}
-
-
-.employeeColWrap1 {
-  background-color: rgb(130, 156, 80);
-  height: 70vh;
-  overflow: auto;
-  width:90%;
-  margin-top: 20px;
-  border-radius: 10px;
-
-}
-
+    .employeeColWrap1 {
+        background-color: rgb(130, 156, 80);
+        height: 70vh;
+        overflow: auto;
+        width: 90%;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
 }

@@ -1,0 +1,19 @@
+.navbar {
+  margin-top: 0;
+  width:100%;
+  background-color: rgb(74, 53, 107); 
+  height: 50px;
+  border-bottom: 10px, solid, red;
+  display: flex;
+}
+
+.brandTitle {
+    font-size: 30px;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    
+  }
+
+.userNavBtn {
+    margin-left: auto; 
+}

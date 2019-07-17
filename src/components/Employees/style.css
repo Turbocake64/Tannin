@@ -1,123 +1,117 @@
 .listitemdiv4 {
-  justify-content: center;
-  display: flex;
-      width:100%;
-  }
-  
-  .overlay7 {
-  
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
-      z-index: 2;
-      cursor: pointer;
-      transition-delay: 10s;
-      transition-timing-function: ease-in;
-      overflow: hidden;
-      
-    }
-  
-    .empnamediv {
-      margin:20px;
-      padding: 10px;
-      color: rgb(238, 221, 182);
-      background-color: rgb(52, 75, 10);
-      /* background-color: rgb(187, 25, 66); */
-        /* background-color: rgba(218, 73, 121, 0.8); */
-      /* background-color: rgb(243, 210, 210); */
-      width: 80%;
-      border-top-left-radius: 20px;
-      /* border-bottom-left-radius: 20px; */
-      border-bottom-right-radius: 20px;
-  
-    }
-  
-    .empnamecollectionname1 {
-   
-      justify-content: space-between;
-      display: flex;
-  }
-  
-    .fa-user-minus {
-        color:rgb(12, 11, 11);
-        font-size: 20px;
-        /* text-shadow: 1px 1px #3b0b02; */
-    }
-  
-    .btnadd {
-        height: 20px;
-        width: 30px;
-        border-radius: 50%;
-        border-style: none;
-        background-color: transparent;
-        margin-right: 10px;
-    }
-    .fontitalicsmall{
-        padding-bottom:5px;
-        font-size: 20px;
-    }
-  
-    .empnamebtn1 {
-      padding-bottom:5px;
-      font-size: 20px;
-      margin: 0;
-      background-color: transparent;
-      border-style: none;
-     margin-left:20px;
-     color: rgb(236, 226, 201);
-     font-family: 'Special Elite', cursive;
-     letter-spacing: 2px;
-    }
-  
-    .empnamebtn1:focus {
-      outline: none !important;
-      -ms-transform: scale(1.1); /* IE 9 */
-      -webkit-transform: scale(1.1); /* Safari 3-8 */
-      transform: scale(1.1); 
-    }
-  
-    .empinfo1 {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    
-    .empinfo2{
-      width: 40%;
-      height: 300px;
-      background: rgb(61, 83, 31);
-      border-style:solid;
-      border-width: 10px;
-      border-color:  rgb(90, 112, 59);
-      border-radius: 50px;
-      padding-right: 50px;
-      overflow: auto;
-    }
-    
-    .empinfo3{
-      width: 100%;
-
-      justify-content: center;
+    justify-content: center;
     display: flex;
-        }
+    width: 100%;
+}
 
-        .infoempwrap {
-          width: 50%;
-          margin: 20px;
-        }
+.overlay7 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
+    z-index: 2;
+    cursor: pointer;
+    transition-delay: 10s;
+    transition-timing-function: ease-in;
+    overflow: hidden;
+}
 
-        .empdelbtn {
-          border-style: none;
-          background-color: transparent;
+.empnamediv {
+    margin: 20px;
+    padding: 10px;
+    color: rgb(238, 221, 182);
+    background-color: rgb(52, 75, 10);
+    /* background-color: rgb(187, 25, 66); */
+    /* background-color: rgba(218, 73, 121, 0.8); */
+    /* background-color: rgb(243, 210, 210); */
+    width: 80%;
+    border-top-left-radius: 20px;
+    /* border-bottom-left-radius: 20px; */
+    border-bottom-right-radius: 20px;
+}
 
-        } 
+.empnamecollectionname1 {
+    justify-content: space-between;
+    display: flex;
+}
 
-        .infodetails {
-          margin-bottom: 5px;
-        }
-        
+.fa-user-minus {
+    color: rgb(12, 11, 11);
+    font-size: 20px;
+    /* text-shadow: 1px 1px #3b0b02; */
+}
+
+.btnadd {
+    height: 20px;
+    width: 30px;
+    border-radius: 50%;
+    border-style: none;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.fontitalicsmall {
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.empnamebtn1 {
+    padding-bottom: 5px;
+    font-size: 20px;
+    margin: 0;
+    background-color: transparent;
+    border-style: none;
+    margin-left: 20px;
+    color: rgb(236, 226, 201);
+    font-family: 'Special Elite', cursive;
+    letter-spacing: 2px;
+}
+
+.empnamebtn1:focus {
+    outline: none !important;
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+}
+
+.empinfo1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.empinfo2 {
+    width: 40%;
+    height: 300px;
+    background: rgb(61, 83, 31);
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(90, 112, 59);
+    border-radius: 50px;
+    padding-right: 50px;
+    overflow: auto;
+}
+
+.empinfo3 {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.infoempwrap {
+    width: 50%;
+    margin: 20px;
+}
+
+.empdelbtn {
+    border-style: none;
+    background-color: transparent;
+}
+
+.infodetails {
+    margin-bottom: 5px;
+}

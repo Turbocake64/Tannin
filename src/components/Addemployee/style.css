@@ -1,7 +1,5 @@
 .overlay1 {
-
     position: absolute;
-  
     width: 100%;
     height: 100%;
     top: 0;
@@ -11,174 +9,173 @@
     /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
     z-index: 2;
     overflow: hidden;
+}
 
-    
-  }
-
-  .wrapper1 {
+.wrapper1 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-  }
+}
 
-  .wrapper2{
-width: 50%;
-background: rgb(196, 171, 103);
-border-style:solid;
-border-width: 10px;
-border-color:  rgb(70, 56, 10);
-border-radius: 50px;
-justify-content: center;
-display: flex;
-  }
+.wrapper2 {
+    width: 50%;
+    background: rgb(196, 171, 103);
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(70, 56, 10);
+    border-radius: 50px;
+    justify-content: center;
+    display: flex;
+}
 
-  .wrapper3{
+.wrapper3 {
     width: 80%;
     /* background: rgb(150, 142, 142); */
     margin: 20px;
-      }
-      
-          
-      
+}
 
-      
-          textarea:focus, input:focus{
-            outline: none;
-            background-color: none;
-            
-        }
-        .formcontrol{
-          width: 90%;
-          background-color: transparent;
-          font-family: 'Special Elite', cursive;
-          font-size: 18px;
-      border-top-style: none;
-      border-left-style: none;
-      border-right-style: none;
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      margin-top:10px;
-      margin-bottom:10px;
-        }
-      
-        input::selection{
-          background-color:  transparent;
-        }
-      
-        /* input:-webkit-autofill,
-      input:-webkit-autofill:hover, 
-      input:-webkit-autofill:focus, 
-      input:-webkit-autofill:active  {
-      background-color: transparent;
-      } */
-        
-       input:-webkit-autofill,
-      input:-webkit-autofill:hover, 
-      input:-webkit-autofill:focus,
-      textarea:-webkit-autofill,
-      textarea:-webkit-autofill:hover,
-      textarea:-webkit-autofill:focus,
-      select:-webkit-autofill,
-      select:-webkit-autofill:hover,
-      select:-webkit-autofill:focus {
-        border-top-style: none;
-        border-left-style: none;
-        border-right-style: none;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        background: none;
-        /* -webkit-background-fill-color: rgb(112, 7, 21); */
-        -webkit-text-fill-background-color: rgb(112, 7, 21);
-        /* -webkit-box-shadow: 0 0 0px 0px#000 inset; */
-        transition: background-color 5000s ease-in-out 0s;
-        
-      }
-        ::-moz-selection{
-          background-color:  transparent;
-        } 
-          .formcontrol::-webkit-input-placeholder { color: none; }  /* WebKit, Blink, Edge */
-      
-      .formcontrol:-moz-placeholder { color: none; }  /* Mozilla Firefox 4 to 18 */
-      .formcontrol::-moz-placeholder { color: none; }  /* Mozilla Firefox 19+ */
-      .formcontrol:-ms-input-placeholder { color: none; }  /* Internet Explorer 10-11 */
-      .formcontrol::-ms-input-placeholder { color: none; }  /* Microsoft Edge */
-      
-      
-      
-      
-      /* FONTS */
-      
-      
-      
-      .newempformtext{
-        font-family: 'Pacifico', cursive;
-      font-size: 25px;
-      margin-bottom: 20px;
-      /* font-family: 'Lobster', cursive;
-      font-family: 'Satisfy', cursive;
-      font-family: 'Special Elite', cursive;
-      font-family: 'Yellowtail', cursive;
-      font-family: 'Leckerli One', cursive;
-      font-family: 'Shrikhand', cursive;
-      font-family: 'Montez', cursive;
-      font-family: 'Sail', cursive;
-      font-family: 'Libre Barcode 128 Text', cursive;
-      font-family: 'IM Fell DW Pica SC', serif;
-      font-family: 'Zilla Slab Highlight', cursive; */
-      
-      }
-      
-      label {
-      
-        font-family: 'Satisfy', cursive;
-      font-size: 20px;
-      
-        /* 
-        font-family: 'Special Elite', cursive;
-        font-family: 'Satisfy', cursive;
-          font-family: 'IM Fell DW Pica SC', serif;
-      font-family: 'Zilla Slab Highlight', cursive; */
-      }
-      
+textarea:focus, input:focus {
+    outline: none;
+    background-color: none;
+}
 
-      .btnwrap1addemp{
-        justify-content: center;
-        display: flex;
-        margin-bottom: 20px;
-      color:rgb(248, 241, 241);
-      margin-top: 10px;
-          background-color: rgb(230, 97, 9);
-          border-style: none;
-          height: 40px;
-          padding-left: 20px;
-          padding-right: 20px;
-          border-radius: 50px;
-          font-size: 15px;
-        }
-      
-      
-      .btnwrap1addemp:focus {
-        outline: none !important;
-      }
-      
-      button:focus {
-        outline: none !important;
-      }
-    
-      
-      .btnwrap1addemp:hover {
-        -ms-transform: scale(1.2); /* IE 9 */
-        -webkit-transform: scale(1.2); /* Safari 3-8 */
-        transform: scale(1.2); 
-        cursor: pointer;
-      }
-      
-      .btnwrap1awrap {
-        justify-content: space-between;
-        display: flex;
-      }
-      
-      
-      
-        
-        
+.formcontrol {
+    width: 90%;
+    background-color: transparent;
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input::selection {
+    background-color: transparent;
+}
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+background-color: transparent;
+} */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background: none;
+    /* -webkit-background-fill-color: rgb(112, 7, 21); */
+    -webkit-text-fill-background-color: rgb(112, 7, 21);
+    /* -webkit-box-shadow: 0 0 0px 0px#000 inset; */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+::-moz-selection {
+    background-color: transparent;
+}
+
+.formcontrol::-webkit-input-placeholder {
+    color: none;
+}
+
+/* WebKit, Blink, Edge */
+
+.formcontrol:-moz-placeholder {
+    color: none;
+}
+
+/* Mozilla Firefox 4 to 18 */
+.formcontrol::-moz-placeholder {
+    color: none;
+}
+
+/* Mozilla Firefox 19+ */
+.formcontrol:-ms-input-placeholder {
+    color: none;
+}
+
+/* Internet Explorer 10-11 */
+.formcontrol::-ms-input-placeholder {
+    color: none;
+}
+
+/* Microsoft Edge */
+
+
+/* FONTS */
+
+.newempformtext {
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+    /* font-family: 'Lobster', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Special Elite', cursive;
+    font-family: 'Yellowtail', cursive;
+    font-family: 'Leckerli One', cursive;
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Montez', cursive;
+    font-family: 'Sail', cursive;
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-family: 'IM Fell DW Pica SC', serif;
+    font-family: 'Zilla Slab Highlight', cursive; */
+}
+
+label {
+    font-family: 'Satisfy', cursive;
+    font-size: 20px;
+    /* font-family: 'Special Elite', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'IM Fell DW Pica SC', serif;
+    font-family: 'Zilla Slab Highlight', cursive; */
+}
+
+.btnwrap1addemp {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+    color: rgb(248, 241, 241);
+    margin-top: 10px;
+    background-color: rgb(230, 97, 9);
+    border-style: none;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    font-size: 15px;
+}
+
+.btnwrap1addemp:focus {
+    outline: none !important;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+.btnwrap1addemp:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.btnwrap1awrap {
+    justify-content: space-between;
+    display: flex;
+}

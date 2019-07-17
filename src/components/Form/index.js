@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-function Form({ q, handleInputChange, handleFormSubmit }) {
+function Form ({ q, handleInputChange, handleFormSubmit }) {
   return (
     <form>
       <div className="form-group">
@@ -8,16 +8,16 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
           <strong>Wine</strong>
         </label>
         <div>
-        <input
-          className="form-control"
-          id="Title"
-          type="text"
-          value={q}
-          placeholder="Choose your Wine"
-          name="q"
-          onChange={handleInputChange}
-          required
-        />
+          <input
+            className="form-control"
+            id="Title"
+            type="text"
+            value={q}
+            placeholder="Choose your Wine"
+            name="q"
+            onChange={handleInputChange}
+            required
+          />
         </div>
       </div>
       <div className="pull-right">
@@ -30,7 +30,7 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
         </button>
       </div>
     </form>
-  );
+  )
 }
 
-export default Form;
+export default Form

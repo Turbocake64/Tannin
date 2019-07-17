@@ -1,24 +1,23 @@
-import React from "react";
-// import { Link } from "react-router-dom";
-import "./style.css";
+import React from 'react'
+// import { Link } from 'react-router-dom'
+import './style.css'
 
-function SignupLoginForm({ showMe, hideShow, restaurant, firstName, lastName, email, password, loginemail, loginpassword, handleSubmitInputChange, handleSignupFormSubmit, handleLoginInputChange, handleLoginFormSubmit,signupMessage, loginMessage }) {
+function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, email, password, loginemail, loginpassword, handleSubmitInputChange, handleSignupFormSubmit, handleLoginInputChange, handleLoginFormSubmit, signupMessage, loginMessage }) {
   return (
-
     <div>
       <div className="loginsignupbtnmainwrap">
-      <div className="loginsignupbtnmainwrap2">
-      <button className="loginsignupbtnmain" onClick={() => hideShow()}>Log/ Sign Up</button>
+        <div className="loginsignupbtnmainwrap2">
+          <button className="loginsignupbtnmain" onClick={() => hideShow()}>Log In/ Sign Up</button>
+        </div>
       </div>
-      </div>
-      {showMe ?
-        <div className="overlay">
-        <div className="tannintextwrap">Tan</div>
+      {showMe
+        ? <div className="overlay">
+          <div className="tannintextwrap">Tannin</div>
           <div className="wrap1">
             <div className="wrap2">
               <div className="wrap3">
                 <div className="signUpwrap">
-                  <div className="signuptext"> Sign </div>
+                  <div className="signuptext"> Sign Up</div>
                   <form>
                     <div className="form-group">
                       <div>
@@ -40,7 +39,7 @@ function SignupLoginForm({ showMe, hideShow, restaurant, firstName, lastName, em
                         </div>
                       </div>
                       <div>
-                        <br></br>
+                        <br/>
                         <label>
                           <strong>First Name</strong>
                         </label>
@@ -118,12 +117,12 @@ function SignupLoginForm({ showMe, hideShow, restaurant, firstName, lastName, em
                         className="submitbtnsignup"
                       >
                         Submit
-        </button>
+                      </button>
                     </div>
                   </form>
                 </div>
                 <div className="loginwrap">
-                  <br></br>
+                  <br/>
                   <div className="logintext"> Log In</div>
                   <form>
                     <div className="form-group">
@@ -175,28 +174,21 @@ function SignupLoginForm({ showMe, hideShow, restaurant, firstName, lastName, em
                     </div>
                   </form>
                 </div>
-                <br></br>
+                <br/>
               </div>
               <div className="btnwrap">
-
-                {/* <button><Link
-                  className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}
-                  to="/admin"
-                >
-                  admin
-              </Link></button> */}
-
-
-<button className="backtohome" onClick={() => hideShow()}><i className="fa fa-chevron-circle-left 2x" aria-hidden="true"></i></button>
+                {/* <button><Link to="/admin" className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}>admin</Link></button> */}
+                <button className="backtohome" onClick={() => hideShow()}>
+                  <i className="fa fa-chevron-circle-left 2x" aria-hidden="true" />
+                </button>
               </div>
             </div>
           </div>
         </div>
         : null
       }
-
     </div>
-  );
+  )
 }
 
-export default SignupLoginForm;
+export default SignupLoginForm

@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react'
 
-function Footer() {
+function Footer () {
   return (
     <footer>
-      <hr />
+      <hr/>
       <p className="pull-right">
-        <i className="fab fa-github" /> Proudly built using React.js
+        <i className="fab fa-github"/> Proudly built using React.js
       </p>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

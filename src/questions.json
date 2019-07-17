@@ -1,55 +1,89 @@
 [
-    {
-        "id": 1,
-        "category": "sweetness",
-        "question": "How sweet is ",
-        "falseAnswers": [ "Very Sweet", "Sweet", "Dry", "Very Dry"]
-    },
-    {
-        "id": 2,
-        "category": "body",
-        "question": "How would you describe the body of ",
-        "falseAnswers": [ "Full Body", "Medium-full Body", "Medium Body", "Medium-light Body", "Light Body"]
-    },
-    {
-        "id": 3,
-        "category": "tannin",
-        "question": "How would you describe the tannin level of ",
-        "falseAnswers": [ "High Tannin", "Medium-high Tannin", "Medium Tannin", "Medium-low Tannin", "Low to no Tannin"]
-    },
-    {
-        "id": 4,
-        "category": "acidity",
-        "question": "How would you describe the acidity of ",
-        "falseAnswers": [ "High Acidity", "Medium-high Acidity", "Medium Acidity", "Medium-low Acidity", "Low Acidity"]
-    },
-    {
-        "id": 5,
-        "category": "temp",
-        "question": "At what temperature should you serve ",
-        "falseAnswers": [ "38–45°F / 3–7°C", "45–55°F / 7–13°C", "55–60°F / 13–16°C", "Room Temperature"]
-    },
-    {
-        "id": 6,
-        "category": "decant",
-        "question": "How long should we decant ",
-        "falseAnswers": [ "30 minutes", "1 Hour", "2 Hours", "This wine is not decanted"]
-    },
-    {
-        "id": 7,
-        "category": "ageability",
-        "question": "What is the average age for ",
-        "falseAnswers": [ "1-3 Years", "3-5 Years", "5-10 Years", "10+ Years"]
-    },
-    {
-        "id": 8,
-        "category": "region",
-        "question": "In what region do they make ",
-        "falseAnswers": [ "Bordeaux", "Burgundy", "Champagne", "Loire", "Alsace", "Rhône", "Provence", "Languedoc-Roussillon", "Beaujolais", "Jura", "Piedmont", "Tuscany", "Veneto", "Abruzzo", "Sicily", "Napa", "Oregon", "Sonoma", "Washington State", "Port", "Mendoza", " Patagonia", "Bierzo", "Rioja", "Victoria", "Marlborough"]
-    },
-    {
-        "id": 9,
-        "category": "primaryFlavors",
-        "question": "Give one of the primary flavors of "
-    }
+  {
+    "id": 1,
+    "category": "sweetness",
+    "question": "How sweet is ",
+    "falseAnswers": [ "Very Sweet", "Sweet", "Dry", "Very Dry"]
+  },
+  {
+    "id": 2,
+    "category": "body",
+    "question": "How would you describe the body of ",
+    "falseAnswers": [ "Full Body", "Medium-full Body", "Medium Body", "Medium-light Body", "Light Body"]
+  },
+  {
+    "id": 3,
+    "category": "tannin",
+    "question": "How would you describe the tannin level of ",
+    "falseAnswers": [ "High Tannin", "Medium-high Tannin", "Medium Tannin", "Medium-low Tannin", "Low to no Tannin"]
+  },
+  {
+    "id": 4,
+    "category": "acidity",
+    "question": "How would you describe the acidity of ",
+    "falseAnswers": [ "High Acidity", "Medium-high Acidity", "Medium Acidity", "Medium-low Acidity", "Low Acidity"]
+  },
+  {
+    "id": 5,
+    "category": "alcohol",
+    "question": "What is the alcohol by volume of ",
+    "falseAnswers": ["10% or less alcohol by volume", "11% Alcohol by volume", "12% Alcohol by volume", "13% Alcohol by volume", "14% Alcohol by volume", "15% or more alcohol by volume"]
+  },
+  {
+    "id": 6,
+    "category": "temp",
+    "question": "At what temperature should you serve ",
+    "falseAnswers": [ "38–45°F / 3–7°C", "45–55°F / 7–13°C", "55–60°F / 13–16°C", "Room Temperature"]
+  },
+  {
+    "id": 7,
+    "category": "decant",
+    "question": "How long should we decant ",
+    "falseAnswers": [ "30 minutes", "1 Hour", "2 Hours", "This wine is not decanted"]
+  },
+  {
+    "id": 8,
+    "category": "ageability",
+    "question": "What is the average age for ",
+    "falseAnswers": [ "1-3 Years", "3-5 Years", "5-10 Years", "10+ Years"]
+  },
+  {
+    "id": 9,
+    "category": "region",
+    "question": "In what region do they make ",
+    "falseAnswers": [ "Bordeaux", "Burgundy", "Champagne", "Loire", "Alsace", "Rhône", "Provence", "Languedoc-Roussillon", "Beaujolais", "Jura", "Piedmont", "Tuscany", "Veneto", "Abruzzo", "Sicily", "Napa", "Oregon", "Sonoma", "Washington State", "Port", "Mendoza", " Patagonia", "Bierzo", "Rioja", "Victoria", "Marlborough"]
+  },
+  {
+    "id": 10,
+    "category": "country",
+    "question": "In what country do they make ",
+    "falseAnswers": ["America", "Australia", "Chile", "England", "France", "Germany", "Hungary", "Italy", "New Zealand", "Spain"]
+  },
+  {
+    "id": 11,
+    "category": "sparkling",
+    "question": "Which accurately describes ",
+    "falseAnswers": ["not sparkling", "sparkling"]
+  },
+  {
+    "id": 12,
+    "category": "color",
+    "question": "What color is ",
+    "falseAnswers": ["red", "white", "rosè"]
+  },
+  {
+    "id": 13,
+    "category": "primaryFlavors",
+    "question": "Give one of the primary flavors of "
+  },
+  {
+    "id": 14,
+    "category": "varietal",
+    "question": "Give one of the grape varietals of "
+  },
+  {
+    "id": 15,
+    "category": "pairings",
+    "question": "Give one of the food pairings for "
+  }
 ]

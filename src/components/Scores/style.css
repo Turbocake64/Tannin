@@ -1,7 +1,5 @@
 .overlay11 {
-
     position: absolute;
-  
     width: 100%;
     height: 100%;
     top: 0;
@@ -11,64 +9,55 @@
     /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
     z-index: 2;
     overflow: hidden;
+}
 
-  }
-  
-  .empinfoformtext {
+.empinfoformtext {
     justify-content: center;
     display: flex;
-  }
-  .scoreinfo1 {
+}
+
+.scoreinfo1 {
     display: flex;
     justify-content: center;
     margin-top: 150px;
-    
-  }
-  
-  .scoreinfo2{
-  width: 50%;
-  height: 300px;
-  background-color: rgb(113, 113, 165);
-  box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
-  color: rgb(10, 9, 9);
-  border-style:solid;
-  border-width: 0px;
-  border-color:   rgb(22, 15, 31);
-  border-radius: 0px;
-  justify-content: center;
-  display: flex;
+}
 
-  overflow: auto;
-  }
-  
-  .scoreinfo3{
+.scoreinfo2 {
+    width: 50%;
+    height: 300px;
+    background-color: rgb(113, 113, 165);
+    box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
+    color: rgb(10, 9, 9);
+    border-style: solid;
+    border-width: 0px;
+    border-color: rgb(22, 15, 31);
+    border-radius: 0px;
+    justify-content: center;
+    display: flex;
+    overflow: auto;
+}
+
+.scoreinfo3 {
     width: 80%;
     /* background: rgb(150, 142, 142); */
     margin: 20px;
-      }
-      
-          
-      
-      /* FONTS */
-      
-      
-      
-      .infoscorewrap{
-        font-family: 'Pacifico', cursive;
-      font-size: 25px;
-      margin-bottom: 20px;
-      color: white;
-      /* font-family: 'Lobster', cursive;
-      font-family: 'Satisfy', cursive;
-      font-family: 'Special Elite', cursive;
-      font-family: 'Yellowtail', cursive;
-      font-family: 'Leckerli One', cursive;
-      font-family: 'Shrikhand', cursive;
-      font-family: 'Montez', cursive;
-      font-family: 'Sail', cursive;
-      font-family: 'Libre Barcode 128 Text', cursive;
-      font-family: 'IM Fell DW Pica SC', serif;
-      font-family: 'Zilla Slab Highlight', cursive; */
-      
-      }
-     
+}
+
+/* FONTS */
+.infoscorewrap {
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: white;
+    /* font-family: 'Lobster', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Special Elite', cursive;
+    font-family: 'Yellowtail', cursive;
+    font-family: 'Leckerli One', cursive;
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Montez', cursive;
+    font-family: 'Sail', cursive;
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-family: 'IM Fell DW Pica SC', serif;
+    font-family: 'Zilla Slab Highlight', cursive; */
+}
