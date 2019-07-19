@@ -1,23 +1,36 @@
 .qcard {
-    border-radius: 2px;
-    height: 200px;
-    margin: 1rem;
-    position: relative;
-    width: 88%;
-    background-color: rgb(233, 206, 171);
-    /* background-color: rgb(139, 39, 86); */
-    box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
-    text-align: left;
-    padding: 20px;
-    border-radius: 50px;
+
+  border-radius: 2px;
+
+  height: 200px;
+  margin: 1rem;
+  position: relative;
+  width: 88%;
+
+  background-color: rgb(136, 34, 97);
+  /* background-color: rgb(139, 39, 86); */
+  box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
+  text-align: left;
+  padding: 20px;
+  border-radius: 50px;
 }
 
 .submitAnswer {
-    border-radius: 50px;
-    background-color: transparent;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+
+  border-radius: 50px;
+  background-color: whitesmoke;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+.submitAnswer:disabled {
+
+  border-radius: 50px;
+  background-color: rgb(124, 122, 122);
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
 }
 
 /* button {
@@ -35,8 +48,6 @@ button[value="1"]:disabled {
 button[value="0"]:disabled {
     background-color: rgb(250, 124, 124);
 }
-
-/* background-color: rgb(202, 236, 51); */
 
 .question {
     background-color: lightgray;

@@ -21,9 +21,8 @@ function ScoreSummary ({ newScores, hideShowSummary, showMeSummary }) {
                           {newScores.map(score => {
                             return (
                               <div>
-                                <li className="travelcompany-input">
-                                  <span className="input-label">Wine: {score.wine}</span> =
-                                  <span className="input-label"> {score.score}%</span>
+                                <li className='travelcompany-input'>
+                                  <span className='input-label'>{score.wine}: {score.score}%</span>
                                 </li>
                               </div>
                             )

@@ -74,16 +74,16 @@
   {
     "id": 13,
     "category": "primaryFlavors",
-    "question": "Give one of the primary flavors of "
+    "question": "What is one of the primary flavors of "
   },
   {
     "id": 14,
     "category": "varietal",
-    "question": "Give one of the grape varietals of "
+    "question": "What is one of the grape varietals of "
   },
   {
     "id": 15,
     "category": "pairings",
-    "question": "Give one of the food pairings for "
+    "question": "What is one of the food pairings for "
   }
 ]

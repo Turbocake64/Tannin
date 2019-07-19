@@ -1,16 +1,18 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import API from '../utils/API'
-// import Jumbotron from '../components/Jumbotron'
-import Restowine from '../components/Restowine'
-import Employees from '../components/Employees'
-import Addemployee from '../components/Addemployee'
-// // import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import Userinfo from '../components/Userinfo'
-import { Container } from '../components/Grid'
-import { List } from '../components/List'
-import './style.css'
+import React, { Component } from "react";
+// import Jumbotron from "../components/Jumbotron";
+import Restowine from "../components/Restowine";
+import Employees from "../components/Employees";
+import Empinfo from "../components/Empinfo";
+import Addemployee from "../components/Addemployee";
+import FeedbackModal from '../components/FeedbackModal';
+// // import Footer from "../components/Footer";
+import Navbar from "../components/Navbar"
+import Userinfo from "../components/Userinfo";
+import API from "../utils/API";
+import { Container } from "../components/Grid";
+import { List } from "../components/List";
+import { Link } from "react-router-dom";
+import "./style.css";
 
 class Admin extends Component {
   state = {
@@ -22,6 +24,7 @@ class Admin extends Component {
     showMe: false,
     showMe2: false,
     showMe3: false,
+    showMe4: false,
     showMeEmp: false,
     // text: 'add wine',
     wineId: '',
@@ -68,7 +71,7 @@ class Admin extends Component {
     userestaurantName: ''
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getUser()
     console.log('Here is our User:', this.state.user)
     console.log(this.state.user.isAdmin)
@@ -167,18 +170,19 @@ class Admin extends Component {
     const admin = { restaurantId: this.state.user.restaurantId }
     API.getSavedWine(admin)
       .then(res => {
-          // console.log(res.data);
-          console.log('DEDADAEDAEDAEDAEDDA')
-          console.log(res.data._id)
-          // console.log(res.data[0]);
-          console.log('SAVESTAFF')
-          console.log(res.data)
-          console.log('SAVESTAFF')
-          this.setState({
-            employeesList: res.data.Employees,
-            wineCollections: res.data.Wines,
-          })
-        }
+        // console.log(res.data);
+        console.log('DEDADAEDAEDAEDAEDDA')
+        console.log(res.data._id)
+        // console.log(res.data[0]);
+        console.log('SAVESTAFF')
+        console.log(res.data)
+        console.log('SAVESTAFF')
+        this.setState({
+          employeesList: res.data.Employees.sort((a, b) => a.lastName.localeCompare(b.lastName)),
+          wineCollections: res.data.Wines.sort((a, b) => a.name.localeCompare(b.name)),
+
+        })
+      }
       )
       .catch(() =>
         this.setState({
@@ -265,10 +269,18 @@ class Admin extends Component {
     this.setState(newState)
   }
 
-  render () {
+  hideShow4 = () => {
+    const newState = { ...this.state }
+    newState.showMe4 = !newState.showMe4
+    // newState.scale = this.state.scale > 1 ? 1 : 1.5
+
+    this.setState(newState)
+  }
+
+  render() {
     return (
       <Container>
-        <Userinfo
+        {/* <Userinfo
           useId={this.state.useId}
           usefirstName={this.state.usefirstName}
           uselastName={this.state.uselastName}
@@ -278,7 +290,8 @@ class Admin extends Component {
           hideShow3={this.hideShow3}
           handleLogout={this.handleLogout}
           greet={this.state.greet}
-        />
+        ></Userinfo> */}
+
 
         {/* MODAL ----------------------- */}
         <Addemployee
@@ -290,11 +303,22 @@ class Admin extends Component {
           lastName={this.state.lastName}
           email={this.state.email}
           password={this.state.password}
-          //  loginemail={this.state.loginemail}
-          //  loginpassword={this.state.loginpassword}
           showMe2={this.state.showMe2}
           hideShow2={this.hideShow2}
         />
+        {/* MODAL ----------------------- */}
+
+        {/* MODAL ----------------------- */}
+        <FeedbackModal
+          id={this.state.id}
+          restaurant={this.state.user.restaurant}
+          name={this.state.user.firstName}
+          lastName={this.state.user.lastName}
+          email={this.state.user.email}
+          url='http://localhost:3000/admin'
+          showMe4={this.state.showMe4}
+          hideShow4={this.state.hideShow4}
+        ></FeedbackModal>
         {/* MODAL ----------------------- */}
 
         <div className="navBar">
@@ -305,11 +329,38 @@ class Admin extends Component {
             userAdmin={this.state.user.isAdmin}
             restaurantName={this.state.user.restaurantName}
             handleLogout={this.handleLogout}
+            hideShow3={this.hideShow3}
+            hideShow4={this.hideShow4}
+          >
+
+          </Navbar>
+
+          <Empinfo
+            user={this.state.user}
+            userId={this.state.useId}
+            useEmail={this.state.empuseEmail}
+            usefirstName={this.state.empUserFirstName}
+            uselastName={this.state.empUserLastName}
+            userestaurantName={this.state.empUserRestaurantName}
+            showMe4={this.state.showMe3}
             hideShow4={this.hideShow3}
-          />
-          {/* <div className="welcomebtnwrap"> */}
-          {/*   <div>{this.state.restaurant}</div> */}
-          {/*   <button onClick={() => this.hideShow3()} className="welcomebtn"><Headeruser={this.state.user} /></button> */}
+            handleLogout={this.handleLogout}
+            greet={this.state.greet}
+          ></Empinfo>
+          {/* <div className="welcomebtnwrap">  */}
+          {/* <div>
+            <div>
+              {this.state.restaurant}
+            </div>
+
+            <button
+              onClick={() => this.hideShow3()}
+              className="welcomebtn"
+            ><Header
+                user={this.state.user} />
+            </button>
+
+          </div>  */}
           {/* </div> */}
         </div>
 
@@ -363,8 +414,8 @@ class Admin extends Component {
                     ))}
                   </List>
                 ) : (
-                  <h2 className="text-center">Not Available</h2>
-                )}
+                    <h2 className="text-center">Not Available</h2>
+                  )}
               </div>
             </div>
           </div>
@@ -401,20 +452,20 @@ class Admin extends Component {
                         showMeEmp={this.state.showMeEmp}
                         hideShowEmp={this.hideShowEmp}
                         handleEmployeeDelete={this.handleEmployeeDelete}
-                        // Button={() => (
-                        //   <button
-                        //     onClick={() => this.handleEmployeeDelete(employee._id)}
-                        //     className="btn btn-danger ml-2"
-                        //   >
-                        //     Delete
-                        // </button>
-                        // )}
+                      // Button={() => (
+                      //   <button
+                      //     onClick={() => this.handleEmployeeDelete(employee._id)}
+                      //     className="btn btn-danger ml-2"
+                      //   >
+                      //     Delete
+                      // </button>
+                      // )}
                       />
                     ))}
                   </List>
                 ) : (
-                  <h2 className="text-center">Add Employees</h2>
-                )}
+                    <h2 className="text-center">Add Employees</h2>
+                  )}
               </div>
             </div>
           </div>

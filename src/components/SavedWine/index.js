@@ -20,8 +20,7 @@ function SavedWine ({ name, id, hideShow, showMe, wineName, wineTemp, wineTannin
                   <Link
                     className={window.location.pathname === '/quizpage' ? 'nav-link active' : 'nav-link'}
                     to={{ pathname: '/quiz', state: { wineId: id, wineName: name } }}
-                  >
-                    <button className="quizpagebutton"><i className="fas fa-feather-alt" /></button>
+                  ><button className='quizpagebutton'>Quiz!</button>
                   </Link>
                 </div>
               </div>

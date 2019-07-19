@@ -58,8 +58,8 @@ export default {
   getUser: function () {
     return axios.get('/api/user/getUser')
   },
-  getMaster: function () {
-    return axios.get('http://localhost:3001/api/wines/')
+  getMaster: function (q) {
+    return axios.get('/api/wine/');
   },
   getSavedWine: function (admin) {
     console.log(admin)
