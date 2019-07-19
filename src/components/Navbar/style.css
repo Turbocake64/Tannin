@@ -9,11 +9,21 @@
 
 .brandTitle {
     font-size: 30px;
-    font-family: 'Pacifico', cursive;
+    font-family:'Heebo', sans-serif;
     color: white;
     
   }
 
 .userNavBtn {
     margin-left: auto; 
+}
+
+/* .NavBtn {
+  color: whitesmoke;
+  font-family:'Heebo', sans-serif;
+  background-color: transparent;
+} */
+
+Link {
+  color:inherit;
 }

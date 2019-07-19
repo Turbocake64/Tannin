@@ -1,23 +1,27 @@
-import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
-import API from '../utils/API'
-import SavedWine from '../components/SavedWine'
-import Navbar from '../components/Navbar'
-import Header2 from '../components/Header2'
-import Empinfo from '../components/Empinfo'
+import React, { Component } from 'react';
+import SavedWine from '../components/SavedWine';
+import FeedbackModal from '../components/FeedbackModal';
+import API from '../utils/API';
+import Navbar from '../components/Navbar';
+import Header2 from '../components/Header2';
+import Empinfo from '../components/Empinfo';
+import { Container } from '../components/Grid';
+// importing the wine template for testing purposes 
 import ScoreSummary from '../components/Scores'
-import { Container } from '../components/Grid'
-import { List } from '../components/List'
-import './style.css'
+import { List } from '../components/List';
+// import { Link } from "react-router-dom";
+import "./style.css";
 
 class EmployeePage extends Component {
   state = {
     wineCollections: [],
+    ABCollections: [],
     scoreCollection: [],
 
     showMeSummary: false,
     showMe6: false,
     showMe4: false,
+    showMe3: false,
     showMe: false,
     user: '',
     loggedIn: true,
@@ -66,7 +70,8 @@ class EmployeePage extends Component {
   hideShowSummary = id => {
     const newState = { ...this.state }
     newState.empuseId = newState.user._id
-    newState.newScores = newState.scoreCollection
+    newState.newScores = newState.scoreCollection.sort((a, b) => a.wine.localeCompare(b.wine))
+
     newState.showMeSummary = !newState.showMeSummary
     this.setState(newState)
     // console.log('HEHEHEHEHEHE')
@@ -75,16 +80,16 @@ class EmployeePage extends Component {
 
   getUser = () => {
     API.getUser().then(response => {
-      console.log('LOGGED IN USER: ', response)
+      console.log('Current User: ', response)
       if (!!response.data.user) {
-        console.log('THERE IS A USER')
-        console.log(response.data.user.scores)
+        console.log('Users Scores:', response.data.user.scores)
         this.setState({
           loggedIn: true,
           user: response.data.user,
           scoreCollection: response.data.user.scores,
         })
         this.getSavedWine()
+        console.log(this.state.restaurant, "'s wine list: ", this.state.wineCollections)
       } else {
         this.setState({
           loggedIn: false,
@@ -102,8 +107,6 @@ class EmployeePage extends Component {
   getSavedWine = () => {
     console.log('////////////////')
     console.log(this.state.user.restaurantId)
-    console.log('////////////////')
-    console.log(this.state.user.scores)
     console.log(this.state.wineCollections)
 
     const admin = { restaurantId: this.state.user.restaurantId }
@@ -111,8 +114,10 @@ class EmployeePage extends Component {
       .then(res => {
         this.setState({
           wineCollections: res.data.Wines,
+          ABCollections: res.data.Wines.sort((a, b) => a.name.localeCompare(b.name))
         })
         this.showScore()
+        console.log('Alphabetical:', this.state.ABCollections)
       })
       .catch(() =>
         this.setState({
@@ -167,6 +172,14 @@ class EmployeePage extends Component {
     this.setState(newState)
   }
 
+  hideShow3 = () => {
+    const newState = { ...this.state }
+    newState.showMe3 = !newState.showMe3
+    // newState.scale = this.state.scale > 1 ? 1 : 1.5
+
+    this.setState(newState)
+  }
+
   hideShow4 = id => {
     const newState = { ...this.state }
     newState.greet = 'Welcome!'
@@ -184,6 +197,20 @@ class EmployeePage extends Component {
     return (
       <Container>
         <div className="doesThisHelp">
+
+          {/* MODAL ----------------------- */}
+          <FeedbackModal
+            id={this.state.id}
+            restaurant={this.state.restaurant}
+            name={this.state.user.firstName}
+            lastName={this.state.user.lastName}
+            email={this.state.user.email}
+            url='http://localhost:3000/employeepage'
+            showMe4={this.state.showMe4}
+            hideShow4={this.state.hideShow4}
+          ></FeedbackModal>
+          {/* MODAL ----------------------- */}
+
           <Navbar
             userId={this.state.user._id}
             userFirstName={this.state.user.firstName}
@@ -191,8 +218,9 @@ class EmployeePage extends Component {
             userAdmin={this.state.user.isAdmin}
             restaurantName={this.state.user.restaurantName}
             handleLogout={this.handleLogout}
+            hideShow3={this.hideShow3}
             hideShow4={this.hideShow4}
-          />
+          ></Navbar>
         </div>
 
         <div className="emppagemainwrap">
@@ -203,8 +231,8 @@ class EmployeePage extends Component {
             usefirstName={this.state.empUserFirstName}
             uselastName={this.state.empUserLastName}
             userestaurantName={this.state.empUserRestaurantName}
-            showMe4={this.state.showMe4}
-            hideShow4={this.hideShow4}
+            showMe4={this.state.showMe3}
+            hideShow4={this.hideShow3}
             handleLogout={this.handleLogout}
             greet={this.state.greet}
           />
@@ -282,8 +310,8 @@ class EmployeePage extends Component {
                       ))}
                     </List>
                   ) : (
-                    <h2 className="text-center"></h2>
-                  )}
+                      <h2 className="text-center">There are no wines on the {this.state.restaurantName} wine list</h2>
+                    )}
                 </div>
               </div>
 
@@ -301,15 +329,12 @@ class EmployeePage extends Component {
                       />
                     ))}
                   </List>
-                ) : (
-                  <h2 className="text-center"></h2>
-                )}
+                ) : null}
               </div>
 
             </div>
             {/* -----------------EMPLOYEES COLUMN------------------- */}
           </div>
-          {/* <Footer /> */}
         </div>
       </Container>
     )

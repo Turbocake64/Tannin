@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Navbar from "../components/Navbar";
+import QuizResults from '../components/QuizResults'
+import FeedbackModal from '../components/FeedbackModal'
+
+// importing components
+// import EmployeePage from './pages/EmployeePage'
 import API from '../utils/API'
 // import EmployeePage from './pages/EmployeePage'
 import QuestionCard from '../components/QuestionCard'
@@ -20,24 +26,22 @@ class Quiz extends Component {
     submittedPairing: '',
     correctVarietal: [],
     submittedVarietal: '',
+    misanswered: [],
     counter: 0,
     score: 0,
     highScore: 0,
-    wineData: []
+    wineData: [],
+    showMe: false
   }
 
   // componentWillMount shuffles the CharacterCards before the DOM is loaded
-  componentWillMount () {
+  componentWillMount() {
     this.getUser()
   }
 
   getUser = () => {
     API.getUser().then(response => {
-      // console.log('LOGGED IN USER: ', response)
       if (!!response.data.user) {
-        // console.log('THERE IS A USER')
-        // console.log(response.data.user.scores)
-        // console.log('???????????????')
         this.setState({
           loggedIn: true,
           user: response.data.user,
@@ -54,17 +58,14 @@ class Quiz extends Component {
   }
 
   getSavedWine = () => {
-    // console.log('////////////////')
-    // console.log(this.state.user.restaurantId)
-    // console.log('////////////////')
     const admin = { restaurantId: this.state.user.restaurantId }
     API.getSavedWine(admin)
       .then(res => {
-          this.setState({
-            wineCollections: res.data.Wines,
-          })
-          this.getClickedWine()
-        }
+        this.setState({
+          wineCollections: res.data.Wines,
+        })
+        this.getClickedWine()
+      }
       )
       .catch(() =>
         this.setState({
@@ -95,9 +96,9 @@ class Quiz extends Component {
     console.log(filteredQs)
   }
 
-  // Here we use the Fisher-Yates algorithm to randomize the characters array
-  shuffle (arr) {
-    let j, x, i
+  // Here we use the Fisher-Yates alogrithm to randomize the characters array
+  shuffle(arr) {
+    var j, x, i
     for (i = arr.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1))
       x = arr[i]
@@ -110,6 +111,9 @@ class Quiz extends Component {
   // Checks the value of a multiple choice button and adds that to the user's counter
   handleBtnPoint = (event) => {
     let points = parseInt(event.target.value)
+    if (points === 0) {
+      this.state.misanswered.push(this.props.category)
+    }
     this.setState({
       counter: this.state.counter + points,
     })
@@ -130,6 +134,7 @@ class Quiz extends Component {
     const newState = { ...this.state }
 
     if (this.state.correctFlavors.includes(this.state.submittedFlavor)) {
+
       this.setState({
         counter: newState.counter + 1,
         submittedFlavor: '',
@@ -176,11 +181,9 @@ class Quiz extends Component {
   handleScoreCalc = () => {
     let hundreds = this.state.counter * 100
     let total = this.state.filteredQs.length
-    let totalScore = hundreds / total
-    // this.state.score = hundreds / total
-    this.setState({
-      score: this.state.score + totalScore
-    })
+    let totalScore = Math.round(hundreds / total);
+    this.state.score = totalScore
+
     this.addScore()
   }
 
@@ -191,22 +194,101 @@ class Quiz extends Component {
     )
   }
 
+  refresh = () => {
+    window.location.reload()
+  }
+
   addScore = () => {
     const scoreData = { userId: this.state.user._id, wine: this.state.wineData.name, score: this.state.score }
+    this.hideShow()
     console.log(scoreData)
     API.addScore(scoreData).then(res => {
       console.log('ADDSCORE')
       console.log(res)
       console.log(res.data.scores)
-      this.props.history.push('/employeepage')
+      // this.props.history.push('/employeepage');
+      // window.location.reload()
+
     })
   }
 
-  render () {
+  handleLogout = () => {
+
+    console.log('logging out')
+    API.logOut().then(response => {
+      console.log(response.data);
+      this.props.history.push(`/`);
+      this.setState({
+        loggedIn: false,
+        user: null,
+      })
+      // this.props.history.push(`/`);
+    });
+  };
+
+  hideShow = () => {
+    const newState = { ...this.state }
+    newState.showMe = !newState.showMe
+    // newState.scale = this.state.scale > 1 ? 1 : 1.5
+
+    this.setState(newState)
+  }
+
+
+  hideShow4 = id => {
+    const newState = { ...this.state }
+    newState.greet = 'Welcome!'
+    newState.empuseId = newState.user._id
+    newState.empUserFirstName = newState.user.firstName
+    newState.empUserLastName = newState.user.lastName
+    newState.empUserRestaurantName = newState.user.restaurantName
+    newState.empuseEmail = newState.user.email
+    console.log(newState.empuseId)
+    newState.showMe4 = !newState.showMe4
+    this.setState(newState)
+  }
+
+  // renders react elements into the DOM
+  render() {
     return (
       // the parent div into which our components will be rendered
       <div className="background">
 
+        {/* MODAL ----------------------- */}
+        <QuizResults
+          userId={this.state.user._id}
+          firstName={this.state.user.firstName}
+          lastName={this.state.user.lastName}
+          wineName={this.state.wineData.name}
+          refresh={this.refresh}
+          score={this.state.score}
+          addScore={this.addScore}
+          showMe={this.state.showMe}
+        ></QuizResults>
+        {/* MODAL ----------------------- */}
+
+        {/* MODAL ----------------------- */}
+        <FeedbackModal
+          id={this.state.id}
+          restaurant={this.state.restaurant}
+          name={this.state.user.firstName}
+          lastName={this.state.user.lastName}
+          email={this.state.user.email}
+          url='http://localhost:3000/quiz'
+          showMe4={this.state.showMe4}
+          hideShow4={this.state.hideShow4}
+        ></FeedbackModal>
+        {/* MODAL ----------------------- */}
+
+        <Navbar
+          userId={this.state.user._id}
+          userFirstName={this.state.user.firstName}
+          userLastName={this.state.user.lastName}
+          userAdmin={this.state.user.isAdmin}
+          restaurantName={this.state.user.restaurantName}
+          handleLogout={this.handleLogout}
+          hideShow4={this.hideShow4}
+        ></Navbar>
         <Wrapper>
           <div className="qcardwrapper1">
             <div className="qcardwrapper2">
@@ -246,22 +328,23 @@ class Quiz extends Component {
                   counter={this.state.counter}
                 />
               ))}
+              <div className="submitanswersbtnquizwrap">
+                <div className="submitanswersbtnquiz">
+                  <button className="submitFinal" onClick={this.handleScoreCalc}>Submit Answers</button>
+
+                  <Link
+                    to="/employeepage"
+                  >
+
+                    <button className="closebtnquiz">Return to List
+              </button>
+                  </Link>
+                </div>
+              </div>
             </div>
+
           </div>
         </Wrapper>
-
-        <div className="submitanswersbtnquizwrap">
-          <div className="submitanswersbtnquiz">
-            <button className="submitFinal" onClick={this.handleScoreCalc}>
-              Submit Answers
-            </button>
-            <Link onClick={window.location.reload} to="/employeepage">
-              <button className="closebtnquiz">
-                maybe next time
-              </button>
-            </Link>
-          </div>
-        </div>
 
       </div>
     )

@@ -20,14 +20,9 @@ function Empinfo ({ showMe4, userId, hideShow4, useEmail, usefirstName, uselastN
                       <br />
 
                       <div className="infodetails">Restaurant: {userestaurantName}</div>
-                      <br />
-
-                      <div className="infodetails">First Name: {usefirstName}</div>
-                      <br />
-
-                      <div className="infodetails">Last Name: {uselastName}</div>
-                      <br />
-
+                      <br></br>
+                      <div className="infodetails">Employee Name: {usefirstName} {uselastName}</div>
+                      <br></br>
                       <div className="infodetails">Email: {useEmail}</div>
                     </div>
                   </div>
