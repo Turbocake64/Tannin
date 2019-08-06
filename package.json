@@ -43,7 +43,8 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/leifaesoph/Tannin/issues"
+    "url": "https://github.com/Turbocake64/Tannin/issues"
   },
-  "homepage": "https://myusername.leifaesoph.github.io/Tannin"
+  "homepage": "https://Turbocake64.github.io/Tannin",
+  "devDependencies": {}
 }

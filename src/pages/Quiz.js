@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Navbar from "../components/Navbar";
 import QuizResults from '../components/QuizResults'
 import FeedbackModal from '../components/FeedbackModal'
@@ -31,7 +31,8 @@ class Quiz extends Component {
     score: 0,
     highScore: 0,
     wineData: [],
-    showMe: false
+    showMe: false,
+    showMeFeedback: false
   }
 
   // componentWillMount shuffles the CharacterCards before the DOM is loaded
@@ -197,6 +198,10 @@ class Quiz extends Component {
   refresh = () => {
     window.location.reload()
   }
+  
+  toEmployeePage = () => {
+    window.location.replace("http://localhost:3000/employeepage")
+  }
 
   addScore = () => {
     const scoreData = { userId: this.state.user._id, wine: this.state.wineData.name, score: this.state.score }
@@ -234,8 +239,13 @@ class Quiz extends Component {
     this.setState(newState)
   }
 
+  hideShowFeedback = () => {
+    const newState = { ...this.state}
+    newState.showMeFeedback = !newState.showMeFeedback
+  }
 
-  hideShow4 = id => {
+
+  hideShow4 = event => {
     const newState = { ...this.state }
     newState.greet = 'Welcome!'
     newState.empuseId = newState.user._id
@@ -246,6 +256,7 @@ class Quiz extends Component {
     console.log(newState.empuseId)
     newState.showMe4 = !newState.showMe4
     this.setState(newState)
+    event.preventDefault()
   }
 
   // renders react elements into the DOM
@@ -261,6 +272,7 @@ class Quiz extends Component {
           lastName={this.state.user.lastName}
           wineName={this.state.wineData.name}
           refresh={this.refresh}
+          toEmployeePage={this.toEmployeePage}
           score={this.state.score}
           addScore={this.addScore}
           showMe={this.state.showMe}
@@ -276,7 +288,7 @@ class Quiz extends Component {
           email={this.state.user.email}
           url='http://localhost:3000/quiz'
           showMe4={this.state.showMe4}
-          hideShow4={this.state.hideShow4}
+          hideShow4={this.hideShow4}
         ></FeedbackModal>
         {/* MODAL ----------------------- */}
 
@@ -332,13 +344,8 @@ class Quiz extends Component {
                 <div className="submitanswersbtnquiz">
                   <button className="submitFinal" onClick={this.handleScoreCalc}>Submit Answers</button>
 
-                  <Link
-                    to="/employeepage"
-                  >
-
-                    <button className="closebtnquiz">Return to List
+                    <button className="closebtnquiz" onClick={this.toEmployeePage}>Return to List
               </button>
-                  </Link>
                 </div>
               </div>
             </div>

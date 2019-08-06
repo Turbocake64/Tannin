@@ -61,7 +61,9 @@ function FeedbackModal ({ showMe4, hideShow4, name, lastName, email, url, handle
                       >
                         Submit
                       </button>
-                      <button className='btnwrap1addemp' onClick={() => hideShow4}>Close</button>
+                      <button className='btnwrap1addemp' onClick={() => hideShow4
+                      
+}>Close</button>
                     </div>
                   </form>
                 </div>
