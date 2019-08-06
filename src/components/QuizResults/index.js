@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 // import './style.css'
 
-function QuizResults ({ showMe, addScore, hideShow, firstName, lastName, wineName, score, refresh }) {
+function QuizResults ({ showMe, addScore, hideShow, firstName, lastName, wineName, score, refresh, toEmployeePage }) {
   return (
 
     <div>
@@ -18,7 +18,7 @@ function QuizResults ({ showMe, addScore, hideShow, firstName, lastName, wineNam
                   <div className='empinfoformtext'>
 
                     <div className='userformtext'>
-                      <div className='infodetails'>Hey {firstName} {lastName}</div>
+                      <div className='infodetails'>{firstName} {lastName}</div>
                       <br></br>
                       <div className='infodetails'>Wine Tested: {wineName}</div>
                       <br></br>
@@ -30,10 +30,9 @@ function QuizResults ({ showMe, addScore, hideShow, firstName, lastName, wineNam
                   <div className='btn1logoutwrap'>
                     <Link
                       to='/employeepage'
-                      // onClick={window.location.reload()}
 
                     >
-                      <button className='btn1logout' onClick={() => addScore()}>Commit Results</button>
+                      <button className='btn1logout' onClick={toEmployeePage}>Commit Results</button>
                     </Link>
                   </div>
                   <div className='btn1logoutwrap'>
