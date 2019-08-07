@@ -1,14 +1,10 @@
-import React, { Component } from "react";
-// import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
-import Navbar from "../components/Navbar";
-import Wine from "../components/Wine";
-// import Footer from "../components/Footer";
-// import Infowine from "../components/Infowine";
-// import { Link } from "react-router-dom";
-import API from "../utils/API";
-import { Container } from "../components/Grid";
-import { List } from "../components/List";
+import React, { Component } from 'react'
+import Card from '../components/Card'
+import Navbar from '../components/Navbar'
+import Wine from '../components/Wine'
+import API from '../utils/API'
+import { Container } from '../components/Grid'
+import { List } from '../components/List'
 
 class Wines extends Component {
   state = {
@@ -47,7 +43,7 @@ class Wines extends Component {
     redirectTo: null,
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getUser()
     this.getMaster()
   }
@@ -104,19 +100,13 @@ class Wines extends Component {
   getMaster = () => {
     API.getMaster()
       .then(res => {
-        console.log('COMEBACK FROM MASTER')
-        console.log(res.data)
-        console.log('MASTER')
-        let hasName = [];
-        for (let i = 0; i < res.data.length; i++) {
-          if (res.data[i].name !== "") {
-            hasName.push(res.data[i])
-          }
+          // console.log('COMEBACK FROM MASTER')
+          // console.log(res.data)
+          // console.log('MASTER')
+          this.setState({
+            winesMaster: res.data
+          })
         }
-        this.setState({
-          winesMaster: hasName.sort((a, b) => a.name.localeCompare(b.name)),
-        })
-      }
       )
       .catch(() =>
         this.setState({
@@ -129,54 +119,54 @@ class Wines extends Component {
 
     console.log('logging out')
     API.logOut().then(response => {
-      this.props.history.push(`/`);
-      console.log(response.data.msg);
+      this.props.history.push('/')
+      console.log(response.data.msg)
       this.setState({
         loggedIn: false,
         user: null,
-      });
-      // this.props.history.push(`/`);
-      console.log(this.state);
-    });
+      })
+      // this.props.history.push('/');
+      console.log(this.state)
+    })
   }
 
   handleWineAdd = id => {
-    console.log('???????????????')
-    console.log(this.state)
-    console.log('REID: ' + this.state.user.restaurantId)
+    console.log('handleWineAdd ----------')
+    console.log('this.state', this.state)
+    console.log('user.restaurantId: ' + this.state.restaurantId)
+    console.log('----------')
     const wine = this.state.winesMaster.find(wine => wine._id === id)
     const wineData = {
       Wines: wine._id,
-      restaurantId: this.state.user.restaurantId
+      restaurantId: this.state.restaurantId
     }
-    console.log('ADDWINE INFO')
+    console.log('ADDWINE INFO ----------')
     console.log(wineData)
-    console.log('ADDWINE INFO')
+    console.log('ADDWINE INFO ----------')
 
     API.addWine(wineData).then(res => {
-      console.log('ADD WINE')
-      console.log(res.data.Wines)
-      console.log('ADD WINE')
+      console.log('ADD WINE ----------')
+      console.log(res.data)
+      console.log('ADD WINE ----------')
       this.setState({
         wineCollections: res.data.Wines
       })
-
     })
   }
 
   sortById = () => {
-    let sortById = [];
+    let sortById = []
     API.getMaster()
       .then(res => {
-        for (let i = 0; i < res.data.length; i++) {
-          if (!this.state.wineCollections.includes(res.data)) {
-            sortById.push(res.data[i])
+          for (let i = 0; i < res.data.length; i++) {
+            if (!this.state.wineCollections.includes(res.data)) {
+              sortById.push(res.data[i])
+            }
           }
+          this.setState({
+            winesMaster: sortById
+          })
         }
-        this.setState({
-          winesMaster: sortById
-        })
-      }
       )
   }
 
@@ -187,7 +177,7 @@ class Wines extends Component {
   }
 
   sortByTannin = () => {
-    let sortByTannin = [];
+    let sortByTannin = []
     API.getMaster()
       .then(res => {
         console.log('Sorted by Tannin')
@@ -200,10 +190,10 @@ class Wines extends Component {
           winesMaster: sortByTannin.sort((a, b) => a.tannin.localeCompare(b.tannin))
         })
       })
-  } 
+  }
 
   sortByBody = () => {
-    let sortByBody = [];
+    let sortByBody = []
     API.getMaster()
       .then(res => {
         console.log('Sorted by Body')
@@ -217,9 +207,9 @@ class Wines extends Component {
         })
       })
   }
-  
+
   sortByRegion = () => {
-    let sortByRegion = [];
+    let sortByRegion = []
     API.getMaster()
       .then(res => {
         for (let i = 0; i < res.data.length; i++) {
@@ -235,7 +225,6 @@ class Wines extends Component {
 
   hideShow3 = id => {
     const newState = { ...this.state }
-
     if (newState.user === null) {
       console.log('you lose')
       newState.greet = 'Hello Guest'
@@ -248,114 +237,74 @@ class Wines extends Component {
       newState.userestaurantName = newState.user.restaurantName
       console.log(newState.useId)
     }
-
     newState.showMe3 = !newState.showMe3
     this.setState(newState)
-
   }
 
-
-
-  render() {
-
+  render () {
     return (
       <Container>
         <Navbar
-          userId={this.state.user._id}
-          userFirstName={this.state.user.firstName}
-          userLastName={this.state.user.lastName}
-          userAdmin={this.state.user.isAdmin}
-          restaurantName={this.state.user.restaurantName}
+          userId={this.state._id}
+          userFirstName={this.state.firstName}
+          userLastName={this.state.lastName}
+          userAdmin={this.state.isAdmin}
+          restaurantName={this.state.restaurantName}
           handleLogout={this.handleLogout}
           hideShow4={this.hideShow4}
-        ></Navbar>
-        {/* <div className="allwrap">
-          <div className="mainWrapper1">
-            <div className="mainWrapper2">
-              <div className="mainWrapper3">
+        />
 
-                <div className="winesnav">
-                  <div>
+        <div className="cardwrapper0">
 
-                  </div>
+          <div className="winesheader">
+            <h1 className="textcenter">
+              <strong>Search for WINES</strong>
+            </h1>
+          </div>
 
-                </div>
-                <br></br>
-
-              </div>
-            </div>
-          </div> */}
-        {/* <Card title="Wine Search">
-              <Form
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-                q={this.state.q}
-              />
-            </Card> */}
-        {/* <div className="cardwrapper0"> */}
-
-        <div className="winesheader">
-
-          <h1 className="textcenter">
-            <strong>Search WINES by</strong>
-          </h1>
-          <button onClick={this.sortById}>ID No.</button>
-          <button onClick={this.sortByName}>Name</button>
-          <button onClick={this.sortByTannin}>Tannin</button>
-          <button onClick={this.sortByBody}>Body</button>
-          <button onClick={this.sortByRegion}>Region</button>
-        </div>
-        <div className="cardwrapper1a">
-          <div className="cardwrapper1">
-            <div className="cardwrapper2">
-              <Card title="">
-                {this.state.winesMaster.length ? (
-                  <List>
-
-                    {this.state.winesMaster.map(wine => (
-                      <Wine
-                        key={wine._id}
-                        id={wine._id}
-                        name={wine.name}
-
-
-                        showMe={this.state.showMe}
-                        hideShow={this.hideShow}
-                        handleWineAdd={this.handleWineAdd}
-                        wineName={this.state.wineName}
-                        wineId={this.state.wineId}
-                        wineacidity={this.state.wineacidity}
-                        wineAgeability={this.state.wineAgeability}
-                        wineAlcohol={this.state.wineAlcohol}
-                        wineBody={this.state.wineBody}
-                        wineDecant={this.state.wineDecant}
-                        wineGlassType={this.state.wineGlassType}
-                        winePairings={this.state.winePairings}
-                        winePrimaryFlavors={this.state.winePrimaryFlavors}
-                        winePronunciation={this.state.winePronunciation}
-                        wineRegion={this.state.wineRegion}
-                        wineSummary={this.state.wineSummary}
-                        wineSweetness={this.state.wineSweetness}
-                        wineTannin={this.state.wineTannin}
-                        wineTemp={this.state.wineTemp}
-                        wineVarietal={this.state.wineVarietal}
-                      >
-                      </Wine>
-                    ))}
-                  </List>
-                ) : (
+          <div className="cardwrapper1a">
+            <div className="cardwrapper1">
+              <div className="cardwrapper2">
+                <Card title="">
+                  {this.state.winesMaster.length ? (
+                    <List>
+                      {this.state.winesMaster.map(wine => (
+                        <Wine
+                          key={wine._id}
+                          id={wine._id}
+                          name={wine.name}
+                          showMe={this.state.showMe}
+                          hideShow={this.hideShow}
+                          handleWineAdd={this.handleWineAdd}
+                          wineName={this.state.wineName}
+                          wineId={this.state.wineId}
+                          wineacidity={this.state.wineacidity}
+                          wineAgeability={this.state.wineAgeability}
+                          wineAlcohol={this.state.wineAlcohol}
+                          wineBody={this.state.wineBody}
+                          wineDecant={this.state.wineDecant}
+                          wineGlassType={this.state.wineGlassType}
+                          winePairings={this.state.winePairings}
+                          winePrimaryFlavors={this.state.winePrimaryFlavors}
+                          winePronunciation={this.state.winePronunciation}
+                          wineRegion={this.state.wineRegion}
+                          wineSummary={this.state.wineSummary}
+                          wineSweetness={this.state.wineSweetness}
+                          wineTannin={this.state.wineTannin}
+                          wineTemp={this.state.wineTemp}
+                          wineVarietal={this.state.wineVarietal}
+                        />
+                      ))}
+                    </List>
+                  ) : (
                     <h2 className="text-center">{this.state.message}</h2>
                   )}
-              </Card>
+                </Card>
+              </div>
             </div>
           </div>
-        </div>
-        {/* </div> */}
-        {/* -------------------- */}
 
-        {/* </div> */}
-        {/*
-        <Footer /> */}
+        </div>
       </Container>
     )
   }

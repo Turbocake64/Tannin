@@ -1,21 +1,14 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar'
 import QuizResults from '../components/QuizResults'
 import FeedbackModal from '../components/FeedbackModal'
-
-// importing components
-// import EmployeePage from './pages/EmployeePage'
 import API from '../utils/API'
-// import EmployeePage from './pages/EmployeePage'
 import QuestionCard from '../components/QuestionCard'
 import Wrapper from '../components/Wrapper'
 import questions from '../questions.json'
-// import wineData from "../franciacorta.json"
 import './style.css'
 
 class Quiz extends Component {
-
   state = {
     user: [],
     questions,
@@ -35,8 +28,7 @@ class Quiz extends Component {
     showMeFeedback: false
   }
 
-  // componentWillMount shuffles the CharacterCards before the DOM is loaded
-  componentWillMount() {
+  componentWillMount () {
     this.getUser()
   }
 
@@ -62,11 +54,11 @@ class Quiz extends Component {
     const admin = { restaurantId: this.state.user.restaurantId }
     API.getSavedWine(admin)
       .then(res => {
-        this.setState({
-          wineCollections: res.data.Wines,
-        })
-        this.getClickedWine()
-      }
+          this.setState({
+            wineCollections: res.data.Wines,
+          })
+          this.getClickedWine()
+        }
       )
       .catch(() =>
         this.setState({
@@ -97,9 +89,9 @@ class Quiz extends Component {
     console.log(filteredQs)
   }
 
-  // Here we use the Fisher-Yates alogrithm to randomize the characters array
-  shuffle(arr) {
-    var j, x, i
+  // Here we use the Fisher-Yates algorithm to randomize the characters array
+  shuffle = (arr) => {
+    let j, x, i
     for (i = arr.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1))
       x = arr[i]
@@ -182,9 +174,7 @@ class Quiz extends Component {
   handleScoreCalc = () => {
     let hundreds = this.state.counter * 100
     let total = this.state.filteredQs.length
-    let totalScore = Math.round(hundreds / total);
-    this.state.score = totalScore
-
+    this.setState(Math.round(hundreds / total))
     this.addScore()
   }
 
@@ -198,9 +188,9 @@ class Quiz extends Component {
   refresh = () => {
     window.location.reload()
   }
-  
+
   toEmployeePage = () => {
-    window.location.replace("http://localhost:3000/employeepage")
+    window.location.replace('http://localhost:3000/employeepage')
   }
 
   addScore = () => {
@@ -218,18 +208,17 @@ class Quiz extends Component {
   }
 
   handleLogout = () => {
-
     console.log('logging out')
     API.logOut().then(response => {
-      console.log(response.data);
-      this.props.history.push(`/`);
+      console.log(response.data)
+      this.props.history.push(`/`)
       this.setState({
         loggedIn: false,
         user: null,
       })
       // this.props.history.push(`/`);
-    });
-  };
+    })
+  }
 
   hideShow = () => {
     const newState = { ...this.state }
@@ -240,10 +229,9 @@ class Quiz extends Component {
   }
 
   hideShowFeedback = () => {
-    const newState = { ...this.state}
+    const newState = { ...this.state }
     newState.showMeFeedback = !newState.showMeFeedback
   }
-
 
   hideShow4 = event => {
     const newState = { ...this.state }
@@ -260,7 +248,7 @@ class Quiz extends Component {
   }
 
   // renders react elements into the DOM
-  render() {
+  render () {
     return (
       // the parent div into which our components will be rendered
       <div className="background">
@@ -276,7 +264,7 @@ class Quiz extends Component {
           score={this.state.score}
           addScore={this.addScore}
           showMe={this.state.showMe}
-        ></QuizResults>
+        />
         {/* MODAL ----------------------- */}
 
         {/* MODAL ----------------------- */}
@@ -289,7 +277,7 @@ class Quiz extends Component {
           url='http://localhost:3000/quiz'
           showMe4={this.state.showMe4}
           hideShow4={this.hideShow4}
-        ></FeedbackModal>
+        />
         {/* MODAL ----------------------- */}
 
         <Navbar
@@ -300,7 +288,7 @@ class Quiz extends Component {
           restaurantName={this.state.user.restaurantName}
           handleLogout={this.handleLogout}
           hideShow4={this.hideShow4}
-        ></Navbar>
+        />
         <Wrapper>
           <div className="qcardwrapper1">
             <div className="qcardwrapper2">
@@ -343,9 +331,7 @@ class Quiz extends Component {
               <div className="submitanswersbtnquizwrap">
                 <div className="submitanswersbtnquiz">
                   <button className="submitFinal" onClick={this.handleScoreCalc}>Submit Answers</button>
-
-                    <button className="closebtnquiz" onClick={this.toEmployeePage}>Return to List
-              </button>
+                  <button className="closebtnquiz" onClick={this.toEmployeePage}>Return to List</button>
                 </div>
               </div>
             </div>
