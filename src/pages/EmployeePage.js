@@ -21,7 +21,7 @@ class EmployeePage extends Component {
     showMeSummary: false,
     showMe6: false,
     showMe4: false,
-    showMe3: false,
+    showMeEmpInfo: false,
     showMe: false,
     user: '',
     loggedIn: true,
@@ -172,9 +172,9 @@ class EmployeePage extends Component {
     this.setState(newState)
   }
 
-  hideShow3 = () => {
+  hideShowEmpInfo = () => {
     const newState = { ...this.state }
-    newState.showMe3 = !newState.showMe3
+    newState.showMeEmpInfo = !newState.showMeEmpInfo
     // newState.scale = this.state.scale > 1 ? 1 : 1.5
 
     this.setState(newState)
@@ -218,7 +218,7 @@ class EmployeePage extends Component {
             userAdmin={this.state.user.isAdmin}
             restaurantName={this.state.user.restaurantName}
             handleLogout={this.handleLogout}
-            hideShow3={this.hideShow3}
+            hideShowEmpInfo={this.hideShowEmpInfo}
             hideShow4={this.hideShow4}
           ></Navbar>
         </div>
@@ -226,13 +226,13 @@ class EmployeePage extends Component {
         <div className="emppagemainwrap">
           <Empinfo
             user={this.state.user}
-            userId={this.state.useId}
-            useEmail={this.state.empuseEmail}
-            usefirstName={this.state.empUserFirstName}
-            uselastName={this.state.empUserLastName}
-            userestaurantName={this.state.empUserRestaurantName}
-            showMe4={this.state.showMe3}
-            hideShow4={this.hideShow3}
+            id={this.state.user._id}
+            email={this.state.user.email}
+            firstName={this.state.user.firstName}
+            lastName={this.state.user.lastName}
+            restaurantName={this.state.user.restaurantName}
+            showMeEmpInfo={this.state.showMeEmpInfo}
+            hideShowEmpInfo={this.hideShowEmpInfo}
             handleLogout={this.handleLogout}
             greet={this.state.greet}
           />
@@ -251,7 +251,7 @@ class EmployeePage extends Component {
             <div className="emppagecol">
               <div className="empwelcomebtnwrap">
                 <button
-                  onClick={() => this.hideShow4()}
+                  onClick={() => this.hideShowEmpInfo()}
                   className="empwelcomebtn"
                 >
                   <Header2 user={this.state.user}/>

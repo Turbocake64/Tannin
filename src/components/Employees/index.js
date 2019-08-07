@@ -3,7 +3,7 @@ import React from 'react'
 import { ListItem } from '../List'
 import './style.css'
 
-function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, empId, hideShowEmp, showMeEmp, empfirstName, emplastName, empEmail }) {
+function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, password, empId, hideShowEmp, showMeEmp, empfirstName, emplastName, empEmail }) {
   console.log(empScores)
   return (
     <div>
@@ -21,7 +21,6 @@ function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, 
               </div>
             </div>
             {/* <div><Link to="/quiz" className="nav-link"><button>Quiz Page</button></Link></div> */}
-            <div className="fontitalicbarcode">Id No: {id}</div>
 
             <div>
               {showMeEmp
@@ -33,6 +32,7 @@ function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, 
                           <div className="infodetails">Id No: {empId}</div>
                           <div className="infodetails">First Name: {empfirstName}</div>
                           <div className="infodetails">Last Name: {emplastName}</div>
+                          <div className="infodetails">Password: {password}</div>
                           <div className="infodetails">Email: {empEmail}</div>
                           <div className="infodetails">Test Scores:</div>
                           {empScores.map(score => {

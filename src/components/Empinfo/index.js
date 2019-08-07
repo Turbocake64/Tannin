@@ -2,11 +2,11 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 import './style.css'
 
-function Empinfo ({ showMe4, userId, hideShow4, useEmail, usefirstName, uselastName, userestaurantName, handleLogout }) {
+function Empinfo ({ showMe, hideShow, handleLogout, id, email, firstName, lastName, restaurantName}) {
   return (
     <div>
-      {showMe4 ?
-        <div onClick={() => hideShow4(userId)} className="overlay9">
+      {showMe ?
+        <div onClick={() => hideShow(id)} className="overlay9">
           <div className="empinfowrapper1">
             <div className="empinfowrapper2">
               <div className="empinfowrapper3">
@@ -16,14 +16,14 @@ function Empinfo ({ showMe4, userId, hideShow4, useEmail, usefirstName, uselastN
                   </div>
                   <div className="empinfoformtext">
                     <div className="userformtext">
-                      <div className="infodetails">Id No: {userId}</div>
+                      <div className="infodetails">Id No: {id}</div>
                       <br />
 
-                      <div className="infodetails">Restaurant: {userestaurantName}</div>
+                      <div className="infodetails">Restaurant: {restaurantName}</div>
                       <br></br>
-                      <div className="infodetails">Employee Name: {usefirstName} {uselastName}</div>
+                      <div className="infodetails">Employee Name: {firstName} {lastName}</div>
                       <br></br>
-                      <div className="infodetails">Email: {useEmail}</div>
+                      <div className="infodetails">Email: {email}</div>
                     </div>
                   </div>
                   <br />
