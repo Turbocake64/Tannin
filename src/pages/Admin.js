@@ -1,16 +1,15 @@
-import React, { Component } from "react";
-import Restowine from "../components/Restowine";
-import Employees from "../components/Employees";
-import Addemployee from "../components/Addemployee";
-import FeedbackModal from '../components/FeedbackModal';
-// import Footer from "../components/Footer";
-import Navbar from "../components/Navbar"
-import Userinfo from '../components/Userinfo'
-import API from "../utils/API";
-import { Container } from "../components/Grid";
-import { List } from "../components/List";
-import { Link } from "react-router-dom";
-import "./style.css";
+import React, { Component } from 'react'
+import Restowine from '../components/Restowine'
+import Employees from '../components/Employees'
+import Empinfo from '../components/Empinfo'
+import Addemployee from '../components/Addemployee'
+import FeedbackModal from '../components/FeedbackModal'
+import Navbar from '../components/Navbar'
+import API from '../utils/API'
+import { Container } from '../components/Grid'
+import { List } from '../components/List'
+import { Link } from 'react-router-dom'
+import './style.css'
 
 class Admin extends Component {
   state = {
@@ -69,7 +68,7 @@ class Admin extends Component {
     userestaurantName: ''
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getUser()
   }
 
@@ -175,25 +174,23 @@ class Admin extends Component {
   }
 
   getSavedWine = () => {
-    console.log('////////////////')
+    console.log('getSavedWine user.restaurantId ----------')
     console.log(this.state.user.restaurantId)
-    console.log('////////////////')
+    console.log('----------')
     const admin = { restaurantId: this.state.user.restaurantId }
     API.getSavedWine(admin)
       .then(res => {
-        // console.log(res.data);
-        console.log('DEDADAEDAEDAEDAEDDA')
-        console.log(res.data._id)
-        // console.log(res.data[0]);
-        console.log('SAVESTAFF')
-        console.log(res.data)
-        console.log('SAVESTAFF')
-        this.setState({
-          employeesList: res.data.Employees.sort((a, b) => a.lastName.localeCompare(b.lastName)),
-          wineCollections: res.data.Wines.sort((a, b) => a.name.localeCompare(b.name)),
-
-        })
-      }
+          console.log('getSavedWine res.data._id ----------')
+          console.log(res.data._id)
+          console.log('----------')
+          console.log('getSavedWine res.data----------')
+          console.log(res.data)
+          console.log('----------')
+          this.setState({
+            employeesList: res.data.Employees.sort((a, b) => a.lastName.localeCompare(b.lastName)),
+            wineCollections: res.data.Wines.sort((a, b) => a.name.localeCompare(b.name)),
+          })
+        }
       )
       .catch(() =>
         this.setState({
@@ -207,10 +204,10 @@ class Admin extends Component {
       [name]: value
     })
   }
-  handleAddEmpolyeeFormSubmit = event => {
+  handleAddEmployeeFormSubmit = event => {
     event.preventDefault()
     this.addEmployee()
-    // this.hideShow2();
+    // this.hideShow2()
   }
 
   addEmployee = () => {
@@ -223,14 +220,16 @@ class Admin extends Component {
       restaurantId: this.state.user.restaurantId,
       restaurantName: this.state.user.restaurantName
     }
-    console.log('ADDRESNAME?????')
+    console.log('employeeData ----------')
     console.log(employeeData)
+    console.log('----------')
     API.addEmployee(employeeData).then((res) => {
-      console.log('ADD Employees')
+      console.log('ADD Employee ----------')
       console.log(res.data.employee)
       console.log(res.data.restaurant)
+      console.log('----------')
       if (res.data === 'Employee already exists') {
-        alert(res.data)
+        // alert(res.data)
         this.hideShow2()
       } else {
         // alert(JSON.stringify(res.data))
@@ -244,7 +243,7 @@ class Admin extends Component {
   }
 
   handleWineDelete = id => {
-    console.log('/////')
+    console.log('id ----------')
     console.log(id)
     const deleteWine = { id: id, restaurantId: this.state.user.restaurantId }
     console.log(deleteWine)
@@ -253,10 +252,9 @@ class Admin extends Component {
 
   handleEmployeeDelete = id => {
     const deleteEmp = { id: id, restaurantId: this.state.user.restaurantId }
-    console.log('??????????????')
+    console.log('deleteEmp ----------')
     console.log(deleteEmp)
-    console.log('??????????????')
-    // const deleltData = {id: id, restaurantId: this.state.restaurantId}
+    console.log('----------')
     API.deleteEmployee(deleteEmp).then(res =>
       this.componentDidMount()
     )
@@ -269,7 +267,7 @@ class Admin extends Component {
         {/* MODAL ----------------------- */}
         <Addemployee
           handleAddEmployeeChange={this.handleAddEmployeeChange}
-          handleAddEmpolyeeFormSubmit={this.handleAddEmpolyeeFormSubmit}
+          handleAddEmpolyeeFormSubmit={this.handleAddEmployeeFormSubmit}
           id={this.state.id}
           restaurant={this.state.restaurant}
           name={this.state.name}
@@ -284,10 +282,10 @@ class Admin extends Component {
         {/* MODAL ----------------------- */}
         <FeedbackModal
           id={this.state.id}
-          restaurant={this.state.user.restaurant}
-          name={this.state.user.firstName}
-          lastName={this.state.user.lastName}
-          email={this.state.user.email}
+          restaurant={this.state.restaurant}
+          name={this.state.firstName}
+          lastName={this.state.lastName}
+          email={this.state.email}
           url='http://localhost:3000/admin'
           showMe={this.state.showMeFeedback}
           hideShow={this.state.hideShowFeedback}
@@ -296,11 +294,11 @@ class Admin extends Component {
 
         <div className="navBar">
           <Navbar
-            userId={this.state.user._id}
-            userFirstName={this.state.user.firstName}
-            userLastName={this.state.user.lastName}
-            userAdmin={this.state.user.isAdmin}
-            restaurantName={this.state.user.restaurantName}
+            userId={this.state._id}
+            userFirstName={this.state.firstName}
+            userLastName={this.state.lastName}
+            userAdmin={this.state.isAdmin}
+            restaurantName={this.state.restaurantName}
             handleLogout={this.handleLogout}
             hideShowUserInfo={this.hideShowUserInfo}
             hideShowFeedback={this.hideShowFeedback}
@@ -330,7 +328,7 @@ class Admin extends Component {
                 <div>
                   <Link to="/wines">
                     <button className="addwinebtnmain">
-                      <i className="fas fa-wine-bottle" />
+                      <i className="fas fa-wine-bottle"/>
                     </button>
                   </Link>
                 </div>
@@ -370,8 +368,8 @@ class Admin extends Component {
                     ))}
                   </List>
                 ) : (
-                    <h2 className="text-center">Not Available</h2>
-                  )}
+                  <h2 className="text-center">Not Available</h2>
+                )}
               </div>
             </div>
           </div>
@@ -383,7 +381,7 @@ class Admin extends Component {
                 <div className="textadmin">Employees</div>
                 <div>
                   <button className="addempbtnmain" onClick={() => this.hideShow2()}>
-                    <i className="fas fa-user-plus" />
+                    <i className="fas fa-user-plus"/>
                   </button>
                 </div>
               </div>
@@ -412,13 +410,12 @@ class Admin extends Component {
                     ))}
                   </List>
                 ) : (
-                    <h2 className="text-center">Add Employees</h2>
-                  )}
+                  <h2 className="text-center">Add Employees</h2>
+                )}
               </div>
             </div>
           </div>
         </div>
-        {/* <Footer /> */}
       </Container>
     )
   }

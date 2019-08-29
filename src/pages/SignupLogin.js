@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import API from '../utils/API'
-// import Footer from '../components/Footer'
 import SignupLoginForm from '../components/SignupLoginForm'
 import { Container } from '../components/Grid'
 
