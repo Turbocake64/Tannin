@@ -1,10 +1,95 @@
-.wineandemployeewrapper {
+
+
+a:link {
+    text-decoration: none;
+    color: none;
+}
+
+.active {
+    text-decoration-style: none;
+}
+
+.allwrap {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    height: 100vh;
+}
+
+.brandCol {
+    margin-top: 0;
+    width: 100%;
+    background-color: rgb(74, 53, 107);
+    color: rgb(8, 8, 8);
+    height: 50px;
+}
+
+button:focus {
+    outline: none !important;
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
+}
+
+.btnadminpage {
+    color: rgb(3, 3, 3);
+    /* background-color: rgb(173, 24, 61); */
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    border-color: rgb(7, 7, 7);
+}
+
+.btnadminpagewrap {
     justify-content: center;
     display: flex;
-    flex-direction: row;
+    margin-top: 100px;
+}
+
+.btn:focus {
+    outline: none !important;
+}
+
+button:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.cardwrapper0 {
+    width: 60%;
     height: 100%;
+    background-color: rgba(253, 227, 167, 1);
+    /* background-color: rgb(131, 11, 61); */
+}
+
+.cardwrapper1 {
+    width: 80%;
+    height: 80vh;
+    /* beige */
+    background-color: rgba(253, 227, 167, 1);
+}
+
+.cardwrapper1a {
+    justify-content: center;
+    display: flex;
     width: 100%;
-    margin: 0;
+    background-color: rgba(253, 227, 167, 1);
+    /* background-color: black; */
+    /* height: 100vh; */
+}
+
+.cardwrapper2 {
+    width: 80%;
+    height: 80vh;
+    border-radius: 20px;
+    overflow: auto;
 }
 
 .container {
@@ -12,45 +97,10 @@
     height: 100%;
 }
 
-.brandCol {
-    margin-top: 0;
-    width: 100%;
-    /* background-color: rgb(120, 107, 156); */
-    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(103, 83, 194))) fixed; */
-    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(24, 23, 23)), to(rgb(44, 35, 83))) fixed; */
-    background-color: rgb(74, 53, 107);
-    color: rgb(8, 8, 8);
-    height: 50px;
-}
-
-.wineCol {
-    width: 40%;
-    background-color: rgba(253, 227, 167, 1);
-}
-
 .employeeCol {
     width: 40%;
     margin: 0;
     background-color: rgba(253, 227, 167, 1);
-}
-
-.wineColWrap {
-    justify-content: center;
-    display: flex;
-}
-
-.wineColWrap1 {
-    background-color: rgb(228, 118, 118);
-    /* background-color: rgb(124, 76, 103); */
-    height: 70vh;
-    overflow: auto;
-    width: 80%;
-    margin-top: 20px;
-    border-radius: 10px;
-    /* border-style: solid; */
-    /* border-width: 10px; */
-    border-color: rgb(73, 22, 22);
-    box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
 }
 
 .employeeColWrap {
@@ -83,6 +133,65 @@
     width: 80%;
 }
 
+
+.mainWrapper1 {
+    width: 40%;
+    background-color: rgba(253, 227, 167, 1);
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(5, 5, 5)), to(rgb(59, 58, 58))) fixed; */
+    color: white;
+    margin: 0;
+    /* box-shadow: 5px 3px 6px rgb(192, 187, 187), 0 3px 6px #999; */
+    height: 100vh;
+}
+
+.navbar-brand:focus {
+    outline: none !important;
+}
+
+.nav-link:focus {
+    outline: none !important;
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
+}
+
+.nav-link:link {
+    text-decoration-style: none;
+}
+
+.wineandemployeewrapper {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.wineCol {
+    width: 40%;
+    background-color: rgba(253, 227, 167, 1);
+}
+
+.wineColWrap {
+    justify-content: center;
+    display: flex;
+}
+
+.wineColWrap1 {
+    background-color: rgb(228, 118, 118);
+    /* background-color: rgb(124, 76, 103); */
+    height: 70vh;
+    overflow: auto;
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 10px;
+    /* border-style: solid; */
+    /* border-width: 10px; */
+    border-color: rgb(73, 22, 22);
+    box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
+}
+
 .wineTitleWrap {
     display: flex;
     justify-content: center;
@@ -98,117 +207,19 @@
     flex-direction: row;
 }
 
-.nav-link:link {
-    text-decoration-style: none;
-}
-
-.active {
-    text-decoration-style: none;
-}
-
-a:link {
-    text-decoration: none;
-    color: none;
-}
-
-button:focus {
-    outline: none !important;
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2);
-}
-
-.btnadminpage {
-    color: rgb(3, 3, 3);
-    /* background-color: rgb(173, 24, 61); */
-    background-color: transparent;
-    border-style: solid;
-    border-width: 1px;
-    height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 50px;
-    font-size: 15px;
-    border-color: rgb(7, 7, 7);
-}
-
-.btnadminpagewrap {
-    justify-content: center;
-    display: flex;
-    margin-top: 100px;
-}
-
 ::-webkit-scrollbar {
     display: none;
 }
 
-.navbar-brand:focus {
-    outline: none !important;
-}
-
-.nav-link:focus {
-    outline: none !important;
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2);
-}
-
-.btn:focus {
-    outline: none !important;
-}
-
-button:hover {
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.cardwrapper1 {
-    width: 80%;
-    height: 80vh;
-    /* beige */
-    background-color: rgba(253, 227, 167, 1);
-}
-
-.cardwrapper1a {
+#myInput {
     justify-content: center;
     display: flex;
+    background-color: white; 
     width: 100%;
-    background-color: rgba(253, 227, 167, 1);
-    /* background-color: black; */
-    /* height: 100vh; */
-}
-
-.cardwrapper2 {
-    width: 80%;
-    height: 80vh;
-    border-radius: 20px;
-    overflow: auto;
-}
-
-.allwrap {
-    justify-content: center;
-    flex-direction: row;
-    display: flex;
-    height: 100vh;
-}
-
-.mainWrapper1 {
-    width: 40%;
-    background-color: rgba(253, 227, 167, 1);
-    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(5, 5, 5)), to(rgb(59, 58, 58))) fixed; */
-    color: white;
-    margin: 0;
-    /* box-shadow: 5px 3px 6px rgb(192, 187, 187), 0 3px 6px #999; */
-    height: 100vh;
-}
-
-.cardwrapper0 {
-    width: 60%;
-    height: 100%;
-    background-color: rgba(253, 227, 167, 1);
-    /* background-color: rgb(131, 11, 61); */
+    font-size: 20px; 
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 3px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
 }
 
 .winesheader {
@@ -343,6 +354,24 @@ button:focus {
     font-size: 15px;
     margin-bottom: 50px;
     font-size: 25px;
+}
+
+.wineSeachTotal {
+  justify-content: center;
+  display: flex;
+  /* margin: 10%, 0%, 10%, 0% */
+}
+
+.wineSearchTop {
+    Justify-content: center;
+    display:flex;
+    width: 100%;
+}
+
+.wineSearchBar {
+    justify-content: center;
+    padding: 20%, 0%, 20%, 0;
+    width: 60%;
 }
 
 p {

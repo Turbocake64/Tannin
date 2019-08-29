@@ -20,7 +20,6 @@ function Restowine ({ handleWineDelete, name, id, hideShow, showMe, wineName, wi
               </div>
             </div>
             {/* <div><Link to="/quiz" className="nav-link"><button>Quiz Page</button></Link></div> */}
-            <div className="fontitalicbarcode">Product Id: {id}</div>
 
             <div>
               {showMe

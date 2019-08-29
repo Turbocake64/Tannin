@@ -67,7 +67,7 @@ export default {
   },
   getSavedWine: function (admin) {
     console.log(admin)
-    return axios.post('/api/getwine/', admin)
+    return axios.post('http://localhost:3001/api/getwine/', admin)
   },
   addEmployee: function (employeeData) {
     console.log(employeeData)
@@ -75,18 +75,18 @@ export default {
   },
   addWine: function (wineData) {
     console.log(wineData)
-    return axios.put('/api/addwine/', wineData)
+    return axios.put('http://localhost:3001/api/addwine/', wineData)
   },
   addScore: function (scoreData) {
     console.log(scoreData)
-    return axios.put('/api/employees/score', scoreData)
+    return axios.put('http://localhost:3001/api/employees/score', scoreData)
   },
   deleteWine: function (deleteWine) {
     console.log(deleteWine)
-    return axios.put('/api/restaurants/delete', deleteWine)
+    return axios.put('http://localhost:3001/api/restaurants/delete', deleteWine)
   },
   deleteEmployee: function (deleteEmp) {
     console.log(deleteEmp)
-    return axios.put('/api/addEmployee/', deleteEmp)
+    return axios.put('http://localhost:3001/api/addEmployee/', deleteEmp)
   },
 }

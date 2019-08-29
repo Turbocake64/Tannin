@@ -20,8 +20,8 @@ class Admin extends Component {
 
     showMe: false,
     showMe2: false,
-    showMe3: false,
-    showMe4: false,
+    showMeUserInfo: false,
+    showMeFeedback: false,
     showMeEmp: false,
     // text: 'add wine',
     wineId: '',
@@ -70,15 +70,14 @@ class Admin extends Component {
 
   componentDidMount () {
     this.getUser()
-    // console.log('Here is our User:', this.state.user)
-    // console.log(this.state.user.isAdmin)
   }
 
   getUser = () => {
     API.getUser().then(response => {
       console.log('LOGGED IN USER: ', response.data.user)
       if (response.data.user) {
-        console.log('THERE IS A USER ', response.data)
+        console.log('THERE IS A USER')
+        console.log(response.data)
         this.setState({
           loggedIn: true,
           user: response.data.user,
@@ -93,13 +92,8 @@ class Admin extends Component {
       }
     })
   }
-  hideShow2 = () => {
-    const newState = { ...this.state }
-    newState.showMe2 = !newState.showMe2
-    // newState.scale = this.state.scale > 1 ? 1 : 1.5
 
-    this.setState(newState)
-  }
+  // Hide Show Functions
 
   hideShow = id => {
     const newState = { ...this.state }
@@ -127,7 +121,15 @@ class Admin extends Component {
     this.setState(newState)
   }
 
-  hideShowEmp = id => {
+  hideShow2 = () => {
+    const newState = { ...this.state }
+    newState.showMe2 = !newState.showMe2
+    // newState.scale = this.state.scale > 1 ? 1 : 1.5
+
+    this.setState(newState)
+  }
+
+  hideShowEmployeeData = id => {
     const newState = { ...this.state }
     const emp = this.state.employeesList.find(emp => emp._id === id)
     newState.empId = id
@@ -138,6 +140,18 @@ class Admin extends Component {
     newState.showMeEmp = !newState.showMeEmp
     this.setState(newState)
     console.log(newState.empScores)
+  }
+
+  hideShowUserInfo = () => {
+    const newState = { ...this.state }
+    newState.showMeUserInfo = !newState.showMeUserInfo
+    this.setState(newState)
+  }
+
+  hideShowFeedback = () => {
+    const newState = { ...this.state }
+    newState.showMeFeedback = !newState.showMeFeedback
+    this.setState(newState)
   }
 
   handleInputChange = event => {
@@ -231,11 +245,8 @@ class Admin extends Component {
   handleWineDelete = id => {
     console.log('id ----------')
     console.log(id)
-    console.log('----------')
     const deleteWine = { id: id, restaurantId: this.state.user.restaurantId }
-    console.log('deleteWine ----------')
     console.log(deleteWine)
-    console.log('----------')
     API.deleteWine(deleteWine).then(res => this.componentDidMount())
   }
 
@@ -249,46 +260,9 @@ class Admin extends Component {
     )
   }
 
-  hideShow3 = id => {
-    const newState = { ...this.state }
-    if (newState.user === null) {
-      console.log('you lose')
-      newState.greet = 'Hello Guest'
-    } else if (newState.user.firstName) {
-      newState.greet = 'Welcome'
-      newState.useId = newState.user._id
-      newState.usefirstName = newState.user.firstName
-      newState.uselastName = newState.user.lastName
-      newState.useEmail = newState.user.email
-      newState.userestaurantName = newState.user.restaurantName
-      console.log(newState.useId)
-    }
-    newState.showMe3 = !newState.showMe3
-    this.setState(newState)
-  }
-
-  hideShow4 = () => {
-    const newState = { ...this.state }
-    newState.showMe4 = !newState.showMe4
-    // newState.scale = this.state.scale > 1 ? 1 : 1.5
-
-    this.setState(newState)
-  }
-
-  render () {
+  render() {
     return (
       <Container>
-        {/* <Userinfo
-          useId={this.state.useId}
-          usefirstName={this.state.usefirstName}
-          uselastName={this.state.uselastName}
-          userestaurantName={this.state.userestaurantName}
-          useEmail={this.state.useEmail}
-          showMe3={this.state.showMe3}
-          hideShow3={this.hideShow3}
-          handleLogout={this.handleLogout}
-          greet={this.state.greet}
-        ></Userinfo> */}
 
         {/* MODAL ----------------------- */}
         <Addemployee
@@ -313,9 +287,9 @@ class Admin extends Component {
           lastName={this.state.lastName}
           email={this.state.email}
           url='http://localhost:3000/admin'
-          showMe4={this.state.showMe4}
-          hideShow4={this.state.hideShow4}
-        />
+          showMe={this.state.showMeFeedback}
+          hideShow={this.state.hideShowFeedback}
+        ></FeedbackModal>
         {/* MODAL ----------------------- */}
 
         <div className="navBar">
@@ -326,22 +300,22 @@ class Admin extends Component {
             userAdmin={this.state.isAdmin}
             restaurantName={this.state.restaurantName}
             handleLogout={this.handleLogout}
-            hideShow3={this.hideShow3}
-            hideShow4={this.hideShow4}
-          />
+            hideShowUserInfo={this.hideShowUserInfo}
+            hideShowFeedback={this.hideShowFeedback}
+          >
+          </Navbar>
 
-          <Empinfo
+          <Userinfo
             user={this.state.user}
-            userId={this.state.useId}
-            useEmail={this.state.empuseEmail}
-            usefirstName={this.state.empUserFirstName}
-            uselastName={this.state.empUserLastName}
-            userestaurantName={this.state.empUserRestaurantName}
-            showMe4={this.state.showMe3}
-            hideShow4={this.hideShow3}
+            id={this.state.user._id}
+            email={this.state.user.email}
+            firstName={this.state.user.firstName}
+            lastName={this.state.user.lastName}
+            restaurantName={this.state.user.restaurantName}
+            showMe={this.state.showMeUserInfo}
+            hideShow={this.hideShowUserInfo}
             handleLogout={this.handleLogout}
-            greet={this.state.greet}
-          />
+          ></Userinfo>
         </div>
 
         <div className="wineandemployeewrapper">
@@ -423,14 +397,14 @@ class Admin extends Component {
                         id={employee._id}
                         firstName={employee.firstName}
                         lastName={employee.lastName}
-                        handleWineDelete={this.handleWineDelete}
+                        password={employee.password}
                         empId={this.state.empId}
                         empfirstName={this.state.empfirstName}
                         emplastName={this.state.emplastName}
                         empEmail={this.state.empEmail}
                         empScores={this.state.empScores}
-                        showMeEmp={this.state.showMeEmp}
-                        hideShowEmp={this.hideShowEmp}
+                        showMe={this.state.showMeEmp}
+                        hideShow={this.hideShowEmployeeData}
                         handleEmployeeDelete={this.handleEmployeeDelete}
                       />
                     ))}

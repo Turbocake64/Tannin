@@ -3,7 +3,7 @@ import React from 'react'
 import { ListItem } from '../List'
 import './style.css'
 
-function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, empId, hideShowEmp, showMeEmp, empfirstName, emplastName, empEmail }) {
+function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, password, empId, hideShow, showMe, empfirstName, emplastName, empEmail }) {
   console.log(empScores)
   return (
     <div>
@@ -13,7 +13,7 @@ function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, 
             <div className="empnamecollectionname1">
               {/* <div className="fontitalicsmall">{name}</div> */}
               <div>
-                <button className="empnamebtn1" onClick={() => hideShowEmp(id)}>{firstName} {lastName}</button>
+                <button className="empnamebtn1" onClick={() => hideShow(id)}>{firstName} {lastName}</button>
               </div>
               <div>
                 <button className="empdelbtn" onClick={() => handleEmployeeDelete(id)}><i
@@ -21,11 +21,10 @@ function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, 
               </div>
             </div>
             {/* <div><Link to="/quiz" className="nav-link"><button>Quiz Page</button></Link></div> */}
-            <div className="fontitalicbarcode">Id No: {id}</div>
 
             <div>
-              {showMeEmp
-                ? <div onClick={() => hideShowEmp(empId)} className="overlay7">
+              {showMe
+                ? <div onClick={() => hideShow(empId)} className="overlay7">
                   <div className="empinfo1">
                     <div className="empinfo2">
                       <div className="empinfo3">
@@ -33,6 +32,7 @@ function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, 
                           <div className="infodetails">Id No: {empId}</div>
                           <div className="infodetails">First Name: {empfirstName}</div>
                           <div className="infodetails">Last Name: {emplastName}</div>
+                          <div className="infodetails">Password: {password}</div>
                           <div className="infodetails">Email: {empEmail}</div>
                           <div className="infodetails">Test Scores:</div>
                           {empScores.map(score => {
@@ -48,15 +48,12 @@ function Employees ({ handleEmployeeDelete, empScores, id, firstName, lastName, 
                           }
                           {console.log('hoooooy')}
                           {console.log(empScores)}
-                          {/* <div className="infodetails">Email: {empScores}</div> */}
                         </div>
 
                         <br />
 
                       </div>
                       <div className="btnwrap">
-                        {/* <button><Link to="/admin">Others</Link></button> */}
-                        {/* <button className="btnwrap1buserclose" onClick={() => hideShowEmp(empId)}><i className="fas fa-times-circle" /></button> */}
                       </div>
                     </div>
                   </div>

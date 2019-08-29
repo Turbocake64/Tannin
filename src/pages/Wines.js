@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
-import Card from '../components/Card'
-import Navbar from '../components/Navbar'
-import Wine from '../components/Wine'
-import API from '../utils/API'
-import { Container } from '../components/Grid'
-import { List } from '../components/List'
+import React, { Component } from "react";
+import Card from "../components/Card";
+import Navbar from "../components/Navbar";
+import Wine from "../components/Wine";
+import API from "../utils/API";
+import { Container } from "../components/Grid";
+import { List } from "../components/List";
 
 class Wines extends Component {
   state = {
     winesMaster: [],
-    masterTannin: [],
+    displayWines: [],
     wineCollections: [],
+
     showMe: false,
     wineId: '',
     wineName: '',
@@ -45,21 +46,17 @@ class Wines extends Component {
 
   componentDidMount () {
     this.getUser()
-    this.getMaster()
   }
 
   getUser = () => {
     API.getUser().then(response => {
-      console.log('LOGGED IN USER: ', response)
-      if (!!response.data.user) {
-        console.log('THERE IS A USER')
-        console.log(response.data)
+      console.log('Current User: ', response)
+      if (response.data.user) {
+        this.getMaster()
         this.setState({
           loggedIn: true,
           user: response.data.user
         })
-
-        // this.getSavedWine()
       } else {
         this.setState({
           loggedIn: false,
@@ -68,6 +65,48 @@ class Wines extends Component {
         })
       }
     })
+  }
+
+  getMaster = () => {
+    API.getMaster()
+      .then(res => {
+        let winesMaster = []
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].name !== "") {
+            winesMaster.push(res.data[i])
+          }
+        }
+        this.getSavedWine()
+        this.setState({
+          winesMaster: winesMaster.sort((a, b) => a.name.localeCompare(b.name)),
+        })
+      }
+      )
+      .catch(() =>
+        this.setState({
+          message: 'Wine not available'
+        })
+      )
+  }
+
+  getSavedWine = () => {
+    const admin = { restaurantId: this.state.user.restaurantId }
+    API.getSavedWine(admin)
+      .then(res => {
+        const collections = res.data.Wines
+        const master = this.state.winesMaster
+        let displayWines = master.filter(wine => !collections.some(wine2 => wine._id === wine2._id));
+        this.setState({
+          wineCollections: res.data.Wines,
+          // ABCollections: res.data.Wines.sort((a, b) => a.name.localeCompare(b.name)),
+          displayWines: displayWines
+        })
+      })
+      .catch(() =>
+        this.setState({
+          message: "hey"
+        })
+      )
   }
 
   hideShow = id => {
@@ -97,25 +136,7 @@ class Wines extends Component {
     this.setState(newState)
   }
 
-  getMaster = () => {
-    API.getMaster()
-      .then(res => {
-          // console.log('COMEBACK FROM MASTER')
-          // console.log(res.data)
-          // console.log('MASTER')
-          this.setState({
-            winesMaster: res.data
-          })
-        }
-      )
-      .catch(() =>
-        this.setState({
-          message: 'Wine not available'
-        })
-      )
-  }
-
-  handleLogout = event => {
+  handleLogout = () => {
 
     console.log('logging out')
     API.logOut().then(response => {
@@ -131,96 +152,95 @@ class Wines extends Component {
   }
 
   handleWineAdd = id => {
-    console.log('handleWineAdd ----------')
-    console.log('this.state', this.state)
-    console.log('user.restaurantId: ' + this.state.restaurantId)
-    console.log('----------')
+
     const wine = this.state.winesMaster.find(wine => wine._id === id)
     const wineData = {
       Wines: wine._id,
       restaurantId: this.state.restaurantId
     }
-    console.log('ADDWINE INFO ----------')
-    console.log(wineData)
-    console.log('ADDWINE INFO ----------')
 
     API.addWine(wineData).then(res => {
-      console.log('ADD WINE ----------')
-      console.log(res.data)
-      console.log('ADD WINE ----------')
+      console.log('ADD WINE')
+      console.log(res.data.Wines)
+      console.log('ADD WINE')
+      let displayWines = this.state.displayWines.filter(wine => wine._id !== id)
       this.setState({
-        wineCollections: res.data.Wines
+        wineCollections: res.data.Wines,
+        displayWines: displayWines
       })
     })
   }
 
+  searchByName = () => {
+    // let input = document.getElementById('myInput');
+    // let filter = input.value.toUpperCase();
+    // let ul = document.getElementsByClassName("myUL");
+    // let li = document.getElementsByClassName("myLI");
+
+    // for (let i = 0; i < li.length; i++) {
+    //   let a = li[i].getElementsByClassName("myLI")[0];
+    //   let txtValue = a.textContent || a.innerText;
+    //   if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    //     li[i].style.display = "";
+    //   } else {
+    //     li[i].style.display = "none";
+    //   }
+    // }
+
+  }
+
   sortById = () => {
-    let sortById = []
-    API.getMaster()
-      .then(res => {
-          for (let i = 0; i < res.data.length; i++) {
-            if (!this.state.wineCollections.includes(res.data)) {
-              sortById.push(res.data[i])
-            }
-          }
-          this.setState({
-            winesMaster: sortById
-          })
-        }
-      )
+    let display = this.state.winesMaster.filter(wine => !this.state.wineCollections.some(wine2 => wine._id === wine2._id));
+    let sortById = display.sort((a, b) => a._id.localeCompare(b._id))
+    this.setState({
+      displayWines: sortById
+    })
   }
 
   sortByName = () => {
+    let display = this.state.winesMaster.filter(wine => !this.state.wineCollections.some(wine2 => wine._id === wine2._id));
     this.setState({
-      winesMaster: this.state.winesMaster.sort((a, b) => a.name.localeCompare(b.name))
+      displayWines: display.sort((a, b) => a.name.localeCompare(b.name))
     })
   }
 
   sortByTannin = () => {
-    let sortByTannin = []
-    API.getMaster()
-      .then(res => {
-        console.log('Sorted by Tannin')
-        for (let i = 0; i < res.data.length; i++) {
-          if (!!res.data[i].tannin && !this.state.wineCollections.includes(res.data)) {
-            sortByTannin.push(res.data[i])
-          }
-        }
-        this.setState({
-          winesMaster: sortByTannin.sort((a, b) => a.tannin.localeCompare(b.tannin))
-        })
-      })
+    let sortByTannin = [];
+    let display = this.state.winesMaster.filter(wine => !this.state.wineCollections.some(wine2 => wine._id === wine2._id));
+    for (let i = 0; i < display.length; i++) {
+      if (display[i].tannin) {
+        sortByTannin.push(display[i])
+      }
+    }
+    this.setState({
+      displayWines: sortByTannin.sort((a, b) => a.tannin.localeCompare(b.tannin))
+    })
   }
 
   sortByBody = () => {
-    let sortByBody = []
-    API.getMaster()
-      .then(res => {
-        console.log('Sorted by Body')
-        for (let i = 0; i < res.data.length; i++) {
-          if (!!res.data[i].body && !this.state.wineCollections.includes(res.data)) {
-            sortByBody.push(res.data[i])
-          }
-        }
-        this.setState({
-          winesMaster: sortByBody.sort((a, b) => a.body.localeCompare(b.body))
-        })
-      })
+    let sortByBody = [];
+    let display = this.state.winesMaster.filter(wine => !this.state.wineCollections.some(wine2 => wine._id === wine2._id));
+    for (let i = 0; i < display.length; i++) {
+      if (display[i].body) {
+        sortByBody.push(display[i])
+      }
+    }
+    this.setState({
+      displayWines: sortByBody.sort((a, b) => a.body.localeCompare(b.body))
+    })
   }
 
   sortByRegion = () => {
-    let sortByRegion = []
-    API.getMaster()
-      .then(res => {
-        for (let i = 0; i < res.data.length; i++) {
-          if (!!res.data[i].region && !this.state.wineCollections.includes(res.data)) {
-            sortByRegion.push(res.data[i])
-          }
-        }
-        this.setState({
-          winesMaster: sortByRegion.sort((a, b) => a.region.localeCompare(b.region))
-        })
-      })
+    let sortByRegion = [];
+    let display = this.state.winesMaster.filter(wine => !this.state.wineCollections.some(wine2 => wine._id === wine2._id));
+    for (let i = 0; i < display.length; i++) {
+      if (display[i].region) {
+        sortByRegion.push(display[i])
+      }
+    }
+    this.setState({
+      displayWines: sortByRegion.sort((a, b) => a.region.localeCompare(b.region))
+    })
   }
 
   hideShow3 = id => {
@@ -241,7 +261,8 @@ class Wines extends Component {
     this.setState(newState)
   }
 
-  render () {
+  render() {
+
     return (
       <Container>
         <Navbar
@@ -252,9 +273,38 @@ class Wines extends Component {
           restaurantName={this.state.restaurantName}
           handleLogout={this.handleLogout}
           hideShow4={this.hideShow4}
-        />
+        ></Navbar>
 
-        <div className="cardwrapper0">
+        <div className="winesheader">
+
+          <div className="wineSearchTop">
+            <h1 className="textcenter">
+              <strong>Search WINES by</strong>
+            </h1>
+            <div>
+            <button onClick={this.sortById}>ID No.</button>
+            <button onClick={this.sortByName}>Name</button>
+            <button onClick={this.sortByTannin}>Tannin</button>
+            <button onClick={this.sortByBody}>Body</button>
+            <button onClick={this.sortByRegion}>Region</button>
+            </div>
+          </div>
+        </div>
+        <div className="wineSearchBar">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."></input>
+          </div>
+        <div className="cardwrapper1a">
+          <div className="cardwrapper1">
+            <div className="cardwrapper2">
+              <Card className="myUL">
+                {this.state.displayWines.length ? (
+                  <List className="myLI">
+
+                    {this.state.displayWines.map(wine => (
+                      <Wine
+                        key={wine._id}
+                        id={wine._id}
+                        name={wine.name}
 
           <div className="winesheader">
             <h1 className="textcenter">

@@ -18,6 +18,15 @@
     margin-left: auto; 
 }
 
+.btn1logout {
+  background-color: transparent;
+  color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50px;
+  height: 20px;
+}
+
 /* .NavBtn {
   color: whitesmoke;
   font-family:'Heebo', sans-serif;

@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
 
-function Navbar ({ showMe4, userAdmin, useEmail, userId, hideShow3, hideShow4, userFirstName, userLastName, restaurantName, handleLogout }) {
+function Navbar ({ showMe4, userAdmin, useEmail, userId, hideShowUserInfo, hideShowFeedback, userFirstName, userLastName, restaurantName, handleLogout }) {
   return (
 
     <div className='navbar'>
       <div className='brandTitle'>Tannin | {restaurantName}</div>
-      <button onClick={() => hideShow3(userId)} className='userNavBtn NavBtn'>{userFirstName} {userLastName}'s Data </button>
-      <button onClick={() => hideShow4()}className='NavBtn'>Feedback</button>
+      <button onClick={() => hideShowUserInfo(userId)} className='userNavBtn NavBtn'>{userFirstName} {userLastName}'s Data </button>
+      <button onClick={() => hideShowFeedback()}className='NavBtn'>Feedback</button>
       <button className='NavBtn'><Link
         to='/employeepage'
         onClick={window.location.reload}

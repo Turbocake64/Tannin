@@ -2,11 +2,11 @@ import React from 'react'
 // import { Link } from 'react-router-dom';
 import './style.css'
 
-function FeedbackModal ({ showMe4, hideShow4, name, lastName, email, url, handleFeedbackSubmit }) {
+function FeedbackModal ({ showMe, hideShow, name, lastName, email, url, handleFeedbackSubmit }) {
   return (
     <div>
 
-      {showMe4
+      {showMe
         ? <div className='overlay1'>
           <div className='wrapper1'>
             <div className='wrapper2'>
@@ -61,9 +61,7 @@ function FeedbackModal ({ showMe4, hideShow4, name, lastName, email, url, handle
                       >
                         Submit
                       </button>
-                      <button className='btnwrap1addemp' onClick={() => hideShow4
-                      
-}>Close</button>
+                      <button className='btnwrap1addemp' onClick={() => hideShow}>Close</button>
                     </div>
                   </form>
                 </div>

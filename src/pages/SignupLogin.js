@@ -100,13 +100,13 @@ class SignupLogin extends Component {
       } else {
 
         this.setState({
-          loginMessage: 'Email does not exist!'
+          loginMessage: 'Either the email address or password is incorrect. Please try again.'
         })
       }
     }).catch(err => {
       console.log(err)
       this.setState({
-        loginMessage: 'Email does not exist!'
+        loginMessage: 'Either the email address or password is incorrect. Please try again.'
       })
 
     })

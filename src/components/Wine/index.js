@@ -21,8 +21,6 @@ function Wine ({ name, id, hideShow, showMe, handleWineAdd, wineName, wineTemp, 
               </div>
             </div>
 
-            <div className="fontitalicbarcode">{id}</div>
-
             <div>
               {showMe
                 ? <div className="overlay4b" onClick={() => hideShow(id)}>
