@@ -25,17 +25,14 @@
     margin: 10px;
     padding: 5px;
     color: black;
-    /* background-color: rgb(173, 24, 61); */
-    /* background-color: rgb(187, 25, 66); */
-    /* background-color: rgba(218, 73, 121, 0.8); */
-    /* background-color: rgb(243, 210, 210); */
+    background-color: rgba(218, 73, 121, 0.8);
     width: 80%;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-.winecollectionname1 {
+.winebuttons {
     justify-content: space-between;
     display: flex;
 }

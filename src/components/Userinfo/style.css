@@ -1,14 +1,4 @@
-/* .testNav {
-  margin-bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(253,176,216, 0.6);
-  width: 100%;
-  z-index: 99;
-  height: 50px;
-} */
-
-.overlay8 {
+.overlay9 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -21,35 +11,130 @@
     overflow: hidden;
 }
 
-.userinfowrapper1 {
-    /* display: flex;
-    justify-content: center; */
+.empinfoformtext {
+    justify-content: center;
+    display: flex;
+}
+
+.empinfowrapper1 {
+    display: flex;
+    justify-content: center;
     margin-top: 150px;
 }
 
-.userinfowrapper2 {
-    width: 20%;
-    background-color: transparent;
-    /* background-color: rgb(23, 65, 78, .5); */
+.empinfowrapper2 {
+    width: 30%;
+    background-color: rgb(113, 113, 165);
+    box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
+    color: rgb(247, 241, 241);
     border-style: solid;
     border-width: 0px;
+    border-color: rgb(22, 15, 31);
     border-radius: 0px;
     justify-content: center;
     display: flex;
-    color: white;
 }
 
-.userinfowrapper3 {
+.empinfowrapper3 {
     width: 80%;
     /* background: rgb(150, 142, 142); */
     margin: 20px;
 }
 
-.userformtext {
-    font-family: 'Special Elite', cursive;
+.btn1logout {
+    background-color: transparent;
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50px;
+    height: 20px;
+  }
+
+textarea:focus, input:focus {
+    outline: none;
+    background-color: none;
 }
 
+.formcontrol {
+    width: 90%;
+    background-color: transparent;
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input::selection {
+    background-color: transparent;
+}
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+background-color: transparent;
+} */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background: none;
+    /* -webkit-background-fill-color: rgb(112, 7, 21); */
+    -webkit-text-fill-background-color: rgb(112, 7, 21);
+    /* -webkit-box-shadow: 0 0 0px 0px#000 inset; */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+::-moz-selection {
+    background-color: transparent;
+}
+
+.formcontrol::-webkit-input-placeholder {
+    color: none;
+}
+
+/* WebKit, Blink, Edge */
+
+.formcontrol:-moz-placeholder {
+    color: none;
+}
+
+/* Mozilla Firefox 4 to 18 */
+.formcontrol::-moz-placeholder {
+    color: none;
+}
+
+/* Mozilla Firefox 19+ */
+.formcontrol:-ms-input-placeholder {
+    color: none;
+}
+
+/* Internet Explorer 10-11 */
+.formcontrol::-ms-input-placeholder {
+    color: none;
+}
+
+/* Microsoft Edge */
+
+
 /* FONTS */
+
 .newempformtext {
     font-family: 'Pacifico', cursive;
     font-size: 25px;
@@ -76,24 +161,19 @@ label {
     font-family: 'Zilla Slab Highlight', cursive; */
 }
 
-.btnwrap1buserclose {
+.btnwrap1b {
     justify-content: center;
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     color: white;
     margin-top: 10px;
-    background-color: transparent;
+    background-color: rgb(196, 120, 139);
     border-style: none;
-    /* height: 40px;
+    height: 40px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 50px;
-    font-size: 15px; */
-}
-
-.fa-times-circle {
-    font-size: 20px;
-    color: white;
+    font-size: 15px;
 }
 
 .btnwrap1b:focus {
@@ -119,34 +199,4 @@ button:focus {
 .btnwrap1bclose {
     justify-content: flex-end;
     display: flex;
-}
-
-.btn1logoutwrap {
-    display: flex;
-    justify-content: center;
-}
-
-.btn1logout {
-    background-color: transparent;
-    color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 50px;
-    height: 20px;
-}
-
-@media (device-height: 812px) and (device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
-    .userinfowrapper2 {
-        width: 100%;
-        background-color: rgb(100, 48, 184);
-        /* background-color: rgb(23, 65, 78, .5); */
-        border-style: solid;
-        border-width: 0px;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 20px;
-        border-radius: 0px;
-        justify-content: center;
-        display: flex;
-        color: white;
-    }
 }

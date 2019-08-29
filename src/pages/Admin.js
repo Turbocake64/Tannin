@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-// import Jumbotron from "../components/Jumbotron";
 import Restowine from "../components/Restowine";
 import Employees from "../components/Employees";
-import Empinfo from "../components/Empinfo";
 import Addemployee from "../components/Addemployee";
 import FeedbackModal from '../components/FeedbackModal';
-// // import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import Navbar from "../components/Navbar"
-import Userinfo from "../components/Userinfo";
+import Userinfo from '../components/Userinfo'
 import API from "../utils/API";
 import { Container } from "../components/Grid";
 import { List } from "../components/List";
@@ -23,7 +21,7 @@ class Admin extends Component {
 
     showMe: false,
     showMe2: false,
-    showMeEmpInfo: false,
+    showMeUserInfo: false,
     showMeFeedback: false,
     showMeEmp: false,
     // text: 'add wine',
@@ -95,13 +93,8 @@ class Admin extends Component {
       }
     })
   }
-  hideShow2 = () => {
-    const newState = { ...this.state }
-    newState.showMe2 = !newState.showMe2
-    // newState.scale = this.state.scale > 1 ? 1 : 1.5
 
-    this.setState(newState)
-  }
+  // Hide Show Functions
 
   hideShow = id => {
     const newState = { ...this.state }
@@ -129,7 +122,15 @@ class Admin extends Component {
     this.setState(newState)
   }
 
-  hideShowEmp = id => {
+  hideShow2 = () => {
+    const newState = { ...this.state }
+    newState.showMe2 = !newState.showMe2
+    // newState.scale = this.state.scale > 1 ? 1 : 1.5
+
+    this.setState(newState)
+  }
+
+  hideShowEmployeeData = id => {
     const newState = { ...this.state }
     const emp = this.state.employeesList.find(emp => emp._id === id)
     newState.empId = id
@@ -140,6 +141,18 @@ class Admin extends Component {
     newState.showMeEmp = !newState.showMeEmp
     this.setState(newState)
     console.log(newState.empScores)
+  }
+
+  hideShowUserInfo = () => {
+    const newState = { ...this.state }
+    newState.showMeUserInfo = !newState.showMeUserInfo
+    this.setState(newState)
+  }
+
+  hideShowFeedback = () => {
+    const newState = { ...this.state }
+    newState.showMeFeedback = !newState.showMeFeedback
+    this.setState(newState)
   }
 
   handleInputChange = event => {
@@ -233,9 +246,9 @@ class Admin extends Component {
   handleWineDelete = id => {
     console.log('/////')
     console.log(id)
-    const delelteWine = { id: id, restaurantId: this.state.user.restaurantId }
-    console.log(delelteWine)
-    API.deleteWine(delelteWine).then(res => this.componentDidMount())
+    const deleteWine = { id: id, restaurantId: this.state.user.restaurantId }
+    console.log(deleteWine)
+    API.deleteWine(deleteWine).then(res => this.componentDidMount())
   }
 
   handleEmployeeDelete = id => {
@@ -249,34 +262,9 @@ class Admin extends Component {
     )
   }
 
-  hideShowEmpInfo = id => {
-    const newState = { ...this.state }
-    newState.showMeEmpInfo = !newState.showMeEmpInfo
-    this.setState(newState)
-  }
-
-  hideShowFeedback = () => {
-    const newState = { ...this.state }
-    newState.showMeFeedback = !newState.showMeFeedback
-
-    this.setState(newState)
-  }
-
   render() {
     return (
       <Container>
-        {/* <Userinfo
-          useId={this.state.useId}
-          usefirstName={this.state.usefirstName}
-          uselastName={this.state.uselastName}
-          userestaurantName={this.state.userestaurantName}
-          useEmail={this.state.useEmail}
-          showMe3={this.state.showMe3}
-          hideShow3={this.hideShow3}
-          handleLogout={this.handleLogout}
-          greet={this.state.greet}
-        ></Userinfo> */}
-
 
         {/* MODAL ----------------------- */}
         <Addemployee
@@ -301,8 +289,8 @@ class Admin extends Component {
           lastName={this.state.user.lastName}
           email={this.state.user.email}
           url='http://localhost:3000/admin'
-          showMeFeedback={this.state.showMeFeedback}
-          hideShowFeedback={this.state.hideShowFeedback}
+          showMe={this.state.showMeFeedback}
+          hideShow={this.state.hideShowFeedback}
         ></FeedbackModal>
         {/* MODAL ----------------------- */}
 
@@ -314,22 +302,22 @@ class Admin extends Component {
             userAdmin={this.state.user.isAdmin}
             restaurantName={this.state.user.restaurantName}
             handleLogout={this.handleLogout}
-            hideShowEmpInfo={this.hideShowEmpInfo}
+            hideShowUserInfo={this.hideShowUserInfo}
             hideShowFeedback={this.hideShowFeedback}
           >
           </Navbar>
 
-          <Empinfo
+          <Userinfo
             user={this.state.user}
             id={this.state.user._id}
             email={this.state.user.email}
             firstName={this.state.user.firstName}
             lastName={this.state.user.lastName}
             restaurantName={this.state.user.restaurantName}
-            showMe={this.state.showMeEmpInfo}
-            hideShow={this.hideShowEmpInfo}
+            showMe={this.state.showMeUserInfo}
+            hideShow={this.hideShowUserInfo}
             handleLogout={this.handleLogout}
-          ></Empinfo>
+          ></Userinfo>
         </div>
 
         <div className="wineandemployeewrapper">
@@ -417,17 +405,9 @@ class Admin extends Component {
                         emplastName={this.state.emplastName}
                         empEmail={this.state.empEmail}
                         empScores={this.state.empScores}
-                        showMeEmp={this.state.showMeEmp}
-                        hideShowEmp={this.hideShowEmp}
+                        showMe={this.state.showMeEmp}
+                        hideShow={this.hideShowEmployeeData}
                         handleEmployeeDelete={this.handleEmployeeDelete}
-                      // Button={() => (
-                      //   <button
-                      //     onClick={() => this.handleEmployeeDelete(employee._id)}
-                      //     className="btn btn-danger ml-2"
-                      //   >
-                      //     Delete
-                      // </button>
-                      // )}
                       />
                     ))}
                   </List>

@@ -3,25 +3,31 @@ import { Link } from 'react-router-dom'
 import { ListItem } from '../List'
 import './style.css'
 
-function SavedWine ({ name, id, hideShow, showMe, wineName, wineTemp, wineTannin, wineSweetness, wineSummary, winePronunciation, winePrimaryFlavors, winePairings, wineDecant, wineGlassType, wineBody, wineAlcohol, wineAgeability, wineAcidity, wineVarietal, wineCountry, wineRegion }) {
+function SavedWine({ name, id, hideShow, showMe, wineName, wineTemp, wineTannin, wineSweetness, wineSummary, winePronunciation, winePrimaryFlavors, winePairings, wineDecant, wineGlassType, wineBody, wineAlcohol, wineAgeability, wineAcidity, wineVarietal, wineCountry, wineRegion }) {
   return (
     <div>
       <ListItem>
         <div className="listitemdiv3">
           <div className="emppagewinecollectiondiv1">
-            <div className="winecollectionname1">
+            <div>
               {/* <div className="fontitalicsmall">{name}</div> */}
               <div>
-                <button className="winesavenamebtn1" onClick={() => hideShow(id)}>{name}</button>
+                {name}
               </div>
-
-              <div>
+              <br></br>
+              <div className='winebuttons'>
                 <div>
-                  <Link
-                    className={window.location.pathname === '/quizpage' ? 'nav-link active' : 'nav-link'}
-                    to={{ pathname: '/quiz', state: { wineId: id, wineName: name } }}
-                  ><button className='quizpagebutton'>Quiz!</button>
-                  </Link>
+                  <button onClick={() => hideShow(id)}>Wine Specs</button>
+                </div>
+
+                <div>
+                  <div>
+                    <Link
+                      className={window.location.pathname === '/quizpage' ? 'nav-link active' : 'nav-link'}
+                      to={{ pathname: '/quiz', state: { wineId: id, wineName: name } }}
+                    ><button >Quiz</button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

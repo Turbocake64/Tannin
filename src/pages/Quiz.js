@@ -4,14 +4,11 @@ import Navbar from "../components/Navbar";
 import QuizResults from '../components/QuizResults'
 import FeedbackModal from '../components/FeedbackModal'
 
-// importing components
-// import EmployeePage from './pages/EmployeePage'
+import Userinfo from '../components/Userinfo';
 import API from '../utils/API'
-// import EmployeePage from './pages/EmployeePage'
 import QuestionCard from '../components/QuestionCard'
 import Wrapper from '../components/Wrapper'
 import questions from '../questions.json'
-// import wineData from "../franciacorta.json"
 import './style.css'
 
 class Quiz extends Component {
@@ -32,6 +29,7 @@ class Quiz extends Component {
     highScore: 0,
     wineData: [],
     showMe: false,
+    showMeUserInfo: false,
     showMeFeedback: false
   }
 
@@ -239,11 +237,19 @@ class Quiz extends Component {
     this.setState(newState)
   }
 
-  hideShowFeedback = () => {
+  hideShowFeedback = (e) => {
     const newState = { ...this.state}
     newState.showMeFeedback = !newState.showMeFeedback
+    // e.stopPropagation();
+    // e.nativeEvent.stopImmediatePropagation();
+    this.setState(newState)
   }
 
+  hideShowUserInfo = id => {
+    const newState = { ...this.state }
+    newState.showMeUserInfo = !newState.showMeUserInfo
+    this.setState(newState)
+  }
 
   hideShow4 = event => {
     const newState = { ...this.state }
@@ -287,10 +293,24 @@ class Quiz extends Component {
           lastName={this.state.user.lastName}
           email={this.state.user.email}
           url='http://localhost:3000/quiz'
-          showMe4={this.state.showMe4}
-          hideShow4={this.hideShow4}
+          showMe={this.state.showMeFeedback}
+          hideShow={this.hideShowFeedback}
         ></FeedbackModal>
         {/* MODAL ----------------------- */}
+
+        {/* MODAL ----------------------- */}
+        <Userinfo
+            user={this.state.user}
+            id={this.state.user._id}
+            email={this.state.user.email}
+            firstName={this.state.user.firstName}
+            lastName={this.state.user.lastName}
+            restaurantName={this.state.user.restaurantName}
+            showMe={this.state.showMeUserInfo}
+            hideShow={this.hideShowUserInfo}
+            handleLogout={this.handleLogout}
+          ></Userinfo>
+          {/* MODAL ----------------------- */}
 
         <Navbar
           userId={this.state.user._id}
@@ -299,7 +319,8 @@ class Quiz extends Component {
           userAdmin={this.state.user.isAdmin}
           restaurantName={this.state.user.restaurantName}
           handleLogout={this.handleLogout}
-          hideShow4={this.hideShow4}
+          hideShowFeedback={this.hideShowFeedback}
+          hideShowUserInfo={this.hideShowUserInfo}
         ></Navbar>
         <Wrapper>
           <div className="qcardwrapper1">

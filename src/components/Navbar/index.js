@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
 
-function Navbar ({ showMe4, userAdmin, useEmail, userId, hideShowEmpInfo, hideShowFeedback, userFirstName, userLastName, restaurantName, handleLogout }) {
+function Navbar ({ showMe4, userAdmin, useEmail, userId, hideShowUserInfo, hideShowFeedback, userFirstName, userLastName, restaurantName, handleLogout }) {
   return (
 
     <div className='navbar'>
       <div className='brandTitle'>Tannin | {restaurantName}</div>
-      <button onClick={() => hideShowEmpInfo(userId)} className='userNavBtn NavBtn'>{userFirstName} {userLastName}'s Data </button>
+      <button onClick={() => hideShowUserInfo(userId)} className='userNavBtn NavBtn'>{userFirstName} {userLastName}'s Data </button>
       <button onClick={() => hideShowFeedback()}className='NavBtn'>Feedback</button>
       <button className='NavBtn'><Link
         to='/employeepage'

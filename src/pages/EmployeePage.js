@@ -4,7 +4,7 @@ import FeedbackModal from '../components/FeedbackModal';
 import API from '../utils/API';
 import Navbar from '../components/Navbar';
 import Header2 from '../components/Header2';
-import Empinfo from '../components/Empinfo';
+import Userinfo from '../components/Userinfo';
 import { Container } from '../components/Grid';
 // importing the wine template for testing purposes 
 import ScoreSummary from '../components/Scores'
@@ -20,27 +20,12 @@ class EmployeePage extends Component {
 
     showMeSummary: false,
     showMe6: false,
-    showMe4: false,
-    showMeEmpInfo: false,
+    showMeFeedback: false,
+    showMeUserInfo: false,
     showMe: false,
     user: '',
     loggedIn: true,
     redirectTo: null,
-    id: '',
-    restaurant: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    loginEmail: '',
-    loginPassword: '',
-
-    greet: '',
-    empUserId: '',
-    empUserFirstName: '',
-    empUserLastName: '',
-    empUserRestaurantName: '',
-    empuserEmail: '',
 
     wineId: '',
     wineName: '',
@@ -61,7 +46,6 @@ class EmployeePage extends Component {
     wineTemp: '',
     wineVarietal: [],
 
-    winewiththisscore: '',
     newScores: [],
     scoreId: '',
     testmessage: ''
@@ -74,14 +58,12 @@ class EmployeePage extends Component {
 
     newState.showMeSummary = !newState.showMeSummary
     this.setState(newState)
-    // console.log('HEHEHEHEHEHE')
-    // console.log(newState.newScores)
   }
 
   getUser = () => {
     API.getUser().then(response => {
       console.log('Current User: ', response)
-      if (!!response.data.user) {
+      if (response.data.user) {
         console.log('Users Scores:', response.data.user.scores)
         this.setState({
           loggedIn: true,
@@ -89,7 +71,6 @@ class EmployeePage extends Component {
           scoreCollection: response.data.user.scores,
         })
         this.getSavedWine()
-        console.log(this.state.restaurant, "'s wine list: ", this.state.wineCollections)
       } else {
         this.setState({
           loggedIn: false,
@@ -106,9 +87,6 @@ class EmployeePage extends Component {
 
   getSavedWine = () => {
     console.log('////////////////')
-    console.log(this.state.user.restaurantId)
-    console.log(this.state.wineCollections)
-
     const admin = { restaurantId: this.state.user.restaurantId }
     API.getSavedWine(admin)
       .then(res => {
@@ -121,9 +99,9 @@ class EmployeePage extends Component {
       })
       .catch(() =>
         this.setState({
-          message: 'Wine not available'
+          message: this.state.ABCollections
         })
-      )
+      )  
   }
 
   handleInputChange = event => {
@@ -172,24 +150,17 @@ class EmployeePage extends Component {
     this.setState(newState)
   }
 
-  hideShowEmpInfo = () => {
+  hideShowUserInfo = id => {
     const newState = { ...this.state }
-    newState.showMeEmpInfo = !newState.showMeEmpInfo
+    newState.showMeUserInfo = !newState.showMeUserInfo
     // newState.scale = this.state.scale > 1 ? 1 : 1.5
 
     this.setState(newState)
   }
 
-  hideShow4 = id => {
+  hideShowFeedback = (e) => {
     const newState = { ...this.state }
-    newState.greet = 'Welcome!'
-    newState.empuseId = newState.user._id
-    newState.empUserFirstName = newState.user.firstName
-    newState.empUserLastName = newState.user.lastName
-    newState.empUserRestaurantName = newState.user.restaurantName
-    newState.empuseEmail = newState.user.email
-    console.log(newState.empuseId)
-    newState.showMe4 = !newState.showMe4
+    newState.showMeFeedback = !newState.showMeFeedback
     this.setState(newState)
   }
 
@@ -206,8 +177,8 @@ class EmployeePage extends Component {
             lastName={this.state.user.lastName}
             email={this.state.user.email}
             url='http://localhost:3000/employeepage'
-            showMe4={this.state.showMe4}
-            hideShow4={this.state.hideShow4}
+            showMe={this.state.showMeFeedback}
+            hideShow={this.state.hideShowFeedback}
           ></FeedbackModal>
           {/* MODAL ----------------------- */}
 
@@ -218,32 +189,24 @@ class EmployeePage extends Component {
             userAdmin={this.state.user.isAdmin}
             restaurantName={this.state.user.restaurantName}
             handleLogout={this.handleLogout}
-            hideShowEmpInfo={this.hideShowEmpInfo}
-            hideShow4={this.hideShow4}
+            hideShowUserInfo={this.hideShowUserInfo}
+            hideShowFeedback={this.hideShowFeedback}
           ></Navbar>
         </div>
 
         <div className="emppagemainwrap">
-          <Empinfo
+
+          <Userinfo
             user={this.state.user}
             id={this.state.user._id}
             email={this.state.user.email}
             firstName={this.state.user.firstName}
             lastName={this.state.user.lastName}
             restaurantName={this.state.user.restaurantName}
-            showMeEmpInfo={this.state.showMeEmpInfo}
-            hideShowEmpInfo={this.hideShowEmpInfo}
+            showMe={this.state.showMeUserInfo}
+            hideShow={this.hideShowUserInfo}
             handleLogout={this.handleLogout}
-            greet={this.state.greet}
-          />
-
-          {/* <Jumbotron> */}
-          {/*   <h1 className="text-center"> */}
-          {/*     <strong>ADMIN PAGE WINE COLLECTIONS & EMPLOYEE LIST</strong> */}
-          {/*   </h1> */}
-          {/*   <h2 className="text-center">Search for wine collections and Add Employees</h2> */}
-          {/* </Jumbotron> */}
-
+          ></Userinfo>
 
           <div className="employeepagewrapper">
             <div className="navTest">
@@ -251,7 +214,7 @@ class EmployeePage extends Component {
             <div className="emppagecol">
               <div className="empwelcomebtnwrap">
                 <button
-                  onClick={() => this.hideShowEmpInfo()}
+                  onClick={() => this.hideShowUserInfo()}
                   className="empwelcomebtn"
                 >
                   <Header2 user={this.state.user}/>
@@ -269,7 +232,7 @@ class EmployeePage extends Component {
               </div>
               <div className="wineTitleWrap">
                 <div className="wineTitleWrap1">
-                  {/* <div><Link to="/wines"className={window.location.pathname === "/wines" ? "nav-link active" : "nav-link"} ><button></button></Link></div> */}
+        
                 </div>
               </div>
 
