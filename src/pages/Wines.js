@@ -33,7 +33,7 @@ class Wines extends Component {
     wineVarietal: [],
 
     user: '',
-    // restaurantId: '',
+    restaurantId: '',
     name: '',
     lastName: '',
     email: '',
@@ -72,7 +72,7 @@ class Wines extends Component {
       .then(res => {
         let winesMaster = []
         for (let i = 0; i < res.data.length; i++) {
-          if (res.data[i].name !== "") {
+          if (res.data[i].name !== '') {
             winesMaster.push(res.data[i])
           }
         }
@@ -104,7 +104,7 @@ class Wines extends Component {
       })
       .catch(() =>
         this.setState({
-          message: "hey"
+          message: 'hey'
         })
       )
   }
@@ -156,7 +156,7 @@ class Wines extends Component {
     const wine = this.state.winesMaster.find(wine => wine._id === id)
     const wineData = {
       Wines: wine._id,
-      restaurantId: this.state.restaurantId
+      restaurantId: this.state.user.restaurantId
     }
 
     API.addWine(wineData).then(res => {
@@ -171,7 +171,7 @@ class Wines extends Component {
     })
   }
 
-  searchByName = () => {
+  // searchByName = () => {
     // let input = document.getElementById('myInput');
     // let filter = input.value.toUpperCase();
     // let ul = document.getElementsByClassName("myUL");
@@ -187,7 +187,7 @@ class Wines extends Component {
     //   }
     // }
 
-  }
+  // }
 
   sortById = () => {
     let display = this.state.winesMaster.filter(wine => !this.state.wineCollections.some(wine2 => wine._id === wine2._id));
@@ -262,7 +262,6 @@ class Wines extends Component {
   }
 
   render() {
-
     return (
       <Container>
         <Navbar
@@ -273,38 +272,9 @@ class Wines extends Component {
           restaurantName={this.state.restaurantName}
           handleLogout={this.handleLogout}
           hideShow4={this.hideShow4}
-        ></Navbar>
+        />
 
-        <div className="winesheader">
-
-          <div className="wineSearchTop">
-            <h1 className="textcenter">
-              <strong>Search WINES by</strong>
-            </h1>
-            <div>
-            <button onClick={this.sortById}>ID No.</button>
-            <button onClick={this.sortByName}>Name</button>
-            <button onClick={this.sortByTannin}>Tannin</button>
-            <button onClick={this.sortByBody}>Body</button>
-            <button onClick={this.sortByRegion}>Region</button>
-            </div>
-          </div>
-        </div>
-        <div className="wineSearchBar">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."></input>
-          </div>
-        <div className="cardwrapper1a">
-          <div className="cardwrapper1">
-            <div className="cardwrapper2">
-              <Card className="myUL">
-                {this.state.displayWines.length ? (
-                  <List className="myLI">
-
-                    {this.state.displayWines.map(wine => (
-                      <Wine
-                        key={wine._id}
-                        id={wine._id}
-                        name={wine.name}
+        <div className="cardwrapper0">
 
           <div className="winesheader">
             <h1 className="textcenter">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Restowine from '../components/Restowine'
 import Employees from '../components/Employees'
-import Empinfo from '../components/Empinfo'
+import Userinfo from '../components/Userinfo'
 import Addemployee from '../components/Addemployee'
 import FeedbackModal from '../components/FeedbackModal'
 import Navbar from '../components/Navbar'
