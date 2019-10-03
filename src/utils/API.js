@@ -63,7 +63,7 @@ export default {
     return axios.get('/api/user/getUser')
   },
   getMaster: function (q) {
-    return axios.get('/api/wine/');
+    return axios.get('/api/wines/');
   },
   getSavedWine: function (admin) {
     console.log(admin)
@@ -74,8 +74,8 @@ export default {
     return axios.post('/api/addEmployee', employeeData)
   },
   addWine: function (wineData) {
-    console.log(wineData)
-    return axios.put('http://localhost:3001/api/addwine/', wineData)
+    console.log('wineData', wineData)
+    return axios.put('/api/addwine', wineData)
   },
   addScore: function (scoreData) {
     console.log(scoreData)
