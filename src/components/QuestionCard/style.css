@@ -7,8 +7,7 @@
   position: relative;
   width: 88%;
 
-  background-color: rgb(136, 34, 97);
-  /* background-color: rgb(139, 39, 86); */
+  background-color: rgb(173, 24, 61);
   box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
   text-align: left;
   padding: 20px;
@@ -17,65 +16,52 @@
 
 .submitAnswer {
 
-  border-radius: 50px;
+  /* border-radius: 50px;
   background-color: whitesmoke;
   border-style: solid;
   border-width: 1px;
-  border-color: black;
+  border-color: black; */
+
+  font-family: 'cabin', sans-serif;
+  font-weight: bold;
+  color: rgb(255, 253, 208);
+  background-color: transparent;
+  border: 1px solid rgb(255, 253, 208);
+  border-radius: 3px;
 }
 
 .submitAnswer:disabled {
 
-  border-radius: 50px;
-  background-color: rgb(124, 122, 122);
+  color: black;
+  border-radius: 3px;
+  /* background-color: rgb(124, 122, 122); */
   border-style: solid;
   border-width: 1px;
   border-color: black;
 }
 
-/* button {
-  border-style: none;
-  margin-bottom:5px;
-  box-shadow: 2px 3px 3px rgb(49, 46, 46), 0 2px 2px rgb(59, 58, 58);
-  font-size: 12px;
-  background-color: rgb(175, 224, 120); 
-}  */
-
 button[value="1"]:disabled {
     background-color: rgb(145, 228, 145);
+    color: black;
 }
 
 button[value="0"]:disabled {
     background-color: rgb(250, 124, 124);
+    color: black;
 }
 
 .question {
-    background-color: lightgray;
+
+    font-family: 'cabin', sans-serif;
+    font-weight: bold;
+    color: rgb(255, 253, 208);
+    background-color: transparent;
+    border: 1px solid rgb(255, 253, 208);
+    /* border-radius: 3px; */
     border-radius: 12px;
     width: 25%;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
-
-/* .card:hover {
-  -ms-transform: scale(1.2); 
-  -webkit-transform: scale(1.2); 
-  transform: scale(1.05); 
-  transition:all 0.3s ease;
-} */
-
-/* .card > .img-container {
-  height: 100%;
-  background: white;
-  overflow: hidden;
-  text-align: bottom;
-  background:transparent;
-} */
-
-/* .card > .img-container > img {
-  width: 100%;
-  background: white;
-  height: 100%
-} */
 
 .card > .content {
     padding-left: 1rem;
@@ -86,10 +72,6 @@ button[value="0"]:disabled {
 .card > .content > ul {
     list-style-type: none;
 }
-
-/* .card > .content > ul > li {
-  margin-top: 5px;
-} */
 
 .fade:hover {
     -ms-transform: scale(1.05); /* IE 9 */
@@ -105,7 +87,7 @@ input {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     background: none;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Cabin', sans-serif;
     font-size: 15px;
 }
 
@@ -117,7 +99,7 @@ textarea:focus, input:focus {
 .form-control {
     width: 90%;
     background-color: transparent;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Cabin', sans-serif;
     font-size: 18px;
     border-top-style: none;
     border-left-style: none;
@@ -132,16 +114,10 @@ input::selection {
     background-color: transparent;
 }
 
-/* input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-background-color: transparent;
-} */
 
-input:-webkit-autofill,
+/* input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
+input:-webkit-autofill:focus, 
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
@@ -154,11 +130,11 @@ select:-webkit-autofill:focus {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     background: none;
-    /* -webkit-background-fill-color: rgb(112, 7, 21); */
+    -webkit-background-fill-color: rgb(112, 7, 21); 
     -webkit-text-fill-background-color: rgb(112, 7, 21);
-    /* -webkit-box-shadow: 0 0 0px 0px#000 inset; */
+    -webkit-box-shadow: 0 0 0px 0px#000 inset;
     transition: background-color 5000s ease-in-out 0s;
-}
+} */
 
 ::-moz-selection {
     background-color: transparent;
@@ -192,7 +168,14 @@ select:-webkit-autofill:focus {
 /* Microsoft Edge */
 
 .questionName {
-    color: rgb(243, 237, 237);
-    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(248, 247, 225);
+    font-family: 'Cabin', sans-serif;
     text-shadow: 2px 1px 5px #050505;
+}
+input {
+    color: rgb(255, 253, 208);
+}
+
+input::placeholder {
+    color: rgba(255, 253, 208, 0.5);
 }

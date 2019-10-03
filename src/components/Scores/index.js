@@ -1,6 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
-import { ListItem } from '../List'
+import { ListItem } from '../FlexList'
 import './style.css'
 
 function ScoreSummary ({ newScores, hideShowSummary, showMeSummary }) {

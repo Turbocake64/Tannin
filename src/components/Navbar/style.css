@@ -3,14 +3,14 @@
   width:100%;
   background-color: rgb(74, 53, 107); 
   height: 50px;
-  border-bottom: 10px, solid, red;
   display: flex;
 }
 
 .brandTitle {
-    font-size: 30px;
-    font-family:'Heebo', sans-serif;
+    font-size: 2em;
+    font-family:'Lobster', sans-serif;
     color: white;
+    padding: 5px 0px 0px 10px;
     
   }
 
@@ -18,21 +18,14 @@
     margin-left: auto; 
 }
 
-.btn1logout {
+.NavBtn {
+  font-family: 'cabin', sans-serif;
+  font-size: 1em;
   background-color: transparent;
   color: white;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 50px;
-  height: 20px;
-}
+  border-color: transparent;
+} 
 
-/* .NavBtn {
-  color: whitesmoke;
-  font-family:'Heebo', sans-serif;
-  background-color: transparent;
-} */
-
-Link {
-  color:inherit;
+a:visited {
+  color: white;
 }

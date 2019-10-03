@@ -1,91 +1,237 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ListItem } from '../List'
+import { ListItem } from '../FlexList'
 import './style.css'
 
-function SavedWine({ name, id, hideShow, showMe, wineName, wineTemp, wineTannin, wineSweetness, wineSummary, winePronunciation, winePrimaryFlavors, winePairings, wineDecant, wineGlassType, wineBody, wineAlcohol, wineAgeability, wineAcidity, wineVarietal, wineCountry, wineRegion }) {
+function SavedWine({ name, id, hideShow, showMe, wineScore, wineTemp, wineTannin, wineSweetness, wineSummary, winePronunciation, winePrimaryFlavors, winePairings, wineDecant, wineGlassType, wineBody, wineAlcohol, wineAgeability, wineAcidity, wineVarietal, wineCountry, wineName, wineRegion }) {
   return (
-    <div>
       <ListItem>
-        <div className="listitemdiv3">
-          <div className="emppagewinecollectiondiv1">
-            <div>
-              {/* <div className="fontitalicsmall">{name}</div> */}
-              <div>
+        <div className="flex-list-item">
+          <div className="employee-wine-card">
+              <div className='employee-wine-card-name'>
                 {name}
               </div>
-              <br></br>
+              <div className='employee-wine-card-score'>
+                {wineScore}
+              </div>
               <div className='winebuttons'>
                 <div>
-                  <button onClick={() => hideShow(id)}>Wine Specs</button>
+                  <button className='wine-card-buttons' onClick={() => hideShow(id)}>Wine Specs</button>
                 </div>
 
-                <div>
                   <div>
                     <Link
                       className={window.location.pathname === '/quizpage' ? 'nav-link active' : 'nav-link'}
                       to={{ pathname: '/quiz', state: { wineId: id, wineName: name } }}
-                    ><button >Quiz</button>
+                    ><button className='wine-card-buttons'>Quiz</button>
                     </Link>
                   </div>
-                </div>
               </div>
-            </div>
 
             <div>
               {showMe
-                ? <div className="overlay5" onClick={() => hideShow(id)}>
-                  <div className="wineinfo1">
-                    <div className="wineinfo2">
-                      <div className="wineinfo3">
-                        <div className="infowinewrap">
-                          {wineName ? <div className="infodetails">Name: {wineName}</div> : null}
-                          {winePronunciation ? <div className="infodetails">Pronunciation: {winePronunciation}</div> : null}
-                          {wineCountry ? <div className="infodetails">Country of Origin: {wineCountry}</div> : null}
-                          {wineRegion ? <div className="infodetails">Region: {wineRegion}</div> : null}
-                          {wineSummary ? <div className="infodetails">Summary: {wineSummary}</div> : null}
-                          {wineAcidity ? <div className="infodetails">Acidity: {wineAcidity}</div> : null}
-                          {wineAgeability ? <div className="infodetails">Ageability: {wineAgeability}</div> : null}
-                          {wineAlcohol ? <div className="infodetails">Alcohol By Volume: {wineAlcohol}</div> : null}
-                          {wineBody ? <div className="infodetails">Body: {wineBody}</div> : null}
-                          {wineSweetness ? <div className="infodetails">Sweetness: {wineSweetness}</div> : null}
-                          {wineTannin ? <div className="infodetails">Tannin: {wineTannin}</div> : null}
-                          {wineVarietal ? <div> Varietal: {wineVarietal.map(varietal => {
-                            return (
-                              <div>
-                                <ul className="travelcompany-input">
-                                  <span className="input-label">{varietal}</span>
-                                </ul>
+                ? <div className="modal-overlay" onClick={() => hideShow(id)}>
+                  <div className="info-modal-wrap">
+                    <div className="info-modal-container">
+                      <div className="info-modal-center">
+                        <div className="info-modal-inner">
+                          {name ? 
+                            <div className="info-details">
+                              <div className="wineSpecKey">
+                                Name:
                               </div>
-                            )
-                          })
-                          } </div> : null
-                          }
-                          {winePrimaryFlavors ? <div> Primary Flavors : {winePrimaryFlavors.map(flavor => {
-                            return (
-                              <div>
-                                <ul className="travelcompany-input">
-                                  <span className="input-label">{flavor}</span>
-                                </ul>
+                              <div className='wineSpecValue'> 
+                                {wineName}
                               </div>
-                            )
-                          })
-                          } </div> : null
-                          }
-                          {winePairings ? <div> Pairings : {winePairings.map(pairing => {
-                            return (
-                              <div>
-                                <ul className="travelcompany-input">
-                                  <span className="input-label">{pairing}</span>
-                                </ul>
+                            </div> 
+                          : null}
+                          {winePronunciation ? 
+                            <div className='infoDetails'>
+                              <div className="wineSpecKey">
+                                Pronunciation:
                               </div>
-                            )
-                          })
-                          } </div> : null
-                          }
-                          {wineDecant ? <div className="infodetails">Decant: {wineDecant}</div> : null}
-                          {wineGlassType ? <div className="infodetails">Glass Type: {wineGlassType}</div> : null}
-                          {wineTemp ? <div className="infodetails">Serving Temp: {wineTemp}</div> : null}
+                              <div className='wineSpecValue'> 
+                                {winePronunciation}
+                              </div>
+                            </div> 
+                          : null}
+                          {wineCountry ? 
+                            <div className="infodetails">
+                              <div className="wineSpecKey">
+                                Country of Origin:
+                              </div>
+                              <div className='wineSpecValue'> 
+                                {wineCountry}
+                              </div>
+                            </div> 
+                          : null}
+
+                          {wineRegion ? 
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Region:
+                              </div>
+                              <div className='wineSpecValue'> 
+                                {wineRegion}
+                              </div>
+                            </div> 
+                          : null}
+
+                          {wineSummary ? 
+                            <div className="infoDetailsBlock">
+                              <div className="wineSpecKey">
+                                Summary: 
+                              </div>
+                              <div className="wineSpecValueBlock">
+                                {wineSummary}
+                              </div>
+                            </div>
+                          : null}
+
+                          {wineAcidity ?
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Acidity: 
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineAcidity}
+                              </div>
+                            </div>
+                          : null}
+
+                          {wineAgeability ?
+                          <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Ageability:
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineAgeability}
+                              </div>
+                            </div>
+                          : null}
+
+                          {wineAlcohol ?
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Alcohol By Volume:
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineAlcohol}
+                              </div>
+                            </div>
+                          : null}
+
+                          {wineBody ?
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Body:
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineBody}
+                              </div>
+                            </div>
+                          : null}
+
+                          {wineSweetness ?
+                          <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Sweetness:
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineSweetness}
+                              </div>
+                            </div>
+                          : null}
+
+                          {wineTannin ?
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Tannin:
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineTannin}
+                              </div>
+                            </div>
+                          : null}
+
+                          {wineVarietal ? 
+                            <div className='infoDetailsBlock'>
+                              <div className='wineSpecKey'>
+                                Varietals: 
+                              </div>
+                              <div className='wineSpecValueBlock'>
+                                {wineVarietal.map(varietal => {
+                                  return (
+                                    <div>
+                                      <span className="itemizedValue">{varietal}</span>
+                                    </div>
+                                  )}
+                                )} 
+                              </div>
+                            </div> 
+                          : null}
+                          {winePrimaryFlavors ? 
+                            <div className='infoDetailsBlock'>
+                              <div className='wineSpecKey'>
+                                Primary Flavors: 
+                              </div>
+                              <div className='wineSpecValueBlock'>
+                                {winePrimaryFlavors.map(flavor => {
+                                  return (
+                                    <div>
+                                      <span className="itemizedValue">{flavor}</span>
+                                    </div>
+                                  )}
+                                )} 
+                              </div>
+                            </div> 
+                          : null}
+                          {winePairings ? 
+                            <div className='infoDetailsBlock'>
+                              <div className='wineSpecKey'>
+                                Pairings: 
+                              </div>
+                              <div className='wineSpecValueBlock'>
+                                {winePairings.map(pairing => {
+                                  return (
+                                    <div>
+                                      <span className="itemizedValue">{pairing}</span>
+                                    </div>
+                                  )}
+                                )} 
+                              </div>
+                            </div> 
+                          : null}
+                          {wineDecant ? 
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Decanting: 
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineDecant}
+                              </div>
+                            </div>
+                          : null}
+                          {wineGlassType ?
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Glass Type: 
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineGlassType}
+                              </div>
+                            </div>
+                          : null}
+                          {wineTemp ?
+                            <div className="infoDetails">
+                              <div className="wineSpecKey">
+                                Serving Temperature: 
+                              </div>
+                              <div className='wineSpecValue'>
+                                {wineTemp}
+                              </div>
+                            </div>
+                          : null}
                         </div>
 
                         <br />
@@ -105,7 +251,6 @@ function SavedWine({ name, id, hideShow, showMe, wineName, wineTemp, wineTannin,
           </div>
         </div>
       </ListItem>
-    </div>
   )
 }
 

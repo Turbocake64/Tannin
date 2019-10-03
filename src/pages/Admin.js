@@ -320,76 +320,81 @@ class Admin extends Component {
           ></Userinfo>
         </div>
 
-        <div className="wineandemployeewrapper">
+        <div className="admin-main-wrapper">
 
           {/* -----------------WINE COLUMN------------------- */}
-          <div className="wineCol">
-            <div className="wineTitleWrap">
-              <div className="wineTitleWrap1">
-                <div className="textadmin">Wines</div>
-                <div>
+          <div className="admin-main-column">
+            <div className="admin-column-title-wrap">
+              <div className="admin-column-header">
+                <div className="admin-header-text">
+                  {this.state.user.restaurantName}'s Wine List:
+                </div>
+                <div classNamn="admin-header-btn">
                   <Link to="/wines">
                     <button className="addwinebtnmain">
                       <i className="fas fa-wine-bottle" />
+                      Add new wines
                     </button>
                   </Link>
                 </div>
               </div>
             </div>
-
-            <div className="wineColWrap">
-              <div className="wineColWrap1">
-                {this.state.wineCollections.length ? (
-                  <List>
-                    {this.state.wineCollections.map(wine => (
-                      <Restowine
-                        key={wine._id}
-                        id={wine._id}
-                        name={wine.name}
-                        handleWineDelete={this.handleWineDelete}
-                        showMe={this.state.showMe}
-                        hideShow={this.hideShow}
-                        wineName={this.state.wineName}
-                        wineId={this.state.wineId}
-                        wineacidity={this.state.wineacidity}
-                        wineAgeability={this.state.wineAgeability}
-                        wineAlcohol={this.state.wineAlcohol}
-                        wineBody={this.state.wineBody}
-                        wineDecant={this.state.wineDecant}
-                        wineGlassType={this.state.wineGlassType}
-                        winePairings={this.state.winePairings}
-                        winePrimaryFlavors={this.state.winePrimaryFlavors}
-                        winePronunciation={this.state.winePronunciation}
-                        wineRegion={this.state.wineRegion}
-                        wineSummary={this.state.wineSummary}
-                        wineSweetness={this.state.wineSweetness}
-                        wineTannin={this.state.wineTannin}
-                        wineTemp={this.state.wineTemp}
-                        wineVarietal={this.state.wineVarietal}
-                      />
-                    ))}
-                  </List>
-                ) : (
-                    <h2 className="text-center">Not Available</h2>
-                  )}
+              
+                <div className="admin-column-wrap">
+                  <div className="employeeColWrap1">
+                    {this.state.wineCollections.length ? (
+                      <List>
+                        {this.state.wineCollections.map(wine => (
+                          <Restowine
+                            key={wine._id}
+                            id={wine._id}
+                            name={wine.name}
+                            handleWineDelete={this.handleWineDelete}
+                            showMe={this.state.showMe}
+                            hideShow={this.hideShow}
+                            wineName={this.state.wineName}
+                            wineId={this.state.wineId}
+                            wineacidity={this.state.wineacidity}
+                            wineAgeability={this.state.wineAgeability}
+                            wineAlcohol={this.state.wineAlcohol}
+                            wineBody={this.state.wineBody}
+                            wineDecant={this.state.wineDecant}
+                            wineGlassType={this.state.wineGlassType}
+                            winePairings={this.state.winePairings}
+                            winePrimaryFlavors={this.state.winePrimaryFlavors}
+                            winePronunciation={this.state.winePronunciation}
+                            wineRegion={this.state.wineRegion}
+                            wineSummary={this.state.wineSummary}
+                            wineSweetness={this.state.wineSweetness}
+                            wineTannin={this.state.wineTannin}
+                            wineTemp={this.state.wineTemp}
+                            wineVarietal={this.state.wineVarietal}
+                          />
+                        ))}
+                      </List>
+                    ) : (
+                        <h2 className="text-center">Not Available</h2>
+                      )}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
           {/* -----------------EMPLOYEES COLUMN------------------- */}
-          <div className="employeeCol">
-            <div className="empTitleWrap">
-              <div className="empTitleWrap1">
-                <div className="textadmin">Employees</div>
-                <div>
-                  <button className="addempbtnmain" onClick={() => this.hideShow2()}>
-                    <i className="fas fa-user-plus" />
+          <div className="admin-main-column">
+            <div className="admin-column-title-wrap">
+              <div className="admin-column-header">
+                <div className="admin-header-text">
+                  {this.state.user.restaurantName}'s Employees:
+                </div>
+                <div classNamn="admin-header-btn">
+                  <button className="admin-add-employee-btn" onClick={() => this.hideShow2()}>
+                    Add an Employee<i className="fas fa-user-plus" />
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="employeeColWrap">
+            <div className="admin-column-wrap">
               <div className="employeeColWrap1">
                 {this.state.employeesList.length ? (
                   <List>

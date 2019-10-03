@@ -23,9 +23,7 @@ function Navbar ({ showMe4, userAdmin, useEmail, userId, hideShowUserInfo, hideS
           {restaurantName} Admin
         </Link>
       </button>
-      <div className='btn1logoutwrap'>
-        <button className='btnlogout NavBtn' onClick={() => handleLogout()}>Logout <i className='fas fa-sign-out-alt'></i></button>
-      </div>
+      <button className='nav-btn-logout NavBtn' onClick={() => handleLogout()}>Logout <i className='fas fa-sign-out-alt'></i></button>
       {/* {showMe4 ?
         <div className='overlay8' onClick={() => hideShow4(useId)}>
           <div className='userinfowrapper1'>
