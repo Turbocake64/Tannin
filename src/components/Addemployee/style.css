@@ -42,7 +42,7 @@ textarea:focus, input:focus {
 .formcontrol {
     width: 90%;
     background-color: transparent;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Cabin', sans-serif;
     font-size: 18px;
     border-top-style: none;
     border-left-style: none;
@@ -120,12 +120,12 @@ select:-webkit-autofill:focus {
 /* FONTS */
 
 .newempformtext {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
     font-size: 25px;
     margin-bottom: 20px;
     /* font-family: 'Lobster', cursive;
     font-family: 'Satisfy', cursive;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Cabin', sans-serif;
     font-family: 'Yellowtail', cursive;
     font-family: 'Leckerli One', cursive;
     font-family: 'Shrikhand', cursive;
@@ -139,7 +139,7 @@ select:-webkit-autofill:focus {
 label {
     font-family: 'Satisfy', cursive;
     font-size: 20px;
-    /* font-family: 'Special Elite', cursive;
+    /* font-family: 'Cabin', sans-serif;
     font-family: 'Satisfy', cursive;
     font-family: 'IM Fell DW Pica SC', serif;
     font-family: 'Zilla Slab Highlight', cursive; */

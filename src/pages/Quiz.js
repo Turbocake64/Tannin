@@ -88,7 +88,6 @@ class Quiz extends Component {
     })
     this.shuffle(filteredQs)
     this.setState({ filteredQs: filteredQs })
-    console.log('????????????????')
     console.log(filteredQs)
   }
 
@@ -356,16 +355,16 @@ class Quiz extends Component {
                   counter={this.state.counter}
                 />
               ))}
-              <div className="submitanswersbtnquizwrap">
+            </div>
+
+          </div>
+        </Wrapper>
+        <div className="submitanswersbtnquizwrap">
                 <div className="submitanswersbtnquiz">
                   <button className="submitFinal" onClick={this.handleScoreCalc}>Submit Answers</button>
                   <button className="closebtnquiz" onClick={this.toEmployeePage}>Return to List</button>
                 </div>
               </div>
-            </div>
-
-          </div>
-        </Wrapper>
 
       </div>
     )

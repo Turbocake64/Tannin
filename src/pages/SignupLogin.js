@@ -117,7 +117,7 @@ class SignupLogin extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     }
     return (
-      <Container>
+      <Container className='container'>
         <div className="tannintextwrap2">Tannin</div>
         <SignupLoginForm
           handleSubmitInputChange={this.handleSubmitInputChange}

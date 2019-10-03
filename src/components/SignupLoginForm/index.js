@@ -26,7 +26,7 @@ function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, e
                         </label>
                         <div>
                           <input
-                            className="form-control"
+                            className="form-control signup-login-form"
                             // autoComplete="off"
                             id=""
                             type="text"
@@ -45,7 +45,7 @@ function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, e
                         </label>
                         <div>
                           <input
-                            className="form-control"
+                            className="form-control signup-login-form"
                             autoComplete="off"
                             id=""
                             type="text"
@@ -62,7 +62,7 @@ function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, e
                         </label>
                         <div>
                           <input
-                            className="form-control"
+                            className="form-control signup-login-form"
                             id=""
                             type="text"
                             value={lastName}
@@ -80,7 +80,7 @@ function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, e
                         </label>
                         <div>
                           <input
-                            className="form-control"
+                            className="form-control signup-login-form"
                             id=""
                             type="email"
                             value={email}
@@ -96,7 +96,7 @@ function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, e
                         </label>
                         <div>
                           <input
-                            className="form-control"
+                            className="form-control signup-login-form"
                             id=""
                             type="password"
                             value={password}
@@ -133,7 +133,7 @@ function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, e
                         </label>
                         <div>
                           <input
-                            className="form-control"
+                            className="form-control signup-login-form"
                             id=""
                             type="email"
                             value={loginemail}
@@ -149,7 +149,7 @@ function SignupLoginForm ({ showMe, hideShow, restaurant, firstName, lastName, e
                         </label>
                         <div>
                           <input
-                            className="form-control"
+                            className="form-control signup-login-form"
                             id=""
                             type="password"
                             value={loginpassword}

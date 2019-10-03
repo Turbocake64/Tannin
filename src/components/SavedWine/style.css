@@ -1,45 +1,38 @@
-.listitemdiv3 {
-    justify-content: center;
-    display: flex;
-    width: 100%;
-}
 
-.overlay5 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: transparent;
-    /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
-    z-index: 2;
-    cursor: pointer;
-    transition-delay: 10s;
-    transition-timing-function: ease-in;
-    overflow: hidden;
-}
-
-.emppagewinecollectiondiv1 {
-    margin: 10px;
-    padding: 5px;
+.employee-wine-card {
+    padding: 10px;
     color: black;
-    background-color: rgba(218, 73, 121, 0.8);
-    width: 80%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    background-color: rgb(173, 24, 61);
+    width: 100%;
+    position: relative;
+}
+
+.employee-wine-card-name {
+   color: rgb(255, 253, 208);
+   font-family: 'Lobster', sans-serif;
+}
+
+.employee-wine-card-score {
+    color: rgb(255, 253, 208);
+    font-family: 'cabin', sans-serif;
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    right: 40%;
+    font-size: 1.5em;
 }
 
 .winebuttons {
     justify-content: space-between;
     display: flex;
+    position: absolute;
+    width: 85%;
+    bottom: 5px;
 }
 
-.fa-plus-circle {
+/* .fa-plus-circle {
     color: rgb(231, 102, 177)
-}
+} */
 
 .btnadd {
     height: 20px;
@@ -75,6 +68,80 @@
     transform: scale(1.1);
 }
 
+.info-details {
+    display: flex;
+    padding-top: 3px;
+}
+
+.infoDetailsBlock {
+    padding-top: 3px;
+}
+
+.itemizedValue {
+    font-family: 'cabin', sans-serif;
+}
+
+.infoWineWrap {
+    /* background-color: lightgray; */
+    padding: 3px;
+}
+
+.wine-card-buttons {
+    font-family: 'cabin', sans-serif;
+    font-weight: bold;
+    color: rgb(255, 253, 208);
+    background-color: transparent;
+    border: 1px solid rgb(255, 253, 208);
+    border-radius: 3px;
+}
+
+.wine-card-buttons:hover {
+    animation-name: colorize;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorize {
+    100% {
+        color: rgb(173, 24, 61);
+        background-color: rgb(255, 253, 208);
+    }
+}
+
+.wineSpecKey {
+    font-family: 'cabin', sans-serif;
+    font-weight: bold;
+}
+
+.wineSpecValue {
+    font-family: 'cabin', sans-serif;
+    padding-left: 5px;
+}
+
+.wineSpecValueBlock {
+    font-family: 'cabin', sans-serif;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: lightgray;
+    border: 1px solid gray;
+}
+
+.overlay5 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.025);
+    z-index: 2;
+    cursor: pointer;
+    transition-delay: 10s;
+    transition-timing-function: ease-in;
+    overflow: hidden;
+}
+
 .wineinfo1 {
     display: flex;
     justify-content: center;
@@ -86,9 +153,8 @@
     height: 400px;
     border-color: rgb(97, 72, 7);
     border-style: solid;
-    border-width: 10px;
-    background: rgb(223, 193, 119);
-    border-radius: 50px;
+    border-width: 2px;
+    background: rgb(245, 243, 238);
     padding: 20px;
     overflow: auto;
 }
@@ -104,8 +170,30 @@
     margin: 20px;
 }
 
+.info-modal-inner {
+    padding: 3px;
+}
+
 .quizpagebutton {
     border-style: none;
     background-color: transparent;
     font-size: 25px;
+}
+
+.wineSpecKey {
+    font-family: 'cabin', sans-serif;
+    font-weight: bold;
+}
+
+.wineSpecValue {
+    font-family: 'cabin', sans-serif;
+    padding-left: 5px;
+}
+
+.wineSpecValueBlock {
+    font-family: 'cabin', sans-serif;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: lightgray;
+    border: 1px solid gray;
 }

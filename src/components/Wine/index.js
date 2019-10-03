@@ -7,7 +7,7 @@ function Wine ({ name, id, hideShow, showMe, handleWineAdd, wineName, wineTemp, 
   return (
     <div>
       <ListItem>
-        <div className="listitemdiv">
+        <div className="list-item">
           <div className="winenamediv">
 
             <div className="winenamediv2">

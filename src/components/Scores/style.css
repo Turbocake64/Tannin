@@ -45,19 +45,8 @@
 
 /* FONTS */
 .infoscorewrap {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
     font-size: 25px;
     margin-bottom: 20px;
     color: white;
-    /* font-family: 'Lobster', cursive;
-    font-family: 'Satisfy', cursive;
-    font-family: 'Special Elite', cursive;
-    font-family: 'Yellowtail', cursive;
-    font-family: 'Leckerli One', cursive;
-    font-family: 'Shrikhand', cursive;
-    font-family: 'Montez', cursive;
-    font-family: 'Sail', cursive;
-    font-family: 'Libre Barcode 128 Text', cursive;
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-family: 'Zilla Slab Highlight', cursive; */
 }

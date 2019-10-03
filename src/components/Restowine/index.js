@@ -7,10 +7,8 @@ function Restowine ({ handleWineDelete, name, id, hideShow, showMe, wineName, wi
   return (
     <div>
       <ListItem>
-        <div className="listitemdiv3">
           <div className="winecollectiondiv1">
-            <div className="winecollectionname1">
-              {/* <div className="fontitalicsmall">{name}</div> */}
+            <div className="admin-wine-card">
               <div>
                 <button className="winenamebtn1" onClick={() => hideShow(id)}>{name}</button>
               </div>
@@ -81,7 +79,6 @@ function Restowine ({ handleWineDelete, name, id, hideShow, showMe, wineName, wi
 
                       </div>
                       <div className="btnwrap">
-                        {/* <button><Link to="/admin" className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}>admin</Link></button> */}
                         <button className="btnwrap1buserclose" onClick={() => hideShow(id)}>
                           <i className="fas fa-times-circle" />
                         </button>
@@ -93,7 +90,6 @@ function Restowine ({ handleWineDelete, name, id, hideShow, showMe, wineName, wi
               }
             </div>
           </div>
-        </div>
       </ListItem>
     </div>
   )

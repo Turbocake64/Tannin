@@ -8,7 +8,8 @@ import Userinfo from '../components/Userinfo';
 import { Container } from '../components/Grid';
 // importing the wine template for testing purposes 
 import ScoreSummary from '../components/Scores'
-import { List } from '../components/List';
+import { FlexList } from '../components/FlexList';
+import { List} from '../components/List';
 // import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -51,10 +52,17 @@ class EmployeePage extends Component {
     testmessage: ''
   }
 
-  hideShowSummary = id => {
+  hideShowSummary = () => {
+    // let newScoreCollection = [];
     const newState = { ...this.state }
     newState.empuseId = newState.user._id
+  //   for (let i = 0; i <= this.state.scoreCollection.length; i++) {
+  //   if (this.state.scoreCollection[i]._id !== '5d32460fdea18126545f0875') {
+  //     newScoreCollection.push(this.state.scoreCollection[i])
+  //   }
+  // }
     newState.newScores = newState.scoreCollection.sort((a, b) => a.wine.localeCompare(b.wine))
+    // newState.newScore = newScoreCollection.sort((a,b) => a.wine.localeCompare(b.wine))
 
     newState.showMeSummary = !newState.showMeSummary
     this.setState(newState)
@@ -86,15 +94,21 @@ class EmployeePage extends Component {
   }
 
   getSavedWine = () => {
-    console.log('////////////////')
     const admin = { restaurantId: this.state.user.restaurantId }
     API.getSavedWine(admin)
       .then(res => {
+        let introduceScore = res.data.Wines
+        // for (let i = 0; i < introduceScore.length; i++) {
+        //   for (let j = 0; j < this.state.scoreCollection.length; j++) {
+        //     if (introduceScore[i].name === this.state.scoreCollection[j].wine) {
+        //       introduceScore[i].push(this.state.scoreCollection[j].score)
+        //     }
+        //   }
+        // }
         this.setState({
-          wineCollections: res.data.Wines,
+          wineCollections: introduceScore,
           ABCollections: res.data.Wines.sort((a, b) => a.name.localeCompare(b.name))
         })
-        this.showScore()
         console.log('Alphabetical:', this.state.ABCollections)
       })
       .catch(() =>
@@ -102,6 +116,20 @@ class EmployeePage extends Component {
           message: this.state.ABCollections
         })
       )  
+  }
+
+  introduceScores = () => {
+    let introduceScore = this.state.wineCollections;
+        for (let i = 0; i < introduceScore.length; i++) {
+          for (let j = 0; j < this.state.scoreCollection.length; j++) {
+            if (introduceScore[i].name === this.state.scoreCollection[j].wine) {
+              introduceScore[i].score = this.state.scoreCollection[j].score
+            }
+          }
+        }
+        this.setState({
+          wineCollections: introduceScore
+        })
   }
 
   handleInputChange = event => {
@@ -167,7 +195,6 @@ class EmployeePage extends Component {
   render () {
     return (
       <Container>
-        <div className="doesThisHelp">
 
           {/* MODAL ----------------------- */}
           <FeedbackModal
@@ -192,10 +219,8 @@ class EmployeePage extends Component {
             hideShowUserInfo={this.hideShowUserInfo}
             hideShowFeedback={this.hideShowFeedback}
           ></Navbar>
-        </div>
 
         <div className="emppagemainwrap">
-
           <Userinfo
             user={this.state.user}
             id={this.state.user._id}
@@ -209,26 +234,24 @@ class EmployeePage extends Component {
           ></Userinfo>
 
           <div className="employeepagewrapper">
-            <div className="navTest">
-            </div>
             <div className="emppagecol">
               <div className="empwelcomebtnwrap">
                 <button
-                  onClick={() => this.hideShowUserInfo()}
+                  onClick={() => this.introduceScores()}
                   className="empwelcomebtn"
                 >
                   <Header2 user={this.state.user}/>
                 </button>
 
-
-              </div>
-              <div className="quizsummarybtnwrap">
+                <div className="quizsummarybtnwrap">
                 <button
                   onClick={() => this.hideShowSummary()}
                   className="quizsummarybtn"
                 >
                   Test Scores
                 </button>
+              </div>
+
               </div>
               <div className="wineTitleWrap">
                 <div className="wineTitleWrap1">
@@ -239,20 +262,16 @@ class EmployeePage extends Component {
               <div className="emppageColWrap">
                 <div className="emppageColWrap1">
                   {this.state.wineCollections.length ? (
-                    <List>
+                    <FlexList>
                       {this.state.wineCollections.map(wine => (
                         <SavedWine
-                          // showScore = {this.showScore}
-                          // newScore = {this.state.newScore}
                           key={wine._id}
                           id={wine._id}
                           name={wine.name}
                           ageability={this.state.ageability}
-                          // handleWineDelete={this.handleWineDelete}
                           hideShowQuiz={this.hideShowQuiz}
                           showMe={this.state.showMe}
                           hideShow={this.hideShow}
-                          wineName={this.state.wineName}
                           wineId={this.state.wineId}
                           wineacidity={this.state.wineacidity}
                           wineAgeability={this.state.wineAgeability}
@@ -260,10 +279,12 @@ class EmployeePage extends Component {
                           wineBody={this.state.wineBody}
                           wineDecant={this.state.wineDecant}
                           wineGlassType={this.state.wineGlassType}
+                          wineName={this.state.wineName}
                           winePairings={this.state.winePairings}
                           winePrimaryFlavors={this.state.winePrimaryFlavors}
                           winePronunciation={this.state.winePronunciation}
                           wineRegion={this.state.wineRegion}
+                          wineScore={wine.score ? wine.score + '%' : '0%'}
                           wineSummary={this.state.wineSummary}
                           wineSweetness={this.state.wineSweetness}
                           wineTannin={this.state.wineTannin}
@@ -271,14 +292,14 @@ class EmployeePage extends Component {
                           wineVarietal={this.state.wineVarietal}
                         />
                       ))}
-                    </List>
+                    </FlexList>
                   ) : (
                       <h2 className="text-center">There are no wines on the {this.state.restaurantName} wine list</h2>
                     )}
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                 {this.state.scoreCollection.length ? (
                   <List>
                     {this.state.scoreCollection.map(score => (
@@ -293,7 +314,7 @@ class EmployeePage extends Component {
                     ))}
                   </List>
                 ) : null}
-              </div>
+                    </div> */}
 
             </div>
             {/* -----------------EMPLOYEES COLUMN------------------- */}

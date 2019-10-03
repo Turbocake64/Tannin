@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(253, 227, 167, 1);
+    background-color: white;
     /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 252, 250)), to(rgb(102, 42, 42))) fixed; */
     z-index: 2;
     /* cursor: pointer; */
@@ -56,7 +56,7 @@ textarea:focus, input:focus {
 .form-control {
     width: 90%;
     background-color: transparent;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Cabin', sans-serif;
     font-size: 18px;
     border-top-style: none;
     border-left-style: none;
@@ -65,6 +65,10 @@ textarea:focus, input:focus {
     border-bottom-width: 1px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.signup-login-form {
+    color: black;
 }
 
 input::selection {
@@ -133,46 +137,20 @@ select:-webkit-autofill:focus {
 
 /* FONTS */
 .signuptext {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
     font-size: 25px;
     margin-bottom: 20px;
-    /* font-family: 'Lobster', cursive;
-    font-family: 'Satisfy', cursive;
-    font-family: 'Special Elite', cursive;
-    font-family: 'Yellowtail', cursive;
-    font-family: 'Leckerli One', cursive;
-    font-family: 'Shrikhand', cursive;
-    font-family: 'Montez', cursive;
-    font-family: 'Sail', cursive;
-    font-family: 'Libre Barcode 128 Text', cursive;
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-family: 'Zilla Slab Highlight', cursive; */
 }
 
 .logintext {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
     font-size: 25px;
     margin-bottom: 20px;
-    /* font-family: 'Lobster', cursive;
-    font-family: 'Satisfy', cursive;
-    font-family: 'Special Elite', cursive;
-    font-family: 'Yellowtail', cursive;
-    font-family: 'Leckerli One', cursive;
-    font-family: 'Shrikhand', cursive;
-    font-family: 'Montez', cursive;
-    font-family: 'Sail', cursive;
-    font-family: 'Libre Barcode 128 Text', cursive;
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-family: 'Zilla Slab Highlight', cursive; */
 }
 
 label {
     font-family: 'Satisfy', cursive;
     font-size: 20px;
-    /* font-family: 'Special Elite', cursive;
-    font-family: 'Satisfy', cursive;
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-family: 'Zilla Slab Highlight', cursive; */
 }
 
 
@@ -259,12 +237,12 @@ button:focus {
     margin-top: 20px;
     font-size: 40px;
     color: rgb(190, 39, 77);
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
 }
 
 .fa-chevron-circle-left {
     font-size: 30px;
-    color: rgb(233, 181, 86);
+    color: #BE274D;
 }
 
 .backtohome {

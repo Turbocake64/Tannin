@@ -1,4 +1,6 @@
-
+body {
+    background-color: linear-gradient(35deg, rgb(224, 224, 236), white);
+}
 
 a:link {
     text-decoration: none;
@@ -14,26 +16,26 @@ a:link {
     flex-direction: row;
     display: flex;
     height: 100vh;
+    background-color: rgba(0,0,0,0.1);
 }
 
 .brandCol {
     margin-top: 0;
     width: 100%;
-    background-color: rgb(74, 53, 107);
+    background-color: rgb(181, 150, 230);
     color: rgb(8, 8, 8);
     height: 50px;
 }
 
 button:focus {
     outline: none !important;
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2);
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
 }
 
 .btnadminpage {
     color: rgb(3, 3, 3);
-    /* background-color: rgb(173, 24, 61); */
     background-color: transparent;
     border-style: solid;
     border-width: 1px;
@@ -51,38 +53,27 @@ button:focus {
     margin-top: 100px;
 }
 
-.btn:focus {
-    outline: none !important;
-}
-
 button:hover {
-    -ms-transform: scale(1.2); 
-    -webkit-transform: scale(1.2); 
-    transform: scale(1.2);
+    -ms-transform: scale(1.1); 
+    -webkit-transform: scale(1.1); 
+    transform: scale(1.1);
     cursor: pointer;
 }
 
 .cardwrapper0 {
     width: 60%;
     height: 100%;
-    background-color: rgba(253, 227, 167, 1);
-    /* background-color: rgb(131, 11, 61); */
 }
 
 .cardwrapper1 {
     width: 80%;
     height: 80vh;
-    /* beige */
-    background-color: rgba(253, 227, 167, 1);
 }
 
 .cardwrapper1a {
     justify-content: center;
     display: flex;
     width: 100%;
-    background-color: rgba(253, 227, 167, 1);
-    /* background-color: black; */
-    /* height: 100vh; */
 }
 
 .cardwrapper2 {
@@ -95,12 +86,14 @@ button:hover {
 .container {
     margin: 0;
     height: 100%;
+    background: linear-gradient(35deg, rgb(224, 224, 236), white);
 }
 
-.employeeCol {
-    width: 40%;
-    margin: 0;
-    background-color: rgba(253, 227, 167, 1);
+.admin-main-column {
+    width: 50%;
+    margin-left: 1%;
+    margin-right: 1%;
+
 }
 
 .employeeColWrap {
@@ -109,34 +102,29 @@ button:hover {
 }
 
 .employeeColWrap1 {
-    background-color: rgb(130, 156, 80);
-    height: 70vh;
+    height: 80vh;
     overflow: auto;
-    width: 80%;
+    width: 100%;
     margin-top: 20px;
-    border-radius: 10px;
-    /* border-style: solid;
-    border-width: 10px; */
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left: none;
+    border-right: none;
+    border-width: 2px;
+    border-color: rgb(20, 13, 13);
+    
     box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
 }
 
-.empTitleWrap {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 50px;
-}
-
-.empTitleWrap1 {
+.admin-column-title-wrap {
     display: flex;
     justify-content: space-between;
-    width: 80%;
 }
 
 
 .mainWrapper1 {
     width: 40%;
-    background-color: rgba(253, 227, 167, 1);
+    background-color: rgba(0,0,0,0.1);;
     /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(5, 5, 5)), to(rgb(59, 58, 58))) fixed; */
     color: white;
     margin: 0;
@@ -159,7 +147,7 @@ button:hover {
     text-decoration-style: none;
 }
 
-.wineandemployeewrapper {
+.admin-main-wrapper {
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -167,11 +155,10 @@ button:hover {
     width: 100%;
     margin: 0;
 }
-
+/* 
 .wineCol {
-    width: 40%;
-    background-color: rgba(253, 227, 167, 1);
-}
+    width: 50%;
+} */
 
 .wineColWrap {
     justify-content: center;
@@ -179,13 +166,23 @@ button:hover {
 }
 
 .wineColWrap1 {
-    background-color: rgb(228, 118, 118);
+    background-color: lightgray;
     /* background-color: rgb(124, 76, 103); */
     height: 70vh;
-    overflow: auto;
-    width: 80%;
+    width: 100%;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    border-color: rgb(73, 22, 22);
+    box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58);
+}
+
+.wineColWrap2 {
+    background-color: white;
+    border-top: 1px solid black;
+    height: 70vh;
+    overflow: auto;
+    width: 100%;
     /* border-style: solid; */
     /* border-width: 10px; */
     border-color: rgb(73, 22, 22);
@@ -227,16 +224,15 @@ button:hover {
     display: flex;
     /* position:absolute; */
     width: 80%;
-    background-color: rgba(253, 227, 167, 1);
     /* background-color: rgb(131, 11, 61, .8); */
     color: black;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
 }
 
 .texttannin {
     color: rgb(173, 24, 61);
     font-size: 40px;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
 }
 
 .texttanninwrap {
@@ -265,29 +261,27 @@ span {
 }
 
 .fa-user-plus {
-    font-size: 40px;
-    /* text-shadow: 2px 2px #6d6767; */
     color: rgb(25, 69, 71);
 }
 
-.addempbtnmain {
+.admin-add-employee-btn {
+    float: right;
     background-color: rgb(100, 194, 123);
-    border-radius: 50%;
-    height: 80px;
-    width: 80px;
+    border-radius: 10%;
+    height: 20px;
     border-style: none;
 }
 
 .addwinebtnmain {
     background-color: rgb(136, 34, 97);
-    border-radius: 50%;
-    height: 80px;
-    width: 80px;
+    /* border-radius: 50%; */
+    height: 20px;
+    /* width: 40px; */
     border-style: none;
 }
 
 .fa-wine-bottle {
-    font-size: 40px;
+    font-size: 20px;
     color: rgb(231, 200, 160);
 }
 
@@ -307,35 +301,21 @@ span {
     outline: none !important;
 }
 
-button:focus {
-    outline: none !important;
-}
-
 .background {
-    background-color: rgba(253, 227, 167, 1);
+    background-color: rgba(0,0,0,0.1);
     height: 100%;
 }
 
-.qcardwrapper1 {
-    display: flex;
-    justify-content: center;
-}
-
 .qcardwrapper2 {
-    /* background-color: rgb(113, 113, 165); */
-    /* box-shadow: 5px 6px 6px rgb(49, 46, 46), 0 3px 3px rgb(59, 58, 58); */
-    /* background-color: rgb(27, 26, 26); */
     width: 100%;
-    height: 80vh;
+    height: 75vh;
     overflow: auto;
-    border-style: none;
-    /* border-radius: 20px; */
-    margin-bottom: 20px;
-    /* border-top-style: solid;
+    border-top-style: solid;
     border-bottom-style: solid;
-    border-color: rgb(43, 43, 44); */
-    border-width: 1px;
-    /* border-radius: 20px; */
+    border-left: none;
+    border-right: none;
+    border-width: 2px;
+    border-color: rgb(20, 13, 13);
 }
 
 .welcomebtn {
@@ -366,11 +346,13 @@ button:focus {
     Justify-content: center;
     display:flex;
     width: 100%;
+    background-color: transparent;
 }
 
 .wineSearchBar {
     justify-content: center;
     padding: 20%, 0%, 20%, 0;
+    margin-left: 15%;
     width: 60%;
 }
 
@@ -385,10 +367,6 @@ p {
 }
 
 .welcomebtn:focus {
-    outline: none !important;
-}
-
-button:focus {
     outline: none !important;
 }
 
@@ -423,10 +401,6 @@ button:focus {
     outline: none !important;
 }
 
-button:focus {
-    outline: none !important;
-}
-
 .empwelcomebtn:hover {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
@@ -440,9 +414,27 @@ button:focus {
     margin-left: auto;
 }
 
-.textadmin {
-    font-size: 30px;
-    font-family: 'Pacifico', cursive;
+.admin-header-text {
+    font-size: 1em;
+    float: left;
+}
+
+.admin-column-header {
+    font-size: 2em;
+    font-family: 'Lobster', Georgia, Times, serif;
+    width: 100%;
+    padding: 13px;
+    padding-bottom: 0px;
+    height: 10%; 
+    margin-top: 10px;
+    margin-left: 13px;
+    margin-right: 25px;
+}
+
+.admin-column-header-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* EMPLOYEEPAGE */
@@ -457,7 +449,7 @@ button:focus {
 
 .emppagecol {
     width: 100%;
-    background-color: rgba(253, 227, 167, 1);
+    background-color: rgba(0,0,0,0.1);
     height: 100vh;
 }
 
@@ -479,24 +471,25 @@ button:focus {
 }
 
 .emppageColWrap1 {
-    background-color: transparent;
+    /* background-color: rgba(0,0,0,0.1); */
     color: black;
     height: 70vh;
     overflow: auto;
-    width: 60%;
+    width: 80%;
     /* border-radius: 30px; */
     border-top-style: solid;
     border-bottom-style: solid;
     border-left: none;
     border-right: none;
     border-width: 2px;
-    border-color: rgb(189, 62, 62);
+    border-color: rgb(20, 13, 13);
 }
 
 .header2emppage {
     color: black;
     font-size: 45px;
-    font-family: 'Pacifico', cursive;
+    /* font-family: 'Pacifico', cursive; */
+    font-family: 'Lobster', Georgia, Times, serif;
 }
 
 .closebtnquiz {
@@ -543,7 +536,8 @@ button:focus {
     margin-top: 200px;
     font-size: 40px;
     color: rgb(190, 39, 77);
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', Georgia, Times, serif;
+    background-color: rgba(0,0,0,0.1);
 }
 
 .quizsummarybtnwrap {
@@ -603,21 +597,23 @@ button:focus {
         border-radius: 10px;
     }
 
-    .wineCol {
-        width: 100%;
-    }
-
-    .employeeCol {
+    .admin-employee-column {
         width: 100%;
         margin: 0;
     }
 
     .employeeColWrap1 {
-        background-color: rgb(130, 156, 80);
+        background-color: pink;
         height: 70vh;
         overflow: auto;
         width: 90%;
         margin-top: 20px;
         border-radius: 10px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-left: none;
+        border-right: none;
+        border-width: 2px;
+        border-color: rgb(20, 13, 13);
     }
 }
